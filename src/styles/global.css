@@ -188,17 +188,17 @@ p {
 h1,
 h2 {
   font-family: Literata, Georgia, serif;
-  line-height: 1.04;
+  line-height: 1.12;
 }
 
 h1 {
-  font-size: clamp(3rem, 8vw, 6.8rem);
+  font-size: clamp(2.3rem, 4.6vw, 4.4rem);
   margin: 12px 0 24px;
-  max-width: 940px;
+  max-width: 780px;
 }
 
 h2 {
-  font-size: clamp(2rem, 4vw, 3.8rem);
+  font-size: clamp(1.7rem, 3vw, 2.8rem);
   margin: 8px 0 16px;
 }
 
@@ -247,6 +247,17 @@ h3 {
   transform: translateY(-2px);
 }
 
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 700ms ease, transform 700ms ease;
+}
+
+.reveal-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 .button-primary {
   background: var(--teal);
   color: var(--white);
@@ -279,6 +290,43 @@ h3 {
   height: 100%;
   object-fit: cover;
   width: 100%;
+}
+
+.hero-media .hero-slide {
+  inset: 0;
+  opacity: 0;
+  position: absolute;
+  transition: opacity 1200ms ease;
+}
+
+.hero-media .hero-slide.is-active {
+  opacity: 1;
+  z-index: 1;
+}
+
+.hero-dots {
+  bottom: 18px;
+  display: flex;
+  gap: 8px;
+  position: absolute;
+  right: 18px;
+  z-index: 2;
+}
+
+.hero-dots button {
+  background: rgba(255, 255, 255, 0.55);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  border-radius: 999px;
+  cursor: pointer;
+  height: 10px;
+  padding: 0;
+  transition: background 200ms ease, transform 200ms ease;
+  width: 10px;
+}
+
+.hero-dots button.is-active {
+  background: var(--white);
+  transform: scale(1.25);
 }
 
 .hero-note {
@@ -316,6 +364,7 @@ h3 {
   border-radius: 8px;
   min-height: 148px;
   padding: 22px;
+  transition: box-shadow 200ms ease, transform 200ms ease;
 }
 
 .impact-strip .impact-card {
@@ -387,6 +436,17 @@ h3 {
   border: 1px solid var(--line);
   border-radius: 8px;
   padding: 24px;
+  transition: box-shadow 200ms ease, transform 200ms ease;
+}
+
+.service-card:hover,
+.article-card:hover,
+.donation-card:hover,
+.profile-card:hover,
+.outreach-card:hover,
+.impact-card:hover {
+  box-shadow: var(--shadow);
+  transform: translateY(-4px);
 }
 
 .service-card,
@@ -504,6 +564,7 @@ h3 {
   gap: 18px;
   grid-template-columns: 210px 1fr;
   overflow: hidden;
+  transition: box-shadow 200ms ease, transform 200ms ease;
 }
 
 .outreach-card img {
