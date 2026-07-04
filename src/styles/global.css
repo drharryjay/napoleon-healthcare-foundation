@@ -703,6 +703,22 @@ h3 {
   position: absolute;
 }
 
+.form-success {
+  background: var(--sky);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 32px;
+}
+
+.form-success h3 {
+  color: var(--deep-teal);
+}
+
+.form-error {
+  color: var(--accent);
+  font-weight: 700;
+}
+
 .thank-you {
   align-items: center;
   display: flex;

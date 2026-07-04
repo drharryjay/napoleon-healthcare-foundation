@@ -14,6 +14,40 @@ function slugField(label: string) {
 
 export function ContactForm({ type = "contact" }: { type?: FormType }) {
   const fields = fieldSets[type];
+  const [status, setStatus] = React.useState<"idle" | "submitting" | "success" | "error">("idle");
+
+  // Netlify Forms officially recommends submitting via fetch() for JS
+  // frameworks rather than relying on the native full-page POST redirect,
+  // which otherwise lands on Netlify's own generic "Thank you!" page
+  // instead of this site's branded confirmation.
+  async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    const form = event.currentTarget;
+    const data = new FormData(form);
+    if (data.get("bot-field")) return; // honeypot triggered, silently drop
+
+    setStatus("submitting");
+    try {
+      const response = await fetch("/", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: new URLSearchParams(data as unknown as Record<string, string>).toString(),
+      });
+      setStatus(response.ok ? "success" : "error");
+    } catch {
+      setStatus("error");
+    }
+  }
+
+  if (status === "success") {
+    return (
+      <div className="form-success">
+        <h3>Thank you</h3>
+        <p>Your message has been received. Someone from Napoleon Healthcare Foundation will respond as soon as possible.</p>
+      </div>
+    );
+  }
+
   return (
     <form
       className="form"
@@ -21,7 +55,7 @@ export function ContactForm({ type = "contact" }: { type?: FormType }) {
       method="POST"
       data-netlify="true"
       data-netlify-honeypot="bot-field"
-      action="/thank-you"
+      onSubmit={handleSubmit}
     >
       <input type="hidden" name="form-name" value={type} />
       <p className="hidden-field">
@@ -46,7 +80,14 @@ export function ContactForm({ type = "contact" }: { type?: FormType }) {
           <span>By submitting this form, you consent to Napoleon Healthcare Foundation contacting you regarding volunteer and outreach-related activities.</span>
         </label>
       )}
-      <button className="button button-primary" type="submit">Send Inquiry</button>
+      {status === "error" && (
+        <p className="form-error wide">Something went wrong sending your message. Please try again, or email {" "}
+          <a href="mailto:info@napoleonhealthcarefoundation.org">info@napoleonhealthcarefoundation.org</a> directly.
+        </p>
+      )}
+      <button className="button button-primary" type="submit" disabled={status === "submitting"}>
+        {status === "submitting" ? "Sending..." : "Send Inquiry"}
+      </button>
     </form>
   );
 }
