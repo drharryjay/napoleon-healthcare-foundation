@@ -3,6 +3,8 @@ import { Hero } from "../components/Hero";
 import { SectionHeader } from "../components/SectionHeader";
 import { ArticleCard } from "../components/ArticleCard";
 import { ConsentNotice } from "../components/ConsentNotice";
+import { NewsletterForm } from "../components/NewsletterForm";
+import { HealthNewsLinks } from "../components/HealthNewsLinks";
 import { articles, categories } from "../data/articlesData";
 
 export function HealthEducationPage() {
@@ -16,6 +18,18 @@ export function HealthEducationPage() {
       <section className="section">
         <SectionHeader eyebrow="Articles" title="Ready-to-expand article cards" />
         <div className="card-grid">{articles.map((article) => <ArticleCard key={article.slug} article={article} />)}</div>
+      </section>
+      <section className="split-cta">
+        <div>
+          <span className="eyebrow">Newsletter</span>
+          <h2>Get NHF Updates &amp; Public Health News</h2>
+          <p>Subscribe for news on upcoming outreaches, health education campaigns, and public health events.</p>
+        </div>
+        <NewsletterForm variant="dark" />
+      </section>
+      <section className="section soft">
+        <SectionHeader eyebrow="Health news" title="Trusted public health updates" text="Follow ongoing disease surveillance and public health news from these official sources." />
+        <HealthNewsLinks />
       </section>
       <section className="section"><ConsentNotice /></section>
     </>

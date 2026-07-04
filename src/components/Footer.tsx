@@ -3,12 +3,20 @@ import { Link } from "react-router-dom";
 import { BadgeCheck, Facebook, Instagram, Mail, MessageCircle, Phone, Twitter } from "lucide-react";
 import { siteConfig } from "../data/siteConfig";
 import { LinkButton } from "./LinkButton";
+import { NewsletterForm } from "./NewsletterForm";
 
 const whatsappNumber = siteConfig.whatsapp.replace(/\D/g, "").replace(/^0/, "234");
 
 export function Footer() {
   return (
     <footer className="footer">
+      <div className="footer-newsletter">
+        <div>
+          <h3>Stay Updated</h3>
+          <p>Get news on our outreaches, health education campaigns, and public health updates.</p>
+        </div>
+        <NewsletterForm variant="dark" />
+      </div>
       <div className="footer-grid">
         <div>
           <img className="footer-mark" src="/logo/nhf-logo.png" alt="" />

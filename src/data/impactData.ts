@@ -1,22 +1,25 @@
 export const impactStats = [
-  { label: "Communities Reached", value: "Editable", note: "Replace with verified total." },
-  { label: "Patients Attended To", value: "2,500+", note: "Editable placeholder." },
-  { label: "Health Professionals Involved", value: "Editable", note: "Replace with verified total." },
-  { label: "Mosquito Nets Distributed", value: "Editable", note: "Replace with verified total." },
-  { label: "Eye & Dental Services Provided", value: "Editable", note: "Replace with verified total." },
+  { label: "Communities Reached", value: "7", note: "Across the South-South region of Nigeria." },
+  { label: "Patients Attended To", value: "2,500+", note: "Cumulative since inception." },
+  { label: "Health Professionals Involved", value: "70+", note: "Volunteer doctors, nurses, and allied health workers." },
+  { label: "Mosquito Nets Distributed", value: "3,500+", note: "Long-lasting insecticide-treated nets." },
+  { label: "Eye Care Provided", value: "500+", note: "Glasses and vision screening." },
+  { label: "Dental Care Provided", value: "100", note: "Consultations, cleaning, and extractions." },
 ];
 
+const pendingNote = "Verified figure to be published once confirmed.";
+
 export const dashboardStats = [
-  "Total outreaches",
-  "Communities served",
-  "People reached",
-  "Consultations conducted",
-  "Eye care beneficiaries",
-  "Dental care beneficiaries",
-  "Mosquito nets distributed",
-  "Medications dispensed",
-  "Partners engaged",
-].map((label) => ({ label, value: "To update", note: "Editable metric" }));
+  { label: "Total outreaches", value: "Pending", note: pendingNote },
+  { label: "Communities served", value: "7", note: "Across the South-South region of Nigeria." },
+  { label: "People reached", value: "Pending", note: pendingNote },
+  { label: "Consultations conducted", value: "Pending", note: pendingNote },
+  { label: "Eye care beneficiaries", value: "500+", note: "Glasses and vision screening." },
+  { label: "Dental care beneficiaries", value: "100", note: "Consultations, cleaning, and extractions." },
+  { label: "Mosquito nets distributed", value: "3,500+", note: "Long-lasting insecticide-treated nets." },
+  { label: "Medications dispensed", value: "Pending", note: pendingNote },
+  { label: "Partners engaged", value: "Pending", note: pendingNote },
+];
 
 export const outreaches = [
   {
