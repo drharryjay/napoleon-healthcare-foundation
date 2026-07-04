@@ -27,46 +27,12 @@
     <div id="root"></div>
 
     <!--
-      Static Netlify Forms detection duplicates.
-      Netlify scans the built HTML at deploy time to register forms; the real
-      forms in src/components/ContactForm.tsx render client-side via React and
-      would otherwise be invisible to that scan. Field names here must exactly
-      match the slugified field names ContactForm.tsx generates. Keep these two
-      in sync if form fields change.
+      Netlify Forms detection for contact/partner/volunteer lives in
+      public/netlify-forms.html, not here. Hiding the duplicate forms with
+      display:none inside this file was found to be unreliably detected by
+      Netlify's build-time form-scanning bot; a separate, unhidden static
+      page is the more reliable approach.
     -->
-    <div style="display: none" aria-hidden="true">
-      <form name="contact" data-netlify="true" data-netlify-honeypot="bot-field">
-        <input name="bot-field" />
-        <input name="full-name" />
-        <input name="email" />
-        <input name="phone" />
-        <input name="subject" />
-        <textarea name="message"></textarea>
-      </form>
-      <form name="partner" data-netlify="true" data-netlify-honeypot="bot-field">
-        <input name="bot-field" />
-        <input name="organization-name" />
-        <input name="contact-person" />
-        <input name="email" />
-        <input name="phone" />
-        <input name="type-of-partnership" />
-        <input name="location-community-of-interest" />
-        <textarea name="message"></textarea>
-      </form>
-      <form name="volunteer" data-netlify="true" data-netlify-honeypot="bot-field">
-        <input name="bot-field" />
-        <input name="full-name" />
-        <input name="profession" />
-        <input name="specialty" />
-        <input name="phone-number" />
-        <input name="email" />
-        <input name="location" />
-        <input name="availability" />
-        <input name="area-of-interest" />
-        <input type="checkbox" name="consent" />
-      </form>
-    </div>
-
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>

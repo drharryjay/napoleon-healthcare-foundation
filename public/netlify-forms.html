@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="robots" content="noindex" />
+    <title>Netlify Forms Registration</title>
+  </head>
+  <body>
+    <!--
+      This page exists solely so Netlify's build-time bot can detect these
+      forms — it is never linked to or visited by real users. The real forms
+      render client-side via React in src/components/ContactForm.tsx; Netlify
+      Forms only registers forms present in static HTML at build time, and
+      hiding them with display:none inside index.html was found to be
+      unreliable for detection. Field names here must exactly match the
+      slugified field names ContactForm.tsx generates.
+    -->
+    <form name="contact" data-netlify="true" data-netlify-honeypot="bot-field">
+      <input name="bot-field" />
+      <input name="full-name" />
+      <input name="email" />
+      <input name="phone" />
+      <input name="subject" />
+      <textarea name="message"></textarea>
+    </form>
+    <form name="partner" data-netlify="true" data-netlify-honeypot="bot-field">
+      <input name="bot-field" />
+      <input name="organization-name" />
+      <input name="contact-person" />
+      <input name="email" />
+      <input name="phone" />
+      <input name="type-of-partnership" />
+      <input name="location-community-of-interest" />
+      <textarea name="message"></textarea>
+    </form>
+    <form name="volunteer" data-netlify="true" data-netlify-honeypot="bot-field">
+      <input name="bot-field" />
+      <input name="full-name" />
+      <input name="profession" />
+      <input name="specialty" />
+      <input name="phone-number" />
+      <input name="email" />
+      <input name="location" />
+      <input name="availability" />
+      <input name="area-of-interest" />
+      <input type="checkbox" name="consent" />
+    </form>
+  </body>
+</html>
