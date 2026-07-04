@@ -1,6 +1,7 @@
 import React from "react";
 import { HeartPulse } from "lucide-react";
 import { heroImages } from "../data/siteConfig";
+import { optimizedPhoto } from "../lib/images";
 
 export function Hero({
   title,
@@ -38,15 +39,25 @@ export function Hero({
         {children && <div className="button-row">{children}</div>}
       </div>
       <div className="hero-media" aria-label="Outreach photo area">
-        {slides.map((src, index) => (
-          <img
-            key={src}
-            src={src}
-            alt="Napoleon Healthcare Foundation community medical outreach"
-            className={index === active ? "hero-slide is-active" : "hero-slide"}
-            aria-hidden={index === active ? undefined : true}
-          />
-        ))}
+        {slides.map((src, index) => {
+          const opt = optimizedPhoto(src);
+          return (
+            <img
+              key={src}
+              src={opt.src}
+              srcSet={opt.srcSet}
+              sizes={opt.sizes}
+              width={1200}
+              height={800}
+              alt="Napoleon Healthcare Foundation community medical outreach"
+              className={index === active ? "hero-slide is-active" : "hero-slide"}
+              aria-hidden={index === active ? undefined : true}
+              loading={index === 0 ? "eager" : "lazy"}
+              fetchPriority={index === 0 ? "high" : undefined}
+              decoding={index === 0 ? "sync" : "async"}
+            />
+          );
+        })}
         {slides.length > 1 && (
           <div className="hero-dots" role="tablist" aria-label="Outreach photo selector">
             {slides.map((src, index) => (

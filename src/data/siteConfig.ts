@@ -39,8 +39,9 @@ export const navigation = [
 ];
 
 // Each entry is a real outreach photo, not a logo graphic or social-media
-// screenshot. FB_IMG_1783012514485.jpg and FB_IMG_1783012618009.jpg are the
-// NHF logo mark (not photos) and were deliberately excluded here.
+// screenshot (those now live in source-assets/, out of the deploy).
+// Paths here are the original JPEGs; rendering components convert them to
+// optimized WebP via src/lib/images.ts (regenerate with scripts/optimize-images.mjs).
 export const heroImages = [
   "/images/FB_IMG_1783012553411.jpg", // community outreach assembly hall
   "/images/FB_IMG_1783012529277.jpg", // eye care: glasses distribution

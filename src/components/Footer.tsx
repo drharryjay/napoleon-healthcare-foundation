@@ -19,7 +19,7 @@ export function Footer() {
       </div>
       <div className="footer-grid">
         <div>
-          <img className="footer-mark" src="/logo/nhf-logo.png" alt="" />
+          <img className="footer-mark" src="/logo/nhf-logo-160.png" alt="" width="54" height="54" />
           <h2>{siteConfig.name}</h2>
           <p>{siteConfig.missionLine}</p>
           <LinkButton href="/donate" variant="secondary">Support an Outreach</LinkButton>

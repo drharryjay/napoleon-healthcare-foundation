@@ -1,4 +1,5 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Literata:opsz,wght@7..72,600;7..72,700&display=swap");
+/* Fonts are loaded via <link> in index.html (preconnect + stylesheet) instead
+   of a CSS @import, which would chain-block first paint behind this stylesheet. */
 
 :root {
   --teal: #0f7f8a;
@@ -43,6 +44,31 @@ textarea {
 :focus-visible {
   outline: 3px solid rgba(224, 79, 103, 0.55);
   outline-offset: 3px;
+}
+
+/* Accessibility: hidden until keyboard-focused, then appears top-left. */
+.skip-link {
+  background: var(--navy);
+  border-radius: 0 0 8px 0;
+  color: var(--white);
+  font-weight: 800;
+  left: 0;
+  padding: 12px 18px;
+  position: fixed;
+  text-decoration: none;
+  top: 0;
+  transform: translateY(-110%);
+  transition: transform 150ms ease;
+  z-index: 100;
+}
+
+.skip-link:focus {
+  transform: translateY(0);
+}
+
+/* Suspense fallback while a code-split route chunk loads. */
+.route-loading {
+  min-height: 60vh;
 }
 
 .site-header {
@@ -1044,6 +1070,8 @@ h3 {
     box-shadow: var(--shadow);
     display: none;
     left: 0;
+    max-height: calc(100vh - 77px);
+    overflow-y: auto;
     padding: 12px 18px 18px;
     position: absolute;
     right: 0;
@@ -1051,12 +1079,32 @@ h3 {
   }
 
   .nav.open {
+    animation: nav-slide-down 220ms ease;
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    gap: 4px;
+    grid-template-columns: 1fr;
+  }
+
+  @keyframes nav-slide-down {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 
   .nav a {
     border-radius: 8px;
+    font-size: 1rem;
+    padding: 13px 14px;
+  }
+
+  .nav .nav-donate {
+    margin-top: 6px;
+    text-align: center;
   }
 
   .brand {

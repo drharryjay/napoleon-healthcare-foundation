@@ -4,29 +4,43 @@ import { Navbar } from "./components/Navbar";
 import { Footer } from "./components/Footer";
 import { useDocumentMeta } from "./hooks/useDocumentMeta";
 import { useScrollToTop } from "./hooks/useScrollToTop";
+// HomePage stays eagerly loaded — it's the landing page and should render
+// without a second network round-trip. Every other route is code-split so
+// first-visit JS stays small.
 import { HomePage } from "./pages/HomePage";
-import { AboutPage } from "./pages/AboutPage";
-import { WhatWeDoPage } from "./pages/WhatWeDoPage";
-import { ImpactPage } from "./pages/ImpactPage";
-import { StoriesPage } from "./pages/StoriesPage";
-import { HealthEducationPage } from "./pages/HealthEducationPage";
-import { HealthManagementAnimationPage } from "./pages/HealthManagementAnimationPage";
-import { PartnerPage } from "./pages/PartnerPage";
-import { VolunteerPage } from "./pages/VolunteerPage";
-import { DonatePage } from "./pages/DonatePage";
-import { GalleryPage } from "./pages/GalleryPage";
-import { ContactPage } from "./pages/ContactPage";
-import { LegalPage } from "./pages/LegalPage";
-import { ThankYouPage } from "./pages/ThankYouPage";
+
+const lazyPage = <T extends Record<string, React.ComponentType<never>>>(
+  loader: () => Promise<T>,
+  name: keyof T
+) => React.lazy(() => loader().then((m) => ({ default: m[name] as React.ComponentType })));
+
+const AboutPage = lazyPage(() => import("./pages/AboutPage"), "AboutPage");
+const WhatWeDoPage = lazyPage(() => import("./pages/WhatWeDoPage"), "WhatWeDoPage");
+const ImpactPage = lazyPage(() => import("./pages/ImpactPage"), "ImpactPage");
+const StoriesPage = lazyPage(() => import("./pages/StoriesPage"), "StoriesPage");
+const HealthEducationPage = lazyPage(() => import("./pages/HealthEducationPage"), "HealthEducationPage");
+const HealthManagementAnimationPage = lazyPage(() => import("./pages/HealthManagementAnimationPage"), "HealthManagementAnimationPage");
+const PartnerPage = lazyPage(() => import("./pages/PartnerPage"), "PartnerPage");
+const VolunteerPage = lazyPage(() => import("./pages/VolunteerPage"), "VolunteerPage");
+const DonatePage = lazyPage(() => import("./pages/DonatePage"), "DonatePage");
+const GalleryPage = lazyPage(() => import("./pages/GalleryPage"), "GalleryPage");
+const ContactPage = lazyPage(() => import("./pages/ContactPage"), "ContactPage");
+const LegalPage = React.lazy(() =>
+  import("./pages/LegalPage").then((m) => ({ default: m.LegalPage }))
+);
+const ThankYouPage = lazyPage(() => import("./pages/ThankYouPage"), "ThankYouPage");
 
 function Layout() {
   useDocumentMeta();
   useScrollToTop();
   return (
     <>
+      <a className="skip-link" href="#main-content">Skip to main content</a>
       <Navbar />
-      <main>
-        <Outlet />
+      <main id="main-content">
+        <React.Suspense fallback={<div className="route-loading" role="status" aria-label="Loading page" />}>
+          <Outlet />
+        </React.Suspense>
       </main>
       <Footer />
     </>

@@ -5,7 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#0f7f8a" />
     <link rel="icon" type="image/svg+xml" href="/logo/nhf-mark.svg" />
-    <link rel="apple-touch-icon" href="/logo/nhf-logo.png" />
+    <link rel="apple-touch-icon" href="/logo/nhf-logo-512.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Literata:opsz,wght@7..72,600;7..72,700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Preload the homepage hero's first slide (LCP element). -->
+    <link
+      rel="preload"
+      as="image"
+      href="/images/optimized/FB_IMG_1783012553411.webp"
+      imagesrcset="/images/optimized/FB_IMG_1783012553411-640.webp 640w, /images/optimized/FB_IMG_1783012553411.webp 1200w"
+      imagesizes="(max-width: 840px) 100vw, 50vw"
+    />
     <link rel="canonical" href="https://napoleonhealthcarefoundation.org/" />
     <title>Napoleon Healthcare Foundation | Bringing Healthcare Closer to Communities</title>
     <meta
@@ -19,9 +33,36 @@
       property="og:description"
       content="Free medical outreach, preventive health education, screening, eye care, dental care, and compassionate community healthcare in Nigeria."
     />
-    <meta property="og:image" content="/logo/nhf-logo.png" />
+    <meta property="og:image" content="https://napoleonhealthcarefoundation.org/logo/nhf-logo-512.png" />
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:site" content="@Napoleon_NF" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "NGO",
+        "name": "Napoleon Healthcare Foundation",
+        "alternateName": "NHF",
+        "url": "https://napoleonhealthcarefoundation.org",
+        "logo": "https://napoleonhealthcarefoundation.org/logo/nhf-logo-512.png",
+        "description": "Nigerian community-health NGO providing free medical outreach, preventive health education, screening, eye care, dental care, and maternal-child health support for underserved communities.",
+        "foundingDate": "2016-03-04",
+        "identifier": "CAC/IT/NO 85319",
+        "address": {
+          "@type": "PostalAddress",
+          "postOfficeBoxNumber": "PMB 07",
+          "addressLocality": "Oghara",
+          "addressRegion": "Delta State",
+          "addressCountry": "NG"
+        },
+        "telephone": "+2347032482265",
+        "email": "info@napoleonhealthcarefoundation.org",
+        "areaServed": "South-South region, Nigeria",
+        "sameAs": [
+          "https://web.facebook.com/Napoleonhealthcare",
+          "https://x.com/Napoleon_NF"
+        ]
+      }
+    </script>
   </head>
   <body>
     <div id="root"></div>

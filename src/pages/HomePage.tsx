@@ -12,6 +12,9 @@ import { Reveal } from "../components/Reveal";
 import { impactStats } from "../data/impactData";
 import { heroImages } from "../data/siteConfig";
 import { homeServiceTitles, services } from "../data/servicesData";
+import { optimizedPhoto } from "../lib/images";
+
+const featureImage = optimizedPhoto(heroImages[1]);
 
 export function HomePage() {
   return (
@@ -52,7 +55,7 @@ export function HomePage() {
       </section>
       <Reveal className="feature-wrap">
         <section className="feature">
-          <img src={heroImages[1]} alt="Community medical outreach placeholder" />
+          <img src={featureImage.src} srcSet={featureImage.srcSet} sizes={featureImage.sizes} width={1200} height={800} alt="NHF volunteer fitting a community member with glasses during an eye care outreach" loading="lazy" decoding="async" />
           <div>
             <span className="eyebrow">Featured outreach</span>
             <h2>Community Medical Outreach</h2>

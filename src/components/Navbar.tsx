@@ -5,10 +5,20 @@ import { navigation, siteConfig } from "../data/siteConfig";
 
 export function Navbar() {
   const [open, setOpen] = React.useState(false);
+
+  React.useEffect(() => {
+    if (!open) return;
+    const onKey = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setOpen(false);
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [open]);
+
   return (
     <header className="site-header">
       <Link className="brand" to="/" aria-label="Napoleon Healthcare Foundation home">
-        <img src="/logo/nhf-logo.png" alt="" />
+        <img src="/logo/nhf-logo-160.png" alt="" width="54" height="54" />
         <span>
           <strong>{siteConfig.name}</strong>
           <small>{siteConfig.tagline}</small>
