@@ -1,0 +1,7 @@
+<svg width="128" height="128" viewBox="0 0 128 128" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Napoleon Healthcare Foundation mark</title>
+  <desc id="desc">A teal healthcare cross and red heart within a community circle.</desc>
+  <circle cx="64" cy="64" r="58" fill="#e8f7f8" stroke="#0f7f8a" stroke-width="8"/>
+  <path d="M56 30h16v26h26v16H72v26H56V72H30V56h26V30Z" fill="#0f7f8a"/>
+  <path d="M64 91s-21-12.8-21-28.1c0-8.1 6.1-14.1 13.2-14.1 4 0 6.8 1.8 7.8 3.1 1-1.3 3.8-3.1 7.8-3.1 7.1 0 13.2 6 13.2 14.1C85 78.2 64 91 64 91Z" fill="#e04f67"/>
+</svg>
