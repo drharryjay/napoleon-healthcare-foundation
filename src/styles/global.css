@@ -142,6 +142,10 @@ textarea {
   position: relative;
 }
 
+.hero > * {
+  min-width: 0;
+}
+
 .hero::before,
 .route-section::before {
   background: linear-gradient(var(--teal), var(--accent));
@@ -161,7 +165,10 @@ textarea {
   height: calc(100% - 76px);
 }
 
-.route-section {
+/* Compound selector so this beats the later `.section { padding }` shorthand
+   (equal single-class specificity would otherwise let `.section` win by source
+   order and reset the left padding, re-introducing the decorative-bar overlap). */
+.section.route-section {
   padding-left: calc(clamp(18px, 4vw, 64px) + 22px);
 }
 
@@ -193,6 +200,7 @@ h1,
 h2 {
   font-family: Literata, Georgia, serif;
   line-height: 1.12;
+  overflow-wrap: break-word;
 }
 
 h1 {
@@ -381,33 +389,21 @@ h3 {
   transform: scale(1.25);
 }
 
-.hero-note,
-.hero-badge {
+.hero-note {
   align-items: center;
   background: rgba(255, 255, 255, 0.94);
   border-radius: 8px;
+  bottom: 18px;
   box-shadow: var(--shadow);
   color: var(--deep-teal);
   display: flex;
   font-weight: 800;
   gap: 10px;
+  left: 18px;
   max-width: calc(100% - 36px);
   padding: 14px 16px;
   position: absolute;
   z-index: 2;
-}
-
-.hero-note {
-  bottom: 18px;
-  left: 18px;
-}
-
-.hero-badge {
-  color: var(--accent);
-  font-size: 0.85rem;
-  padding: 10px 14px;
-  right: 18px;
-  top: 18px;
 }
 
 .impact-strip {
@@ -502,6 +498,42 @@ h3 {
   border-radius: 8px;
   padding: 24px;
   transition: box-shadow 200ms ease, transform 200ms ease;
+}
+
+.expandable-card-toggle {
+  align-items: center;
+  background: none;
+  border: 0;
+  cursor: pointer;
+  display: flex;
+  gap: 12px;
+  padding: 0;
+  text-align: left;
+  width: 100%;
+}
+
+.expandable-card-toggle .icon-badge {
+  flex: 0 0 auto;
+  margin-bottom: 0;
+}
+
+.expandable-card-toggle h3 {
+  flex: 1 1 auto;
+  margin-bottom: 0;
+}
+
+.expandable-card-chevron {
+  color: var(--muted);
+  flex: 0 0 auto;
+  transition: transform 200ms ease;
+}
+
+.expandable-card-chevron.is-open {
+  transform: rotate(180deg);
+}
+
+.expandable-card p {
+  margin-top: 14px;
 }
 
 .service-card:hover,
@@ -1098,5 +1130,464 @@ h3 {
   *::after {
     scroll-behavior: auto !important;
     transition: none !important;
+  }
+}
+
+.animation-lab {
+  min-height: calc(100vh - 88px);
+  padding: 40px 24px;
+  background:
+    radial-gradient(circle at 15% 20%, rgba(230, 80, 65, 0.12), transparent 28%),
+    radial-gradient(circle at 84% 12%, rgba(238, 184, 70, 0.16), transparent 28%),
+    linear-gradient(135deg, #f7fbf9 0%, #eef6f3 45%, #fbfbf7 100%);
+  display: grid;
+  place-items: center;
+}
+
+.animation-stage {
+  width: min(1180px, 100%);
+}
+
+.sample-meta {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 18px;
+  margin-bottom: 16px;
+  color: #183a36;
+}
+
+.sample-meta span {
+  color: #0f766e;
+  font-size: 0.92rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.sample-meta strong {
+  font-family: var(--font-display);
+  font-size: clamp(1.6rem, 3vw, 3rem);
+  line-height: 1;
+}
+
+.whiteboard-panel {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border: 1px solid rgba(24, 58, 54, 0.16);
+  border-radius: 8px;
+  background:
+    linear-gradient(rgba(15, 118, 110, 0.055) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(15, 118, 110, 0.055) 1px, transparent 1px),
+    #fffefa;
+  background-size: 42px 42px;
+  box-shadow: 0 30px 80px rgba(24, 58, 54, 0.18);
+}
+
+.whiteboard-panel::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(115deg, rgba(255, 255, 255, 0.65), transparent 42%);
+  pointer-events: none;
+}
+
+.marker-line {
+  position: absolute;
+  height: 3px;
+  background: #132f2c;
+  border-radius: 999px;
+  transform-origin: left center;
+  animation: drawLine 8s ease-in-out infinite;
+}
+
+.line-one {
+  left: 24%;
+  top: 30%;
+  width: 39%;
+  rotate: 18deg;
+}
+
+.line-two {
+  left: 36%;
+  top: 28%;
+  width: 33%;
+  rotate: 111deg;
+  animation-delay: 0.3s;
+}
+
+.line-three {
+  left: 29%;
+  top: 64%;
+  width: 43%;
+  rotate: -16deg;
+  animation-delay: 0.6s;
+}
+
+.lecturer {
+  position: absolute;
+  left: 7%;
+  bottom: 16%;
+  width: 12%;
+  height: 42%;
+  animation: lecturerEnter 8s ease-in-out infinite;
+}
+
+.lecturer-head {
+  position: absolute;
+  left: 35%;
+  top: 0;
+  width: 28%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: #183a36;
+}
+
+.lecturer-body {
+  position: absolute;
+  left: 23%;
+  top: 24%;
+  width: 52%;
+  height: 58%;
+  border-radius: 28px 28px 10px 10px;
+  background: linear-gradient(145deg, #0f766e, #14534e);
+  box-shadow: 12px 16px 0 rgba(15, 118, 110, 0.14);
+}
+
+.pointer {
+  position: absolute;
+  left: 66%;
+  top: 34%;
+  width: 90%;
+  height: 4px;
+  border-radius: 999px;
+  background: #d94d3d;
+  transform-origin: left center;
+  rotate: -18deg;
+  animation: pointSweep 8s ease-in-out infinite;
+}
+
+.system-map {
+  position: absolute;
+  inset: 13% 18% 24% 24%;
+}
+
+.pulse-core {
+  position: absolute;
+  left: 46%;
+  top: 38%;
+  width: 13%;
+  aspect-ratio: 1;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  color: white;
+  background: linear-gradient(145deg, #d94d3d, #f0b64a);
+  box-shadow: 0 18px 34px rgba(217, 77, 61, 0.28);
+  animation: pulseCore 8s ease-in-out infinite;
+}
+
+.pulse-core svg,
+.system-node svg {
+  width: 42%;
+  height: 42%;
+  stroke-width: 2.4;
+}
+
+.system-node {
+  position: absolute;
+  width: 15%;
+  min-width: 88px;
+  aspect-ratio: 1.15;
+  display: grid;
+  place-items: center;
+  gap: 4px;
+  padding: 10px;
+  border: 2px solid #183a36;
+  border-radius: 8px;
+  color: #183a36;
+  background: #ffffff;
+  box-shadow: 12px 12px 0 rgba(15, 118, 110, 0.12);
+  font-weight: 900;
+  animation: nodePop 8s ease-in-out infinite;
+}
+
+.hospital-node {
+  left: 2%;
+  top: 8%;
+}
+
+.people-node {
+  right: 11%;
+  top: 2%;
+  animation-delay: 0.2s;
+}
+
+.safety-node {
+  left: 14%;
+  bottom: 2%;
+  animation-delay: 0.4s;
+}
+
+.data-node {
+  right: 0;
+  bottom: 9%;
+  animation-delay: 0.6s;
+}
+
+.learning-node {
+  left: 44%;
+  top: -4%;
+  animation-delay: 0.8s;
+}
+
+.resource-stack {
+  position: absolute;
+  right: 6%;
+  bottom: 18%;
+  width: 15%;
+  display: grid;
+  gap: 8px;
+  perspective: 800px;
+}
+
+.resource-block {
+  display: block;
+  padding: 10px 12px;
+  border: 2px solid rgba(24, 58, 54, 0.82);
+  border-radius: 8px;
+  color: #183a36;
+  font-weight: 900;
+  background: #fffefa;
+  box-shadow: 8px 8px 0 rgba(24, 58, 54, 0.1);
+  transform: rotateX(12deg) rotateY(-18deg);
+  animation: stackRise 8s ease-in-out infinite;
+}
+
+.staff {
+  background: #dff5f0;
+}
+
+.time {
+  background: #fff1c8;
+  animation-delay: 0.15s;
+}
+
+.funds {
+  background: #fce2dc;
+  animation-delay: 0.3s;
+}
+
+.tools {
+  background: #e8f0ff;
+  animation-delay: 0.45s;
+}
+
+.caption-track {
+  position: absolute;
+  left: 8%;
+  right: 8%;
+  bottom: 6%;
+  min-height: 64px;
+  display: grid;
+  place-items: center;
+  border-top: 1px solid rgba(24, 58, 54, 0.16);
+}
+
+.caption-beat {
+  position: absolute;
+  margin: 0;
+  max-width: 840px;
+  color: #183a36;
+  font-size: clamp(1rem, 2.2vw, 1.45rem);
+  font-weight: 900;
+  text-align: center;
+  opacity: 0;
+  animation: captionCycle 12s linear infinite;
+}
+
+.beat-2 {
+  animation-delay: 4s;
+}
+
+.beat-3 {
+  animation-delay: 8s;
+}
+
+.scene-timeline {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.scene-timeline span {
+  padding: 12px;
+  border: 1px solid rgba(24, 58, 54, 0.18);
+  border-radius: 8px;
+  color: #335c56;
+  background: rgba(255, 255, 255, 0.72);
+  font-weight: 800;
+  text-align: center;
+}
+
+.scene-timeline .active {
+  color: white;
+  background: #0f766e;
+}
+
+@keyframes drawLine {
+  0%,
+  10% {
+    scale: 0 1;
+    opacity: 0;
+  }
+  25%,
+  84% {
+    scale: 1 1;
+    opacity: 1;
+  }
+  100% {
+    scale: 1 1;
+    opacity: 0;
+  }
+}
+
+@keyframes lecturerEnter {
+  0%,
+  8% {
+    translate: -40px 0;
+    opacity: 0;
+  }
+  20%,
+  88% {
+    translate: 0 0;
+    opacity: 1;
+  }
+  100% {
+    translate: 0 0;
+    opacity: 0;
+  }
+}
+
+@keyframes pointSweep {
+  0%,
+  25% {
+    rotate: -10deg;
+  }
+  55% {
+    rotate: -28deg;
+  }
+  85% {
+    rotate: -18deg;
+  }
+}
+
+@keyframes pulseCore {
+  0%,
+  20% {
+    scale: 0.72;
+    opacity: 0;
+  }
+  34%,
+  82% {
+    scale: 1;
+    opacity: 1;
+  }
+  100% {
+    scale: 1.08;
+    opacity: 0;
+  }
+}
+
+@keyframes nodePop {
+  0%,
+  22% {
+    translate: 0 18px;
+    opacity: 0;
+  }
+  34%,
+  88% {
+    translate: 0 0;
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes stackRise {
+  0%,
+  40% {
+    translate: 26px 10px;
+    opacity: 0;
+  }
+  55%,
+  88% {
+    translate: 0 0;
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes captionCycle {
+  0%,
+  6% {
+    translate: 0 10px;
+    opacity: 0;
+  }
+  10%,
+  28% {
+    translate: 0 0;
+    opacity: 1;
+  }
+  34%,
+  100% {
+    translate: 0 -8px;
+    opacity: 0;
+  }
+}
+
+@media (max-width: 760px) {
+  .animation-lab {
+    padding: 24px 14px;
+  }
+
+  .sample-meta,
+  .scene-timeline {
+    grid-template-columns: 1fr;
+    display: grid;
+  }
+
+  .whiteboard-panel {
+    aspect-ratio: 9 / 13;
+  }
+
+  .lecturer {
+    left: 5%;
+    bottom: 18%;
+    width: 18%;
+  }
+
+  .system-map {
+    inset: 12% 7% 32% 18%;
+  }
+
+  .system-node {
+    min-width: 68px;
+    font-size: 0.72rem;
+  }
+
+  .learning-node {
+    left: 36%;
+  }
+
+  .resource-stack {
+    right: 7%;
+    bottom: 20%;
+    width: 24%;
+    font-size: 0.72rem;
   }
 }

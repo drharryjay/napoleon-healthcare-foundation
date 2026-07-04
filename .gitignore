@@ -4,3 +4,6 @@ dist/
 *.log
 .obsidian/
 .claude/
+
+# Local YouTube/video-production assets — not part of the website
+health-management-animation/

@@ -1,6 +1,6 @@
 export const impactStats = [
   { label: "Communities Reached", value: "7", note: "Across the South-South region of Nigeria." },
-  { label: "Patients Attended To", value: "2,500+", note: "Cumulative since inception." },
+  { label: "Patients Attended To", value: "4,500+", note: "Cumulative since inception." },
   { label: "Health Professionals Involved", value: "70+", note: "Volunteer doctors, nurses, and allied health workers." },
   { label: "Mosquito Nets Distributed", value: "3,500+", note: "Long-lasting insecticide-treated nets." },
   { label: "Eye Care Provided", value: "500+", note: "Glasses and vision screening." },

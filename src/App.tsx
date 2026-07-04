@@ -10,6 +10,7 @@ import { WhatWeDoPage } from "./pages/WhatWeDoPage";
 import { ImpactPage } from "./pages/ImpactPage";
 import { StoriesPage } from "./pages/StoriesPage";
 import { HealthEducationPage } from "./pages/HealthEducationPage";
+import { HealthManagementAnimationPage } from "./pages/HealthManagementAnimationPage";
 import { PartnerPage } from "./pages/PartnerPage";
 import { VolunteerPage } from "./pages/VolunteerPage";
 import { DonatePage } from "./pages/DonatePage";
@@ -42,6 +43,7 @@ export function App() {
         <Route path="/impact" element={<ImpactPage />} />
         <Route path="/stories" element={<StoriesPage />} />
         <Route path="/health-education" element={<HealthEducationPage />} />
+        <Route path="/health-management-animation" element={<HealthManagementAnimationPage />} />
         <Route path="/partner" element={<PartnerPage />} />
         <Route path="/volunteer" element={<VolunteerPage />} />
         <Route path="/donate" element={<DonatePage />} />
