@@ -161,6 +161,10 @@ textarea {
   height: calc(100% - 76px);
 }
 
+.route-section {
+  padding-left: calc(clamp(18px, 4vw, 64px) + 22px);
+}
+
 .hero-copy {
   align-self: center;
   max-width: 760px;
