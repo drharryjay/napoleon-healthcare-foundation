@@ -17,7 +17,7 @@ export function ContactPage() {
           <p><Phone size={16} /> <a href={`tel:${siteConfig.phone.replace(/\s/g, "")}`}>{siteConfig.phone}</a></p>
           <p><MapPin size={16} /> {siteConfig.address}</p>
           <p><strong>WhatsApp:</strong> {siteConfig.whatsapp}</p>
-          <p><strong>Facebook:</strong> {siteConfig.facebook} (link to be provided)</p>
+          <p><strong>Facebook:</strong> <a href={siteConfig.facebookUrl} target="_blank" rel="noreferrer">{siteConfig.facebook}</a></p>
           <p><strong>X/Twitter:</strong> <a href={siteConfig.twitterUrl} target="_blank" rel="noreferrer">{siteConfig.twitter}</a></p>
           <LinkButton href="/partner">Partnership Inquiry</LinkButton>
         </div>

@@ -1,11 +1,11 @@
 export const trustees = [
-  { name: "Dr. Tobin-West Charles" },
-  { name: "Dr. Akpughe Voke Harriet" },
-  { name: "Dr. Oboidhe Blessing" },
-  { name: "Miss. Akpughe Ochuko Hildana" },
-  { name: "Dr. Ekem Emmanuel John" },
-  { name: "Chief Dr. Jumbo Charles" },
-  { name: "Dr. Gbujie Daniel Chidubem" },
+  { name: "Dr. Tobin-West Charles", occupation: "Doctor" },
+  { name: "Dr. Akpughe Voke Harriet", occupation: "Doctor" },
+  { name: "Dr. Oboidhe Blessing", occupation: "Doctor" },
+  { name: "Miss. Akpughe Ochuko Hildana", occupation: "Businesswoman" },
+  { name: "Dr. Ekem Emmanuel John", occupation: "Doctor" },
+  { name: "Chief Dr. Jumbo Charles", occupation: "Doctor" },
+  { name: "Dr. Gbujie Daniel Chidubem", occupation: "Doctor" },
 ];
 
 export const guidingPrinciples = [

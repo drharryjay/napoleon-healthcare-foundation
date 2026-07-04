@@ -39,7 +39,7 @@ export function AboutPage() {
             <article className="profile-card" key={trustee.name}>
               <div />
               <h3>{trustee.name}</h3>
-              <p>Incorporated trustee. Full biography and role details to be provided.</p>
+              <p>Incorporated trustee &middot; {trustee.occupation}. Full biography and portrait to be added.</p>
             </article>
           ))}
         </div>

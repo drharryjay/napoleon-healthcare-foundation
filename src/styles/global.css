@@ -251,6 +251,54 @@ h3 {
   transform: translateY(-2px);
 }
 
+.button:disabled {
+  background: var(--line);
+  color: var(--muted);
+  cursor: not-allowed;
+}
+
+.button:disabled:hover {
+  box-shadow: none;
+  transform: none;
+}
+
+.pending-tag {
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: 999px;
+  font-size: 0.7rem;
+  padding: 3px 8px;
+  text-transform: uppercase;
+}
+
+.donate-pending-card {
+  align-items: center;
+  background: var(--sky);
+  border: 1px dashed var(--teal);
+  border-radius: 8px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 24px;
+}
+
+.donate-pending-card svg {
+  color: var(--teal);
+  flex: 0 0 auto;
+}
+
+.donate-pending-card > div {
+  flex: 1 1 320px;
+}
+
+.donate-pending-card h3 {
+  margin-bottom: 4px;
+}
+
+.donate-pending-card p {
+  color: var(--muted);
+  margin: 0;
+}
+
 .reveal {
   opacity: 0;
   transform: translateY(28px);

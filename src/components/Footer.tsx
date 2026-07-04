@@ -48,7 +48,7 @@ export function Footer() {
           <a className="footer-contact-link" href={`tel:${siteConfig.phone.replace(/\s/g, "")}`}><Phone size={16} /> {siteConfig.phone}</a>
           <a className="footer-contact-link" href={`https://wa.me/${whatsappNumber}`} target="_blank" rel="noreferrer"><MessageCircle size={16} /> WhatsApp</a>
           <a className="footer-contact-link" href={siteConfig.twitterUrl} target="_blank" rel="noreferrer"><Twitter size={16} /> {siteConfig.twitter}</a>
-          <span className="footer-social-pending"><Facebook size={16} /> {siteConfig.facebook}</span>
+          <a className="footer-contact-link" href={siteConfig.facebookUrl} target="_blank" rel="noreferrer"><Facebook size={16} /> {siteConfig.facebook}</a>
           <span className="footer-social-pending"><Instagram size={16} /> {siteConfig.instagram}</span>
           <Link to="/privacy">Privacy policy</Link>
           <Link to="/medical-disclaimer">Medical disclaimer</Link>
