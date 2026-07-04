@@ -1,6 +1,6 @@
 import React from "react";
-import { HeartPulse } from "lucide-react";
-import { heroImages } from "../data/siteConfig";
+import { BadgeCheck, HeartPulse } from "lucide-react";
+import { heroImages, siteConfig } from "../data/siteConfig";
 
 export function Hero({
   title,
@@ -62,6 +62,10 @@ export function Hero({
             ))}
           </div>
         )}
+        <div className="hero-badge">
+          <BadgeCheck size={18} />
+          <span>{siteConfig.registration.number} &middot; Registered NGO</span>
+        </div>
         <div className="hero-note">
           <HeartPulse size={20} />
           <span>Preventive health for healthier communities.</span>

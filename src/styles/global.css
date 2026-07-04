@@ -329,20 +329,33 @@ h3 {
   transform: scale(1.25);
 }
 
-.hero-note {
+.hero-note,
+.hero-badge {
   align-items: center;
   background: rgba(255, 255, 255, 0.94);
   border-radius: 8px;
-  bottom: 18px;
   box-shadow: var(--shadow);
   color: var(--deep-teal);
   display: flex;
   font-weight: 800;
   gap: 10px;
-  left: 18px;
   max-width: calc(100% - 36px);
   padding: 14px 16px;
   position: absolute;
+  z-index: 2;
+}
+
+.hero-note {
+  bottom: 18px;
+  left: 18px;
+}
+
+.hero-badge {
+  color: var(--accent);
+  font-size: 0.85rem;
+  padding: 10px 14px;
+  right: 18px;
+  top: 18px;
 }
 
 .impact-strip {
@@ -679,6 +692,33 @@ h3 {
   min-height: 260px;
   overflow: hidden;
   position: relative;
+}
+
+.gallery-grid img {
+  transition: transform 400ms ease;
+}
+
+.gallery-grid figure:hover img {
+  transform: scale(1.08);
+}
+
+.gallery-hover {
+  align-items: center;
+  background: rgba(15, 127, 138, 0.55);
+  color: var(--white);
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  left: 0;
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  transition: opacity 250ms ease;
+  width: 100%;
+}
+
+.gallery-grid figure:hover .gallery-hover {
+  opacity: 1;
 }
 
 .gallery-grid figcaption {
