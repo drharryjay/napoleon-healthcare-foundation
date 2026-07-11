@@ -15,6 +15,7 @@ import { homeServiceTitles, services } from "../data/servicesData";
 import { optimizedPhoto } from "../lib/images";
 
 const featureImage = optimizedPhoto(heroImages[1]);
+const aboutImage = optimizedPhoto("/images/FB_IMG_1783012564264.jpg");
 
 export function HomePage() {
   return (
@@ -39,12 +40,27 @@ export function HomePage() {
         {impactStats.map((stat) => <ImpactCard key={stat.label} {...stat} />)}
       </Reveal>
       <section className="section route-section">
-        <SectionHeader
-          eyebrow="About NHF"
-          title="A Nigerian community-health NGO focused on dignity and measurable impact"
-          text="Napoleon Healthcare Foundation is committed to improving access to compassionate, preventive, and essential healthcare services for underserved communities. Through medical outreaches, health education, screening, treatment, follow-up, and strategic partnerships, NHF serves communities with dignity and measurable impact."
-        />
-        <LinkButton href="/about">Learn More About NHF</LinkButton>
+        <Reveal className="two-col">
+          <div>
+            <SectionHeader
+              eyebrow="About NHF"
+              title="A Nigerian community-health NGO focused on dignity and measurable impact"
+              text="Napoleon Healthcare Foundation is committed to improving access to compassionate, preventive, and essential healthcare services for underserved communities. Through medical outreaches, health education, screening, treatment, follow-up, and strategic partnerships, NHF serves communities with dignity and measurable impact."
+            />
+            <LinkButton href="/about">Learn More About NHF</LinkButton>
+          </div>
+          <img
+            className="framed-photo"
+            src={aboutImage.src}
+            srcSet={aboutImage.srcSet}
+            sizes={aboutImage.sizes}
+            width={1200}
+            height={800}
+            alt="NHF clinician consulting a patient during a community medical outreach"
+            loading="lazy"
+            decoding="async"
+          />
+        </Reveal>
       </section>
       <GuidingPrinciples />
       <section className="section soft">

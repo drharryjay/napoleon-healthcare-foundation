@@ -166,6 +166,13 @@ textarea {
   min-height: calc(100vh - 78px);
   padding: clamp(48px, 8vw, 96px) clamp(18px, 4vw, 64px);
   position: relative;
+  /* Branded "aurora" backdrop: soft teal + coral glows over a light gradient,
+     replacing the flat white. Keeps navy-on-light text fully readable. */
+  background:
+    radial-gradient(1120px 620px at 10% -10%, rgba(15, 127, 138, 0.18), transparent 60%),
+    radial-gradient(920px 540px at 102% -4%, rgba(224, 79, 103, 0.14), transparent 55%),
+    radial-gradient(720px 520px at 62% 116%, rgba(7, 91, 102, 0.12), transparent 62%),
+    linear-gradient(180deg, var(--sky) 0%, var(--pale) 46%, var(--white) 100%);
 }
 
 .hero > * {
@@ -1638,4 +1645,187 @@ h3 {
     width: 24%;
     font-size: 0.72rem;
   }
+}
+
+/* ============================================================
+   REDESIGN POLISH PASS (2026-07-11) — light "aurora" system.
+   Appended so these rules win by source order over the base
+   styles above. Purely additive; safe to remove as a block.
+   ============================================================ */
+
+/* Warmer page canvas so plain-white sections read intentional. */
+body {
+  background:
+    radial-gradient(1200px 720px at 100% -5%, rgba(15, 127, 138, 0.05), transparent 60%),
+    radial-gradient(1000px 680px at 0% 8%, rgba(224, 79, 103, 0.035), transparent 55%),
+    var(--white);
+}
+
+/* Cards: subtle gradient surface, refined resting depth, smoother lift. */
+.service-card,
+.article-card,
+.donation-card,
+.profile-card,
+.story-card {
+  background: linear-gradient(180deg, #ffffff, var(--pale));
+  box-shadow: 0 1px 2px rgba(16, 42, 67, 0.05);
+}
+
+.service-card:hover,
+.article-card:hover,
+.donation-card:hover,
+.profile-card:hover,
+.outreach-card:hover {
+  box-shadow: 0 24px 52px rgba(16, 42, 67, 0.15);
+  transform: translateY(-6px);
+}
+
+/* Icon badges: gradient fill for a richer, less flat accent. */
+.icon-badge,
+.donation-card svg {
+  background: linear-gradient(135deg, var(--sky), #d3edf0);
+  color: var(--deep-teal);
+}
+
+/* Soft sections: gentle vertical wash instead of one flat tone. */
+.soft {
+  background: linear-gradient(180deg, var(--sky) 0%, var(--pale) 42%, var(--white) 100%);
+}
+
+/* Hero photo card: deeper float + crisp inner ring for a premium frame. */
+.hero-media {
+  box-shadow: 0 34px 72px rgba(16, 42, 67, 0.24);
+}
+
+.hero-media::after {
+  border-radius: inherit;
+  box-shadow: inset 0 0 0 1px rgba(15, 127, 138, 0.16);
+  content: "";
+  inset: 0;
+  pointer-events: none;
+  position: absolute;
+  z-index: 3;
+}
+
+/* Feature band: warm teal glow over the navy for depth. */
+.feature {
+  background:
+    radial-gradient(680px 460px at 100% 0%, rgba(15, 127, 138, 0.38), transparent 62%),
+    var(--navy);
+  box-shadow: var(--shadow);
+}
+
+/* Impact strip: thin teal accent along the top edge. */
+.impact-strip {
+  box-shadow: inset 0 3px 0 var(--teal);
+}
+
+/* A little more breathing room under section intros. */
+.section-header {
+  margin-bottom: 36px;
+}
+
+/* Reusable framed photo for weaving imagery between write-ups. */
+.framed-photo {
+  border-radius: 22px 22px 22px 8px;
+  box-shadow: var(--shadow);
+  height: 100%;
+  min-height: 320px;
+  object-fit: cover;
+  width: 100%;
+}
+
+/* Full-width photo band to break up long text pages. */
+.photo-band {
+  border-radius: 0;
+  margin: 0;
+  max-height: 420px;
+  overflow: hidden;
+  position: relative;
+}
+
+.photo-band img {
+  height: 100%;
+  min-height: 300px;
+  object-fit: cover;
+  width: 100%;
+}
+
+.photo-band figcaption {
+  background: linear-gradient(0deg, rgba(16, 42, 67, 0.82), transparent);
+  bottom: 0;
+  color: var(--white);
+  font-weight: 800;
+  left: 0;
+  padding: 40px 24px 18px;
+  position: absolute;
+  right: 0;
+}
+
+/* Headlines: balance line breaks and never split a word mid-way. */
+h1,
+h2 {
+  overflow-wrap: normal;
+  text-wrap: balance;
+}
+
+/* Mobile headline was 14vw — "Communities" overflowed and broke mid-word.
+   Sized so the longest word in the hero title always fits a 360px screen. */
+@media (max-width: 640px) {
+  h1 {
+    font-size: clamp(2rem, 10vw, 3rem);
+  }
+}
+
+/* Faint "motion picture" layer behind the hero copy: the outreach photos
+   crossfade at very low opacity with a slow drift, behind a light wash that
+   keeps the navy text fully readable. Motion stops automatically for users
+   with prefers-reduced-motion (global rule above kills all animation). */
+.hero-bg {
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  position: absolute;
+}
+
+.hero-bg img {
+  height: 100%;
+  inset: 0;
+  object-fit: cover;
+  opacity: 0;
+  position: absolute;
+  transition: opacity 1600ms ease;
+  width: 100%;
+}
+
+.hero-bg img.is-active {
+  animation: hero-drift 16s ease-in-out infinite alternate;
+  opacity: 0.13;
+}
+
+.hero-bg::after {
+  background: linear-gradient(90deg, rgba(246, 251, 251, 0.94), rgba(246, 251, 251, 0.6) 52%, rgba(246, 251, 251, 0.28));
+  content: "";
+  inset: 0;
+  position: absolute;
+}
+
+@keyframes hero-drift {
+  from {
+    transform: scale(1.06);
+  }
+  to {
+    transform: scale(1.14) translate(-1.5%, -1%);
+  }
+}
+
+/* Keep hero content and the decorative bar above the background layer. */
+.hero::before {
+  z-index: 1;
+}
+
+.hero-copy,
+.hero-media {
+  position: relative;
+  z-index: 1;
 }

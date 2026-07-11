@@ -2,6 +2,9 @@ import React from "react";
 import { Hero } from "../components/Hero";
 import { ServiceCard } from "../components/ServiceCard";
 import { services } from "../data/servicesData";
+import { optimizedPhoto } from "../lib/images";
+
+const serviceBand = optimizedPhoto("/images/FB_IMG_1783012604139.jpg");
 
 export function WhatWeDoPage() {
   return (
@@ -12,6 +15,19 @@ export function WhatWeDoPage() {
           {services.map((service, index) => <ServiceCard key={service.title} title={service.title} summary={service.summary} index={index} />)}
         </div>
       </section>
+      <figure className="photo-band">
+        <img
+          src={serviceBand.src}
+          srcSet={serviceBand.srcSet}
+          sizes="100vw"
+          width={1600}
+          height={600}
+          alt="NHF staff conducting laboratory screening during a community outreach"
+          loading="lazy"
+          decoding="async"
+        />
+        <figcaption>Screening, treatment, and follow-up delivered on the ground, at no cost to the community.</figcaption>
+      </figure>
     </>
   );
 }

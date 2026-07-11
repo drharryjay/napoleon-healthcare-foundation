@@ -5,6 +5,9 @@ import { ImpactCard } from "../components/ImpactCard";
 import { RegistrationNotice } from "../components/RegistrationNotice";
 import { heroImages } from "../data/siteConfig";
 import { trustees } from "../data/trusteesData";
+import { optimizedPhoto } from "../lib/images";
+
+const aboutBand = optimizedPhoto("/images/FB_IMG_1783012553411.jpg");
 
 const values = ["Compassion", "Access", "Prevention", "Integrity", "Community Partnership", "Service"];
 const approach = ["Identify community need", "Mobilize partners and volunteers", "Conduct outreach and screening", "Provide treatment, counselling, and referrals", "Follow up and document impact"];
@@ -23,6 +26,19 @@ export function AboutPage() {
           <p>A Nigeria where underserved communities can access timely, preventive, and compassionate healthcare regardless of location or income.</p>
         </div>
       </section>
+      <figure className="photo-band">
+        <img
+          src={aboutBand.src}
+          srcSet={aboutBand.srcSet}
+          sizes="100vw"
+          width={1600}
+          height={600}
+          alt="Community members gathered at a Napoleon Healthcare Foundation medical outreach"
+          loading="lazy"
+          decoding="async"
+        />
+        <figcaption>Meeting communities where they are — free outreach across underserved areas of Nigeria.</figcaption>
+      </figure>
       <section className="section soft">
         <SectionHeader eyebrow="Values" title="What guides NHF" />
         <div className="mini-grid">{values.map((value) => <ImpactCard key={value} value={value} label="NHF value" />)}</div>

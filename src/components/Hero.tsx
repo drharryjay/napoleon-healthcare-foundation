@@ -32,6 +32,23 @@ export function Hero({
 
   return (
     <section className="hero">
+      <div className="hero-bg" aria-hidden="true">
+        {slides.map((src, index) => {
+          const opt = optimizedPhoto(src);
+          return (
+            <img
+              key={src}
+              src={opt.src}
+              srcSet={opt.srcSet}
+              sizes="100vw"
+              alt=""
+              className={index === active ? "is-active" : ""}
+              loading="lazy"
+              decoding="async"
+            />
+          );
+        })}
+      </div>
       <div className="hero-copy">
         {eyebrow && <span className="eyebrow">{eyebrow}</span>}
         <h1>{title}</h1>
