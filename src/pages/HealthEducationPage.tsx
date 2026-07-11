@@ -6,6 +6,9 @@ import { ConsentNotice } from "../components/ConsentNotice";
 import { NewsletterForm } from "../components/NewsletterForm";
 import { HealthNewsLinks } from "../components/HealthNewsLinks";
 import { articles, categories } from "../data/articlesData";
+import { optimizedPhoto } from "../lib/images";
+
+const educationBand = optimizedPhoto("/images/FB_IMG_1783012537202.jpg");
 
 export function HealthEducationPage() {
   return (
@@ -19,6 +22,19 @@ export function HealthEducationPage() {
         <SectionHeader eyebrow="Articles" title="Ready-to-expand article cards" />
         <div className="card-grid">{articles.map((article) => <ArticleCard key={article.slug} article={article} />)}</div>
       </section>
+      <figure className="photo-band">
+        <img
+          src={educationBand.src}
+          srcSet={educationBand.srcSet}
+          sizes="100vw"
+          width={1600}
+          height={600}
+          alt="NHF vision screening and health education station during a community outreach"
+          loading="lazy"
+          decoding="async"
+        />
+        <figcaption>Health education in action — prevention taught where people live, work, and gather.</figcaption>
+      </figure>
       <section className="split-cta">
         <div>
           <span className="eyebrow">Newsletter</span>

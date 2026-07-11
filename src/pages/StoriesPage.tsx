@@ -1,6 +1,9 @@
 import React from "react";
 import { Hero } from "../components/Hero";
 import { outreaches } from "../data/impactData";
+import { optimizedPhoto } from "../lib/images";
+
+const storiesBand = optimizedPhoto("/images/FB_IMG_1783012593613.jpg");
 
 const storyFields = ["Community need", "NHF response", "Services provided", "People reached", "Partner support", "Photos", "Lessons learned", "Next steps"];
 
@@ -22,6 +25,19 @@ export function StoriesPage() {
           ))}
         </div>
       </section>
+      <figure className="photo-band">
+        <img
+          src={storiesBand.src}
+          srcSet={storiesBand.srcSet}
+          sizes="100vw"
+          width={1600}
+          height={600}
+          alt="NHF team member with a foundation banner at a community outreach"
+          loading="lazy"
+          decoding="async"
+        />
+        <figcaption>Behind every story is a team of volunteers who showed up for their community.</figcaption>
+      </figure>
     </>
   );
 }
