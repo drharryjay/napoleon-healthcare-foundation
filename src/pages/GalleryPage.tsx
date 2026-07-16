@@ -1,7 +1,6 @@
 import React from "react";
 import { Hero } from "../components/Hero";
 import { GalleryGrid } from "../components/GalleryGrid";
-import { ConsentNotice } from "../components/ConsentNotice";
 
 export function GalleryPage() {
   return (
@@ -10,7 +9,6 @@ export function GalleryPage() {
       <section className="section">
         <GalleryGrid />
       </section>
-      <section className="section"><ConsentNotice /></section>
     </>
   );
 }

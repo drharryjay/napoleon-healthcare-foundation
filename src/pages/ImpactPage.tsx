@@ -3,10 +3,8 @@ import { Hero } from "../components/Hero";
 import { SectionHeader } from "../components/SectionHeader";
 import { ImpactCard } from "../components/ImpactCard";
 import { OutreachCard } from "../components/OutreachCard";
+import { PhotoSlideshow } from "../components/PhotoSlideshow";
 import { dashboardStats, outreaches } from "../data/impactData";
-import { optimizedPhoto } from "../lib/images";
-
-const impactBand = optimizedPhoto("/images/FB_IMG_1783012581401.jpg");
 
 export function ImpactPage() {
   return (
@@ -16,15 +14,14 @@ export function ImpactPage() {
         {dashboardStats.map((stat) => <ImpactCard key={stat.label} {...stat} />)}
       </section>
       <figure className="photo-band">
-        <img
-          src={impactBand.src}
-          srcSet={impactBand.srcSet}
+        <PhotoSlideshow
+          photos={[
+            { src: "/images/outreach/08-sapele-medication-support-website.webp", alt: "Pharmacy and medication support during the Sapele Medical Outreach" },
+            { src: "/images/outreach/sapele-e04.webp", alt: "Scene from the Sapele Medical Outreach, June 2026" },
+            { src: "/images/outreach/13-sapele-registration-triage-website.webp", alt: "Patient registration and triage during the Sapele Medical Outreach" },
+            { src: "/images/outreach/sapele-e06.webp", alt: "Scene from the Sapele Medical Outreach, June 2026" },
+          ]}
           sizes="100vw"
-          width={1600}
-          height={600}
-          alt="NHF pharmacy table stocked with medications during a community outreach"
-          loading="lazy"
-          decoding="async"
         />
         <figcaption>Every statistic above is a person served — medications, screening, and care given free of charge.</figcaption>
       </figure>

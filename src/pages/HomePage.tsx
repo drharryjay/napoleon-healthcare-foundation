@@ -9,11 +9,19 @@ import { RegistrationNotice } from "../components/RegistrationNotice";
 import { PartnerCTA } from "../components/PartnerCTA";
 import { VolunteerCTA } from "../components/VolunteerCTA";
 import { Reveal } from "../components/Reveal";
+import { PhotoSlideshow } from "../components/PhotoSlideshow";
 import { impactStats } from "../data/impactData";
 import { homeServices } from "../data/servicesData";
 import { optimizedPhoto } from "../lib/images";
 
-const featureImage = optimizedPhoto("/images/outreach/01-ovu-school-health-presentation-website.webp");
+const ovuFeaturePhotos = [
+  { src: "/images/outreach/01-ovu-school-health-presentation-website.webp", alt: "NHF team presenting to pupils and staff during the Ovu School Health Programme" },
+  { src: "/images/outreach/02-ovu-school-health-group-website.webp", alt: "Pupils and NHF volunteers gathered during the Ovu School Health Programme" },
+  { src: "/images/outreach/09-ovu-students-supplies-website.webp", alt: "Oral hygiene kits and supplies distributed to pupils at Ovu" },
+  { src: "/images/outreach/ovu-e03.webp", alt: "Scene from the Ovu School Health Programme, May 2025" },
+  { src: "/images/outreach/ovu-e04.webp", alt: "Scene from the Ovu School Health Programme, May 2025" },
+];
+
 const aboutImage = optimizedPhoto("/images/FB_IMG_1783012564264.jpg");
 
 export function HomePage() {
@@ -25,10 +33,11 @@ export function HomePage() {
         eyebrow="Serving with compassion"
         images={[
           "/images/FB_IMG_1783012553411.jpg",
+          "/images/outreach/02-ovu-school-health-group-website.webp",
           "/images/FB_IMG_1783012529277.jpg",
-          "/images/FB_IMG_1783012545155.jpg",
+          "/images/outreach/03-school-for-the-deaf-group-website.webp",
+          "/images/outreach/13-sapele-registration-triage-website.webp",
           "/images/FB_IMG_1783012564264.jpg",
-          "/images/FB_IMG_1783012581401.jpg",
         ]}
       >
         <LinkButton href="/donate">Support an Outreach</LinkButton>
@@ -62,15 +71,11 @@ export function HomePage() {
         </Reveal>
       </section>
       <GuidingPrinciples />
-      <section className="section soft">
-        <SectionHeader eyebrow="What we do" title="Practical healthcare support at community level" />
-        <Reveal className="card-grid">
-          {homeServices.map((service, index) => <ServiceCard key={service.title} title={service.title} summary={service.summary} index={index} />)}
-        </Reveal>
-      </section>
       <Reveal className="feature-wrap">
         <section className="feature">
-          <img src={featureImage.src} srcSet={featureImage.srcSet} sizes={featureImage.sizes} width={1448} height={1086} alt="NHF team presenting to pupils and staff during the Ovu School Health Programme" loading="lazy" decoding="async" />
+          <div className="feature-media">
+            <PhotoSlideshow photos={ovuFeaturePhotos} sizes="(max-width: 840px) 100vw, 50vw" />
+          </div>
           <div>
             <span className="eyebrow">Featured outreach</span>
             <h2>Ovu School Health Programme</h2>
@@ -79,6 +84,12 @@ export function HomePage() {
           </div>
         </section>
       </Reveal>
+      <section className="section soft">
+        <SectionHeader eyebrow="What we do" title="Practical healthcare support at community level" />
+        <Reveal className="card-grid">
+          {homeServices.map((service, index) => <ServiceCard key={service.title} title={service.title} summary={service.summary} index={index} />)}
+        </Reveal>
+      </section>
       <RegistrationNotice />
       <PartnerCTA />
       <VolunteerCTA />

@@ -2,13 +2,10 @@ import React from "react";
 import { Hero } from "../components/Hero";
 import { SectionHeader } from "../components/SectionHeader";
 import { ArticleCard } from "../components/ArticleCard";
-import { ConsentNotice } from "../components/ConsentNotice";
 import { NewsletterForm } from "../components/NewsletterForm";
 import { HealthNewsLinks } from "../components/HealthNewsLinks";
+import { PhotoSlideshow } from "../components/PhotoSlideshow";
 import { articles, categories } from "../data/articlesData";
-import { optimizedPhoto } from "../lib/images";
-
-const educationBand = optimizedPhoto("/images/outreach/09-ovu-students-supplies-website.webp");
 
 export function HealthEducationPage() {
   return (
@@ -23,15 +20,13 @@ export function HealthEducationPage() {
         <div className="card-grid">{articles.map((article) => <ArticleCard key={article.slug} article={article} />)}</div>
       </section>
       <figure className="photo-band">
-        <img
-          src={educationBand.src}
-          srcSet={educationBand.srcSet}
+        <PhotoSlideshow
+          photos={[
+            { src: "/images/outreach/09-ovu-students-supplies-website.webp", alt: "Oral hygiene kits and health supplies distributed to pupils during the Ovu School Health Programme" },
+            { src: "/images/outreach/12-school-for-the-deaf-classroom-website.webp", alt: "Health education delivered in the classroom at the School of the Deaf, Sapele" },
+            { src: "/images/outreach/ovu-e05.webp", alt: "Scene from the Ovu School Health Programme, May 2025" },
+          ]}
           sizes="100vw"
-          width={1448}
-          height={1086}
-          alt="Oral hygiene kits and health supplies distributed to pupils during the Ovu School Health Programme"
-          loading="lazy"
-          decoding="async"
         />
         <figcaption>Health education in action — prevention taught where people live, work, and gather.</figcaption>
       </figure>
@@ -47,7 +42,6 @@ export function HealthEducationPage() {
         <SectionHeader eyebrow="Health news" title="Trusted public health updates" text="Follow ongoing disease surveillance and public health news from these official sources." />
         <HealthNewsLinks />
       </section>
-      <section className="section"><ConsentNotice /></section>
     </>
   );
 }

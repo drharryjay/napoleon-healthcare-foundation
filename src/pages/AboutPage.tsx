@@ -3,11 +3,9 @@ import { Hero } from "../components/Hero";
 import { SectionHeader } from "../components/SectionHeader";
 import { ImpactCard } from "../components/ImpactCard";
 import { RegistrationNotice } from "../components/RegistrationNotice";
+import { PhotoSlideshow } from "../components/PhotoSlideshow";
 import { heroImages } from "../data/siteConfig";
 import { trustees } from "../data/trusteesData";
-import { optimizedPhoto } from "../lib/images";
-
-const aboutBand = optimizedPhoto("/images/outreach/04-sapele-outreach-team-website.webp");
 
 const values = ["Compassion", "Access", "Prevention", "Integrity", "Community Partnership", "Service"];
 const approach = ["Identify community need", "Mobilize partners and volunteers", "Conduct outreach and screening", "Provide treatment, counselling, and referrals", "Follow up and document impact"];
@@ -27,15 +25,14 @@ export function AboutPage() {
         </div>
       </section>
       <figure className="photo-band">
-        <img
-          src={aboutBand.src}
-          srcSet={aboutBand.srcSet}
+        <PhotoSlideshow
+          photos={[
+            { src: "/images/outreach/04-sapele-outreach-team-website.webp", alt: "NHF outreach team and partners at the Sapele Medical Outreach" },
+            { src: "/images/outreach/ovu-e04.webp", alt: "Scene from the Ovu School Health Programme, May 2025" },
+            { src: "/images/outreach/03-school-for-the-deaf-group-website.webp", alt: "NHF team with students at the Christian Missionary School of the Deaf, Sapele" },
+            { src: "/images/outreach/sapele-e05.webp", alt: "Scene from the Sapele Medical Outreach, June 2026" },
+          ]}
           sizes="100vw"
-          width={1600}
-          height={900}
-          alt="NHF outreach team and partners at the Sapele Medical Outreach"
-          loading="lazy"
-          decoding="async"
         />
         <figcaption>Meeting communities where they are — free outreach across underserved areas of Nigeria.</figcaption>
       </figure>

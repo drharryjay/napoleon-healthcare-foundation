@@ -1388,11 +1388,13 @@ body {
   width: 100%;
 }
 
-/* Full-width photo band to break up long text pages. */
+/* Full-width photo band to break up long text pages. Fixed (taller) height so
+   4:3 outreach photos keep much more of the action in frame than the old
+   420px-capped strip did. */
 .photo-band {
   border-radius: 0;
+  height: clamp(360px, 46vw, 620px);
   margin: 0;
-  max-height: 420px;
   overflow: hidden;
   position: relative;
 }
@@ -1401,6 +1403,7 @@ body {
   height: 100%;
   min-height: 300px;
   object-fit: cover;
+  object-position: 50% 32%;
   width: 100%;
 }
 
@@ -1598,7 +1601,7 @@ h2 {
    a gentle counter-zoom driven by scroll position, no JS. Browsers
    without animation-timeline simply show the static image. */
 @supports (animation-timeline: view()) {
-  .photo-band img {
+  .photo-band > img {
     animation: band-parallax linear both;
     animation-timeline: view();
     animation-range: entry 0% exit 100%;
@@ -1613,8 +1616,7 @@ h2 {
     }
   }
 
-  .framed-photo,
-  .feature img {
+  .framed-photo {
     animation: photo-arrive linear both;
     animation-timeline: view();
     animation-range: entry 0% entry 80%;
@@ -1706,4 +1708,186 @@ h2 {
 .profile-card,
 .outreach-card {
   transition: box-shadow 240ms var(--ease-out-quart), transform 240ms var(--ease-out-quart);
+}
+
+/* ============================================================
+   CONTENT PASS (2026-07-16, session 2) — crossfading slideshows,
+   vertical services with action photos, story accordion.
+   ============================================================ */
+
+/* --- Slideshow: fills a positioned parent that defines the height. --- */
+.slideshow {
+  inset: 0;
+  overflow: hidden;
+  position: absolute;
+}
+
+.slideshow img {
+  height: 100%;
+  inset: 0;
+  object-fit: cover;
+  object-position: 50% 30%;
+  opacity: 0;
+  position: absolute;
+  transition: opacity 1400ms ease;
+  width: 100%;
+}
+
+.slideshow img.is-active {
+  animation: ken-burns 18s linear both;
+  opacity: 1;
+  z-index: 1;
+}
+
+/* Featured-outreach media panel (homepage Ovu slideshow). */
+.feature .feature-media {
+  align-self: stretch;
+  border-radius: 8px;
+  min-height: clamp(320px, 40vw, 460px);
+  overflow: hidden;
+  padding: 0;
+  position: relative;
+}
+
+/* --- What We Do: vertical service rows with action photos. --- */
+.service-rows {
+  display: grid;
+  gap: clamp(36px, 5vw, 72px);
+}
+
+.service-row {
+  align-items: center;
+  display: grid;
+  gap: clamp(20px, 3.5vw, 56px);
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+}
+
+.service-row-media {
+  aspect-ratio: 4 / 3;
+  border-radius: 22px 22px 22px 8px;
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  position: relative;
+}
+
+/* Alternate photo side for visual rhythm on desktop. */
+.service-row:nth-child(even) .service-row-media {
+  order: -1;
+}
+
+.service-row h2 {
+  font-size: clamp(1.4rem, 2.2vw, 2rem);
+}
+
+.service-row p {
+  color: var(--muted);
+  font-size: clamp(1rem, 1.6vw, 1.12rem);
+  max-width: 60ch;
+}
+
+@media (max-width: 840px) {
+  .service-row {
+    grid-template-columns: 1fr;
+  }
+
+  /* Photo always above its text on mobile. */
+  .service-row .service-row-media {
+    order: -1;
+  }
+}
+
+/* --- Stories: per-outreach expandable entries. --- */
+.story-accordion {
+  display: grid;
+  gap: 16px;
+  margin: 0 auto;
+  max-width: 980px;
+}
+
+.story-entry {
+  background: linear-gradient(180deg, #ffffff, var(--pale));
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  box-shadow: 0 1px 2px rgba(16, 42, 67, 0.05);
+  overflow: hidden;
+}
+
+.story-entry summary {
+  align-items: center;
+  cursor: pointer;
+  display: flex;
+  gap: 16px;
+  justify-content: space-between;
+  list-style: none;
+  padding: 20px 24px;
+}
+
+.story-entry summary::-webkit-details-marker {
+  display: none;
+}
+
+.story-entry summary:hover {
+  background: var(--sky);
+}
+
+.story-entry-heading {
+  display: grid;
+  gap: 6px;
+}
+
+.story-entry-heading strong {
+  font-family: Literata, Georgia, serif;
+  font-size: 1.15rem;
+  line-height: 1.3;
+}
+
+.story-entry-meta {
+  align-items: center;
+  color: var(--muted);
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 0.9rem;
+  gap: 6px 10px;
+}
+
+.story-entry-chevron {
+  color: var(--teal);
+  flex-shrink: 0;
+  transition: transform 240ms var(--ease-out-quart);
+}
+
+.story-entry[open] .story-entry-chevron {
+  transform: rotate(180deg);
+}
+
+.story-entry-body {
+  border-top: 1px solid var(--line);
+  display: grid;
+  gap: 12px;
+  padding: 20px 24px 24px;
+}
+
+.story-entry-body p {
+  color: var(--muted);
+  margin: 0;
+}
+
+.story-entry-body p strong {
+  color: var(--navy);
+}
+
+.story-photos {
+  display: grid;
+  gap: 12px;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  margin-top: 8px;
+}
+
+.story-photos img {
+  aspect-ratio: 4 / 3;
+  border-radius: 10px;
+  box-shadow: 0 1px 2px rgba(16, 42, 67, 0.08);
+  height: auto;
+  object-fit: cover;
+  width: 100%;
 }
