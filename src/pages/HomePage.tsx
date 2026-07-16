@@ -10,11 +10,10 @@ import { PartnerCTA } from "../components/PartnerCTA";
 import { VolunteerCTA } from "../components/VolunteerCTA";
 import { Reveal } from "../components/Reveal";
 import { impactStats } from "../data/impactData";
-import { heroImages } from "../data/siteConfig";
-import { homeServiceTitles, services } from "../data/servicesData";
+import { homeServices } from "../data/servicesData";
 import { optimizedPhoto } from "../lib/images";
 
-const featureImage = optimizedPhoto(heroImages[1]);
+const featureImage = optimizedPhoto("/images/outreach/01-ovu-school-health-presentation-website.webp");
 const aboutImage = optimizedPhoto("/images/FB_IMG_1783012564264.jpg");
 
 export function HomePage() {
@@ -66,17 +65,17 @@ export function HomePage() {
       <section className="section soft">
         <SectionHeader eyebrow="What we do" title="Practical healthcare support at community level" />
         <Reveal className="card-grid">
-          {homeServiceTitles.map((title, index) => <ServiceCard key={title} title={title} summary={services[index]?.summary ?? "Community healthcare service."} index={index} />)}
+          {homeServices.map((service, index) => <ServiceCard key={service.title} title={service.title} summary={service.summary} index={index} />)}
         </Reveal>
       </section>
       <Reveal className="feature-wrap">
         <section className="feature">
-          <img src={featureImage.src} srcSet={featureImage.srcSet} sizes={featureImage.sizes} width={1200} height={800} alt="NHF volunteer fitting a community member with glasses during an eye care outreach" loading="lazy" decoding="async" />
+          <img src={featureImage.src} srcSet={featureImage.srcSet} sizes={featureImage.sizes} width={1448} height={1086} alt="NHF team presenting to pupils and staff during the Ovu School Health Programme" loading="lazy" decoding="async" />
           <div>
             <span className="eyebrow">Featured outreach</span>
-            <h2>Community Medical Outreach</h2>
-            <p>NHF has provided free consultations, screening, medications, eye care, dental care, health education, and follow-up support across underserved communities.</p>
-            <LinkButton href="/impact">View Our Impact</LinkButton>
+            <h2>Ovu School Health Programme</h2>
+            <p>420 children reached with oral health education, medical consultations, and hygiene kits at Okuodi Primary School, Ovu — one of several recent NHF community outreaches.</p>
+            <LinkButton href="/stories">Read the Full Story</LinkButton>
           </div>
         </section>
       </Reveal>

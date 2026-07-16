@@ -7,7 +7,7 @@ import { partnerAudiences, partnershipOptions } from "../data/partnersData";
 export function PartnerPage() {
   return (
     <>
-      <Hero title="Partner With NHF" text="Bring healthcare closer to communities through outreach sponsorship, supplies, clinical support, logistics, and public health education." image="/images/FB_IMG_1783012581401.jpg" />
+      <Hero title="Partner With NHF" text="Bring healthcare closer to communities through outreach sponsorship, supplies, clinical support, logistics, and public health education." image="/images/outreach/11-school-for-the-deaf-partner-team-website.webp" />
       <section className="section two-col">
         <div>
           <SectionHeader eyebrow="Why partner" title="Credible community health work needs trusted collaboration" />

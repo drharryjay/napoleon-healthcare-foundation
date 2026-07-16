@@ -7,3 +7,20 @@ dist/
 
 # Local YouTube/video-production assets — not part of the website
 health-management-animation/
+
+# Personal / organizational documents & source media — never publish to GitHub
+NHF CAC DOCUMENTS/
+NHF PICTURES/
+NHF Website Vault/
+NHF TIN Slip.pdf
+*.docx
+NAPOLEON HEALTHCARE FOUNDATION.md
+NAPOLEON HEALTHCARE FOUNDATION.pdf
+Screenshot_*.jpg
+FB_IMG_*.jpg
+!public/images/FB_IMG_*.jpg
+audio/
+output/
+tmp/
+source-assets/
+.agents/

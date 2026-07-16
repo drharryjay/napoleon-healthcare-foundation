@@ -20,6 +20,19 @@ export function Hero({
 }) {
   const slides = images && images.length > 1 ? images : [image];
   const [active, setActive] = React.useState(0);
+  const dotRefs = React.useRef<(HTMLButtonElement | null)[]>([]);
+
+  function handleDotKeyDown(event: React.KeyboardEvent<HTMLButtonElement>, index: number) {
+    let next: number | null = null;
+    if (event.key === "ArrowRight") next = (index + 1) % slides.length;
+    else if (event.key === "ArrowLeft") next = (index - 1 + slides.length) % slides.length;
+    else if (event.key === "Home") next = 0;
+    else if (event.key === "End") next = slides.length - 1;
+    if (next === null) return;
+    event.preventDefault();
+    setActive(next);
+    dotRefs.current[next]?.focus();
+  }
 
   React.useEffect(() => {
     if (slides.length < 2) return;
@@ -50,12 +63,23 @@ export function Hero({
         })}
       </div>
       <div className="hero-copy">
-        {eyebrow && <span className="eyebrow">{eyebrow}</span>}
-        <h1>{title}</h1>
-        <p>{text}</p>
-        {children && <div className="button-row">{children}</div>}
+        {eyebrow && <span className="eyebrow hero-enter" style={{ "--enter": 0 } as React.CSSProperties}>{eyebrow}</span>}
+        <h1>
+          {/* Word-by-word rise on load. Screen readers get the unsplit title;
+              the animated words are hidden from the accessibility tree. */}
+          <span className="sr-only">{title}</span>
+          <span aria-hidden="true">
+            {title.split(" ").map((word, index) => (
+              <span key={`${word}-${index}`} className="hero-word" style={{ "--i": index } as React.CSSProperties}>
+                {word}{" "}
+              </span>
+            ))}
+          </span>
+        </h1>
+        <p className="hero-enter" style={{ "--enter": 1 } as React.CSSProperties}>{text}</p>
+        {children && <div className="button-row hero-enter" style={{ "--enter": 2 } as React.CSSProperties}>{children}</div>}
       </div>
-      <div className="hero-media" aria-label="Outreach photo area">
+      <div className="hero-media hero-media-enter" aria-label="Outreach photo area">
         {slides.map((src, index) => {
           const opt = optimizedPhoto(src);
           return (
@@ -80,12 +104,15 @@ export function Hero({
             {slides.map((src, index) => (
               <button
                 key={src}
+                ref={(el) => { dotRefs.current[index] = el; }}
                 type="button"
                 role="tab"
                 aria-selected={index === active}
                 aria-label={`Show outreach photo ${index + 1}`}
+                tabIndex={index === active ? 0 : -1}
                 className={index === active ? "is-active" : ""}
                 onClick={() => setActive(index)}
+                onKeyDown={(event) => handleDotKeyDown(event, index)}
               />
             ))}
           </div>

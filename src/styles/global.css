@@ -154,7 +154,9 @@ textarea {
   border-radius: 8px;
   color: var(--deep-teal);
   display: none;
+  flex-shrink: 0;
   height: 44px;
+  min-width: 44px;
   place-items: center;
   width: 44px;
 }
@@ -407,17 +409,28 @@ h3 {
 }
 
 .hero-dots button {
+  align-items: center;
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+  display: flex;
+  height: 28px;
+  justify-content: center;
+  padding: 0;
+  width: 28px;
+}
+
+.hero-dots button::before {
   background: rgba(255, 255, 255, 0.55);
   border: 1px solid rgba(255, 255, 255, 0.8);
   border-radius: 999px;
-  cursor: pointer;
+  content: "";
   height: 10px;
-  padding: 0;
   transition: background 200ms ease, transform 200ms ease;
   width: 10px;
 }
 
-.hero-dots button.is-active {
+.hero-dots button.is-active::before {
   background: var(--white);
   transform: scale(1.25);
 }
@@ -610,6 +623,39 @@ h3 {
   color: var(--muted);
 }
 
+.legal-copy {
+  display: grid;
+  gap: 8px;
+  max-width: 780px;
+}
+
+.legal-draft-notice {
+  background: var(--sky);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  color: var(--navy) !important;
+  padding: 18px 20px;
+}
+
+.legal-draft-notice strong {
+  color: var(--deep-teal);
+}
+
+.legal-section {
+  margin-top: 8px;
+}
+
+.legal-section h2 {
+  font-size: 1.2rem;
+  margin-bottom: 8px;
+}
+
+.legal-section .check-list {
+  display: grid;
+  gap: 8px;
+  margin: 4px 0 0;
+}
+
 .feature {
   align-items: stretch;
   background: var(--navy);
@@ -777,12 +823,22 @@ h3 {
 }
 
 .form input,
-.form textarea {
+.form textarea,
+.form select {
+  background: var(--white);
   border: 1px solid var(--line);
   border-radius: 8px;
   min-height: 48px;
   padding: 12px 14px;
   width: 100%;
+}
+
+.form-response-time {
+  align-items: center;
+  color: var(--muted);
+  display: flex !important;
+  font-size: 0.92rem;
+  gap: 8px;
 }
 
 .checkbox {
@@ -819,6 +875,16 @@ h3 {
   transform: scale(1.08);
 }
 
+.gallery-trigger {
+  background: none;
+  border: 0;
+  cursor: pointer;
+  display: block;
+  height: 100%;
+  padding: 0;
+  width: 100%;
+}
+
 .gallery-hover {
   align-items: center;
   background: rgba(15, 127, 138, 0.55);
@@ -828,14 +894,57 @@ h3 {
   justify-content: center;
   left: 0;
   opacity: 0;
+  pointer-events: none;
   position: absolute;
   top: 0;
   transition: opacity 250ms ease;
   width: 100%;
 }
 
-.gallery-grid figure:hover .gallery-hover {
+.gallery-grid figure:hover .gallery-hover,
+.gallery-trigger:focus-visible ~ .gallery-hover {
   opacity: 1;
+}
+
+.lightbox {
+  align-items: center;
+  background: rgba(8, 15, 24, 0.9);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  inset: 0;
+  justify-content: center;
+  padding: 32px;
+  position: fixed;
+  z-index: 60;
+}
+
+.lightbox img {
+  border-radius: 8px;
+  max-height: 74vh;
+  max-width: min(92vw, 1100px);
+  object-fit: contain;
+}
+
+.lightbox-caption {
+  color: var(--white);
+  max-width: 700px;
+  text-align: center;
+}
+
+.lightbox-close {
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 999px;
+  color: var(--white);
+  cursor: pointer;
+  display: grid;
+  height: 44px;
+  place-items: center;
+  position: absolute;
+  right: 24px;
+  top: 24px;
+  width: 44px;
 }
 
 .gallery-grid figcaption {
@@ -1183,467 +1292,11 @@ h3 {
   *,
   *::before,
   *::after {
+    animation-delay: 0ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
     scroll-behavior: auto !important;
     transition: none !important;
-  }
-}
-
-.animation-lab {
-  min-height: calc(100vh - 88px);
-  padding: 40px 24px;
-  background:
-    radial-gradient(circle at 15% 20%, rgba(230, 80, 65, 0.12), transparent 28%),
-    radial-gradient(circle at 84% 12%, rgba(238, 184, 70, 0.16), transparent 28%),
-    linear-gradient(135deg, #f7fbf9 0%, #eef6f3 45%, #fbfbf7 100%);
-  display: grid;
-  place-items: center;
-}
-
-.animation-stage {
-  width: min(1180px, 100%);
-}
-
-.sample-meta {
-  display: flex;
-  align-items: end;
-  justify-content: space-between;
-  gap: 18px;
-  margin-bottom: 16px;
-  color: #183a36;
-}
-
-.sample-meta span {
-  color: #0f766e;
-  font-size: 0.92rem;
-  font-weight: 800;
-  text-transform: uppercase;
-}
-
-.sample-meta strong {
-  font-family: var(--font-display);
-  font-size: clamp(1.6rem, 3vw, 3rem);
-  line-height: 1;
-}
-
-.whiteboard-panel {
-  position: relative;
-  aspect-ratio: 16 / 9;
-  overflow: hidden;
-  border: 1px solid rgba(24, 58, 54, 0.16);
-  border-radius: 8px;
-  background:
-    linear-gradient(rgba(15, 118, 110, 0.055) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(15, 118, 110, 0.055) 1px, transparent 1px),
-    #fffefa;
-  background-size: 42px 42px;
-  box-shadow: 0 30px 80px rgba(24, 58, 54, 0.18);
-}
-
-.whiteboard-panel::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(115deg, rgba(255, 255, 255, 0.65), transparent 42%);
-  pointer-events: none;
-}
-
-.marker-line {
-  position: absolute;
-  height: 3px;
-  background: #132f2c;
-  border-radius: 999px;
-  transform-origin: left center;
-  animation: drawLine 8s ease-in-out infinite;
-}
-
-.line-one {
-  left: 24%;
-  top: 30%;
-  width: 39%;
-  rotate: 18deg;
-}
-
-.line-two {
-  left: 36%;
-  top: 28%;
-  width: 33%;
-  rotate: 111deg;
-  animation-delay: 0.3s;
-}
-
-.line-three {
-  left: 29%;
-  top: 64%;
-  width: 43%;
-  rotate: -16deg;
-  animation-delay: 0.6s;
-}
-
-.lecturer {
-  position: absolute;
-  left: 7%;
-  bottom: 16%;
-  width: 12%;
-  height: 42%;
-  animation: lecturerEnter 8s ease-in-out infinite;
-}
-
-.lecturer-head {
-  position: absolute;
-  left: 35%;
-  top: 0;
-  width: 28%;
-  aspect-ratio: 1;
-  border-radius: 50%;
-  background: #183a36;
-}
-
-.lecturer-body {
-  position: absolute;
-  left: 23%;
-  top: 24%;
-  width: 52%;
-  height: 58%;
-  border-radius: 28px 28px 10px 10px;
-  background: linear-gradient(145deg, #0f766e, #14534e);
-  box-shadow: 12px 16px 0 rgba(15, 118, 110, 0.14);
-}
-
-.pointer {
-  position: absolute;
-  left: 66%;
-  top: 34%;
-  width: 90%;
-  height: 4px;
-  border-radius: 999px;
-  background: #d94d3d;
-  transform-origin: left center;
-  rotate: -18deg;
-  animation: pointSweep 8s ease-in-out infinite;
-}
-
-.system-map {
-  position: absolute;
-  inset: 13% 18% 24% 24%;
-}
-
-.pulse-core {
-  position: absolute;
-  left: 46%;
-  top: 38%;
-  width: 13%;
-  aspect-ratio: 1;
-  display: grid;
-  place-items: center;
-  border-radius: 50%;
-  color: white;
-  background: linear-gradient(145deg, #d94d3d, #f0b64a);
-  box-shadow: 0 18px 34px rgba(217, 77, 61, 0.28);
-  animation: pulseCore 8s ease-in-out infinite;
-}
-
-.pulse-core svg,
-.system-node svg {
-  width: 42%;
-  height: 42%;
-  stroke-width: 2.4;
-}
-
-.system-node {
-  position: absolute;
-  width: 15%;
-  min-width: 88px;
-  aspect-ratio: 1.15;
-  display: grid;
-  place-items: center;
-  gap: 4px;
-  padding: 10px;
-  border: 2px solid #183a36;
-  border-radius: 8px;
-  color: #183a36;
-  background: #ffffff;
-  box-shadow: 12px 12px 0 rgba(15, 118, 110, 0.12);
-  font-weight: 900;
-  animation: nodePop 8s ease-in-out infinite;
-}
-
-.hospital-node {
-  left: 2%;
-  top: 8%;
-}
-
-.people-node {
-  right: 11%;
-  top: 2%;
-  animation-delay: 0.2s;
-}
-
-.safety-node {
-  left: 14%;
-  bottom: 2%;
-  animation-delay: 0.4s;
-}
-
-.data-node {
-  right: 0;
-  bottom: 9%;
-  animation-delay: 0.6s;
-}
-
-.learning-node {
-  left: 44%;
-  top: -4%;
-  animation-delay: 0.8s;
-}
-
-.resource-stack {
-  position: absolute;
-  right: 6%;
-  bottom: 18%;
-  width: 15%;
-  display: grid;
-  gap: 8px;
-  perspective: 800px;
-}
-
-.resource-block {
-  display: block;
-  padding: 10px 12px;
-  border: 2px solid rgba(24, 58, 54, 0.82);
-  border-radius: 8px;
-  color: #183a36;
-  font-weight: 900;
-  background: #fffefa;
-  box-shadow: 8px 8px 0 rgba(24, 58, 54, 0.1);
-  transform: rotateX(12deg) rotateY(-18deg);
-  animation: stackRise 8s ease-in-out infinite;
-}
-
-.staff {
-  background: #dff5f0;
-}
-
-.time {
-  background: #fff1c8;
-  animation-delay: 0.15s;
-}
-
-.funds {
-  background: #fce2dc;
-  animation-delay: 0.3s;
-}
-
-.tools {
-  background: #e8f0ff;
-  animation-delay: 0.45s;
-}
-
-.caption-track {
-  position: absolute;
-  left: 8%;
-  right: 8%;
-  bottom: 6%;
-  min-height: 64px;
-  display: grid;
-  place-items: center;
-  border-top: 1px solid rgba(24, 58, 54, 0.16);
-}
-
-.caption-beat {
-  position: absolute;
-  margin: 0;
-  max-width: 840px;
-  color: #183a36;
-  font-size: clamp(1rem, 2.2vw, 1.45rem);
-  font-weight: 900;
-  text-align: center;
-  opacity: 0;
-  animation: captionCycle 12s linear infinite;
-}
-
-.beat-2 {
-  animation-delay: 4s;
-}
-
-.beat-3 {
-  animation-delay: 8s;
-}
-
-.scene-timeline {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 10px;
-  margin-top: 14px;
-}
-
-.scene-timeline span {
-  padding: 12px;
-  border: 1px solid rgba(24, 58, 54, 0.18);
-  border-radius: 8px;
-  color: #335c56;
-  background: rgba(255, 255, 255, 0.72);
-  font-weight: 800;
-  text-align: center;
-}
-
-.scene-timeline .active {
-  color: white;
-  background: #0f766e;
-}
-
-@keyframes drawLine {
-  0%,
-  10% {
-    scale: 0 1;
-    opacity: 0;
-  }
-  25%,
-  84% {
-    scale: 1 1;
-    opacity: 1;
-  }
-  100% {
-    scale: 1 1;
-    opacity: 0;
-  }
-}
-
-@keyframes lecturerEnter {
-  0%,
-  8% {
-    translate: -40px 0;
-    opacity: 0;
-  }
-  20%,
-  88% {
-    translate: 0 0;
-    opacity: 1;
-  }
-  100% {
-    translate: 0 0;
-    opacity: 0;
-  }
-}
-
-@keyframes pointSweep {
-  0%,
-  25% {
-    rotate: -10deg;
-  }
-  55% {
-    rotate: -28deg;
-  }
-  85% {
-    rotate: -18deg;
-  }
-}
-
-@keyframes pulseCore {
-  0%,
-  20% {
-    scale: 0.72;
-    opacity: 0;
-  }
-  34%,
-  82% {
-    scale: 1;
-    opacity: 1;
-  }
-  100% {
-    scale: 1.08;
-    opacity: 0;
-  }
-}
-
-@keyframes nodePop {
-  0%,
-  22% {
-    translate: 0 18px;
-    opacity: 0;
-  }
-  34%,
-  88% {
-    translate: 0 0;
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-  }
-}
-
-@keyframes stackRise {
-  0%,
-  40% {
-    translate: 26px 10px;
-    opacity: 0;
-  }
-  55%,
-  88% {
-    translate: 0 0;
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-  }
-}
-
-@keyframes captionCycle {
-  0%,
-  6% {
-    translate: 0 10px;
-    opacity: 0;
-  }
-  10%,
-  28% {
-    translate: 0 0;
-    opacity: 1;
-  }
-  34%,
-  100% {
-    translate: 0 -8px;
-    opacity: 0;
-  }
-}
-
-@media (max-width: 760px) {
-  .animation-lab {
-    padding: 24px 14px;
-  }
-
-  .sample-meta,
-  .scene-timeline {
-    grid-template-columns: 1fr;
-    display: grid;
-  }
-
-  .whiteboard-panel {
-    aspect-ratio: 9 / 13;
-  }
-
-  .lecturer {
-    left: 5%;
-    bottom: 18%;
-    width: 18%;
-  }
-
-  .system-map {
-    inset: 12% 7% 32% 18%;
-  }
-
-  .system-node {
-    min-width: 68px;
-    font-size: 0.72rem;
-  }
-
-  .learning-node {
-    left: 36%;
-  }
-
-  .resource-stack {
-    right: 7%;
-    bottom: 20%;
-    width: 24%;
-    font-size: 0.72rem;
   }
 }
 
@@ -1828,4 +1481,229 @@ h2 {
 .hero-media {
   position: relative;
   z-index: 1;
+}
+
+/* ============================================================
+   MOTION PASS (2026-07-16) — choreographed entrances, living
+   imagery, scroll-driven photo motion. Everything here animates
+   transform/opacity only, and the strengthened global
+   prefers-reduced-motion rule (animation-duration: 0.01ms)
+   collapses all of it to instant, visible end-states.
+   ============================================================ */
+
+:root {
+  --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* --- Hero entrance choreography (the one rehearsed moment) --- */
+
+/* Headline: each word rises into place. */
+.hero-word {
+  animation: word-rise 700ms var(--ease-out-expo) both;
+  animation-delay: calc(120ms + var(--i, 0) * 50ms);
+  display: inline-block;
+}
+
+@keyframes word-rise {
+  from {
+    opacity: 0;
+    transform: translateY(0.55em);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Eyebrow, paragraph, buttons: follow the headline in sequence. */
+.hero-enter {
+  animation: enter-rise 800ms var(--ease-out-quart) both;
+  animation-delay: calc(80ms + var(--enter, 0) * 180ms);
+}
+
+@keyframes enter-rise {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Photo card: settles in from the right, slightly late — the copy leads. */
+.hero-media-enter {
+  animation: media-settle 900ms var(--ease-out-quart) 250ms both;
+}
+
+@keyframes media-settle {
+  from {
+    opacity: 0;
+    transform: translateX(28px) scale(0.985);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+
+/* --- Living imagery --- */
+
+/* Ken Burns on the active hero slide: a slow, confident push-in.
+   The 5s crossfade cadence hands off to the next slide before the
+   16s zoom ever gets extreme. */
+.hero-media .hero-slide.is-active {
+  animation: ken-burns 16s linear both;
+}
+
+@keyframes ken-burns {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.1);
+  }
+}
+
+/* Aurora glow: one blurred brand-teal orb drifting slowly behind the
+   hero copy. Bounded, blurred once, transform-only. */
+.hero::after {
+  animation: aurora-drift 26s ease-in-out infinite alternate;
+  background: radial-gradient(closest-side, rgba(15, 127, 138, 0.16), transparent);
+  border-radius: 50%;
+  content: "";
+  filter: blur(40px);
+  height: 480px;
+  left: -120px;
+  pointer-events: none;
+  position: absolute;
+  top: -140px;
+  width: 560px;
+}
+
+@keyframes aurora-drift {
+  from {
+    transform: translate(0, 0) scale(1);
+  }
+  to {
+    transform: translate(16vw, 14vh) scale(1.25);
+  }
+}
+
+/* --- Scroll-driven photo motion (progressive enhancement) --- */
+
+/* Photo bands and framed photos breathe as they cross the viewport:
+   a gentle counter-zoom driven by scroll position, no JS. Browsers
+   without animation-timeline simply show the static image. */
+@supports (animation-timeline: view()) {
+  .photo-band img {
+    animation: band-parallax linear both;
+    animation-timeline: view();
+    animation-range: entry 0% exit 100%;
+  }
+
+  @keyframes band-parallax {
+    from {
+      transform: scale(1.12) translateY(-2.5%);
+    }
+    to {
+      transform: scale(1.12) translateY(2.5%);
+    }
+  }
+
+  .framed-photo,
+  .feature img {
+    animation: photo-arrive linear both;
+    animation-timeline: view();
+    animation-range: entry 0% entry 80%;
+  }
+
+  @keyframes photo-arrive {
+    from {
+      opacity: 0.35;
+      transform: scale(1.04);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+}
+
+/* --- List rhythm: stagger cards inside a single revealed group ---
+   Animation (not transition) with `backwards` fill: once the entrance
+   finishes, the element returns to its natural styles, so the existing
+   hover lifts and their timing are untouched. Before the parent gains
+   .reveal-visible, the parent's own opacity: 0 hides the children. */
+
+.reveal-visible.impact-strip .impact-card,
+.reveal-visible.card-grid > * {
+  animation: enter-rise 600ms var(--ease-out-quart) backwards;
+}
+
+.reveal-visible.impact-strip .impact-card:nth-child(2),
+.reveal-visible.card-grid > *:nth-child(2) { animation-delay: 70ms; }
+.reveal-visible.impact-strip .impact-card:nth-child(3),
+.reveal-visible.card-grid > *:nth-child(3) { animation-delay: 140ms; }
+.reveal-visible.impact-strip .impact-card:nth-child(4),
+.reveal-visible.card-grid > *:nth-child(4) { animation-delay: 210ms; }
+.reveal-visible.impact-strip .impact-card:nth-child(5),
+.reveal-visible.card-grid > *:nth-child(5) { animation-delay: 280ms; }
+.reveal-visible.impact-strip .impact-card:nth-child(6),
+.reveal-visible.card-grid > *:nth-child(6) { animation-delay: 350ms; }
+.reveal-visible.impact-strip .impact-card:nth-child(n + 7),
+.reveal-visible.card-grid > *:nth-child(n + 7) { animation-delay: 400ms; }
+
+/* --- Lightbox entrance --- */
+
+.lightbox {
+  animation: lightbox-fade 260ms var(--ease-out-quart) both;
+}
+
+.lightbox img,
+.lightbox-caption {
+  animation: lightbox-zoom 320ms var(--ease-out-quart) both;
+}
+
+@keyframes lightbox-fade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes lightbox-zoom {
+  from {
+    opacity: 0;
+    transform: scale(0.94);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* --- Micro-feedback --- */
+
+.button:active {
+  transform: translateY(0) scale(0.97);
+}
+
+.button,
+.nav a,
+.nav-toggle {
+  transition: background 180ms ease, color 180ms ease, transform 160ms var(--ease-out-quart), box-shadow 160ms var(--ease-out-quart);
+}
+
+/* Smoother easing for the existing reveal + card-lift transitions. */
+.reveal {
+  transition: opacity 700ms var(--ease-out-quart), transform 700ms var(--ease-out-quart);
+}
+
+.service-card,
+.article-card,
+.donation-card,
+.profile-card,
+.outreach-card {
+  transition: box-shadow 240ms var(--ease-out-quart), transform 240ms var(--ease-out-quart);
 }

@@ -1,1 +1,22 @@
-/*    /index.html   200
+# Known application routes render client-side via React Router and should
+# return a normal 200 so search engines index them.
+/                       /index.html   200
+/about                  /index.html   200
+/what-we-do             /index.html   200
+/impact                 /index.html   200
+/stories                /index.html   200
+/health-education       /index.html   200
+/partner                /index.html   200
+/volunteer              /index.html   200
+/donate                 /index.html   200
+/gallery                /index.html   200
+/contact                /index.html   200
+/privacy                /index.html   200
+/medical-disclaimer     /index.html   200
+/photo-consent          /index.html   200
+/thank-you              /index.html   200
+
+# Anything else still renders the SPA shell (App.tsx shows NotFoundPage), but
+# Netlify reports it as a real 404 instead of a silent 200 — fixes the
+# soft-404 problem the site audit flagged.
+/*                      /index.html   404

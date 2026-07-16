@@ -7,7 +7,7 @@ import { heroImages } from "../data/siteConfig";
 import { trustees } from "../data/trusteesData";
 import { optimizedPhoto } from "../lib/images";
 
-const aboutBand = optimizedPhoto("/images/FB_IMG_1783012553411.jpg");
+const aboutBand = optimizedPhoto("/images/outreach/04-sapele-outreach-team-website.webp");
 
 const values = ["Compassion", "Access", "Prevention", "Integrity", "Community Partnership", "Service"];
 const approach = ["Identify community need", "Mobilize partners and volunteers", "Conduct outreach and screening", "Provide treatment, counselling, and referrals", "Follow up and document impact"];
@@ -32,8 +32,8 @@ export function AboutPage() {
           srcSet={aboutBand.srcSet}
           sizes="100vw"
           width={1600}
-          height={600}
-          alt="Community members gathered at a Napoleon Healthcare Foundation medical outreach"
+          height={900}
+          alt="NHF outreach team and partners at the Sapele Medical Outreach"
           loading="lazy"
           decoding="async"
         />

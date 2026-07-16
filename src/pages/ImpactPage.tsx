@@ -11,7 +11,7 @@ const impactBand = optimizedPhoto("/images/FB_IMG_1783012581401.jpg");
 export function ImpactPage() {
   return (
     <>
-      <Hero title="Our Impact" text="A dashboard-style record of outreach activity, editable metrics, and reusable community story cards." image="/images/FB_IMG_1783012553411.jpg" />
+      <Hero title="Our Impact" text="A record of NHF outreach activity — headline metrics and individual outreach reports, updated as each figure is verified." image="/images/FB_IMG_1783012553411.jpg" />
       <section className="impact-strip wrap">
         {dashboardStats.map((stat) => <ImpactCard key={stat.label} {...stat} />)}
       </section>
@@ -29,7 +29,7 @@ export function ImpactPage() {
         <figcaption>Every statistic above is a person served — medications, screening, and care given free of charge.</figcaption>
       </figure>
       <section className="section">
-        <SectionHeader eyebrow="Outreach records" title="Reusable outreach cards" />
+        <SectionHeader eyebrow="Outreach records" title="Outreach by outreach" />
         <div className="outreach-grid">{outreaches.map((outreach) => <OutreachCard key={outreach.title} outreach={outreach} />)}</div>
       </section>
     </>

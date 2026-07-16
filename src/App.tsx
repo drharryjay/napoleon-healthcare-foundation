@@ -1,5 +1,5 @@
 import React from "react";
-import { Navigate, Outlet, Route, Routes } from "react-router-dom";
+import { Outlet, Route, Routes } from "react-router-dom";
 import { Navbar } from "./components/Navbar";
 import { Footer } from "./components/Footer";
 import { useDocumentMeta } from "./hooks/useDocumentMeta";
@@ -19,7 +19,6 @@ const WhatWeDoPage = lazyPage(() => import("./pages/WhatWeDoPage"), "WhatWeDoPag
 const ImpactPage = lazyPage(() => import("./pages/ImpactPage"), "ImpactPage");
 const StoriesPage = lazyPage(() => import("./pages/StoriesPage"), "StoriesPage");
 const HealthEducationPage = lazyPage(() => import("./pages/HealthEducationPage"), "HealthEducationPage");
-const HealthManagementAnimationPage = lazyPage(() => import("./pages/HealthManagementAnimationPage"), "HealthManagementAnimationPage");
 const PartnerPage = lazyPage(() => import("./pages/PartnerPage"), "PartnerPage");
 const VolunteerPage = lazyPage(() => import("./pages/VolunteerPage"), "VolunteerPage");
 const DonatePage = lazyPage(() => import("./pages/DonatePage"), "DonatePage");
@@ -29,6 +28,7 @@ const LegalPage = React.lazy(() =>
   import("./pages/LegalPage").then((m) => ({ default: m.LegalPage }))
 );
 const ThankYouPage = lazyPage(() => import("./pages/ThankYouPage"), "ThankYouPage");
+const NotFoundPage = lazyPage(() => import("./pages/NotFoundPage"), "NotFoundPage");
 
 function Layout() {
   useDocumentMeta();
@@ -57,7 +57,6 @@ export function App() {
         <Route path="/impact" element={<ImpactPage />} />
         <Route path="/stories" element={<StoriesPage />} />
         <Route path="/health-education" element={<HealthEducationPage />} />
-        <Route path="/health-management-animation" element={<HealthManagementAnimationPage />} />
         <Route path="/partner" element={<PartnerPage />} />
         <Route path="/volunteer" element={<VolunteerPage />} />
         <Route path="/donate" element={<DonatePage />} />
@@ -67,7 +66,7 @@ export function App() {
         <Route path="/medical-disclaimer" element={<LegalPage type="medical" />} />
         <Route path="/photo-consent" element={<LegalPage type="photo" />} />
         <Route path="/thank-you" element={<ThankYouPage />} />
-        <Route path="*" element={<Navigate to="/" replace />} />
+        <Route path="*" element={<NotFoundPage />} />
       </Route>
     </Routes>
   );

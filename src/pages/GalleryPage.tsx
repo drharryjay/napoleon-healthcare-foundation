@@ -6,7 +6,7 @@ import { ConsentNotice } from "../components/ConsentNotice";
 export function GalleryPage() {
   return (
     <>
-      <Hero title="Gallery" text="Photo categories are ready for consultation, eye care, dental care, pharmacy, screening, health education, partners, teams, and volunteers." image="/images/FB_IMG_1783012611366.jpg" />
+      <Hero title="Gallery" text="Photos from NHF outreach programmes — consultations, eye care, dental care, pharmacy, screening, health education, and volunteer teams in the field. Click any photo to view it larger." image="/images/FB_IMG_1783012611366.jpg" />
       <section className="section">
         <GalleryGrid />
       </section>

@@ -1,6 +1,6 @@
 import { siteConfig } from "../data/siteConfig";
 
-export const pageMeta: Record<string, { title: string; description: string }> = {
+export const pageMeta: Record<string, { title: string; description: string; noindex?: boolean }> = {
   "/": {
     title: "Napoleon Healthcare Foundation | Bringing Healthcare Closer to Communities",
     description: siteConfig.metaDescription,
@@ -15,11 +15,11 @@ export const pageMeta: Record<string, { title: string; description: string }> = 
   },
   "/impact": {
     title: "Our Impact | Napoleon Healthcare Foundation",
-    description: "Explore editable impact metrics and outreach records for Napoleon Healthcare Foundation.",
+    description: "Impact metrics and outreach records for Napoleon Healthcare Foundation's community health programmes.",
   },
   "/stories": {
     title: "Outreach Stories | Napoleon Healthcare Foundation",
-    description: "Community outreach story templates documenting need, response, services, partners, lessons, and next steps.",
+    description: "Verified community outreach stories from Napoleon Healthcare Foundation, documenting need, response, services, partners, lessons, and next steps.",
   },
   "/health-education": {
     title: "Health Education Hub | Napoleon Healthcare Foundation",
@@ -39,7 +39,7 @@ export const pageMeta: Record<string, { title: string; description: string }> = 
   },
   "/gallery": {
     title: "Gallery | Napoleon Healthcare Foundation",
-    description: "NHF photo gallery placeholders for consultations, eye care, dental care, pharmacy, laboratory screening, education, partners, and volunteers.",
+    description: "Photos from NHF community outreach programmes: consultations, eye care, dental care, pharmacy, laboratory screening, health education, and volunteer teams.",
   },
   "/contact": {
     title: "Contact | Napoleon Healthcare Foundation",
@@ -57,6 +57,15 @@ export const pageMeta: Record<string, { title: string; description: string }> = 
     title: "Photo Consent Statement | Napoleon Healthcare Foundation",
     description: "NHF photo consent statement for responsible publication of patient and community images.",
   },
+  "/thank-you": {
+    title: "Thank You | Napoleon Healthcare Foundation",
+    description: "Your message has been received by Napoleon Healthcare Foundation.",
+    noindex: true,
+  },
 };
 
-export const defaultPageMeta = pageMeta["/"];
+export const notFoundMeta = {
+  title: "Page Not Found | Napoleon Healthcare Foundation",
+  description: "The page you're looking for doesn't exist or may have moved.",
+  noindex: true,
+};

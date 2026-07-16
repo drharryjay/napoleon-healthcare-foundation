@@ -8,7 +8,7 @@ import { HealthNewsLinks } from "../components/HealthNewsLinks";
 import { articles, categories } from "../data/articlesData";
 import { optimizedPhoto } from "../lib/images";
 
-const educationBand = optimizedPhoto("/images/FB_IMG_1783012537202.jpg");
+const educationBand = optimizedPhoto("/images/outreach/09-ovu-students-supplies-website.webp");
 
 export function HealthEducationPage() {
   return (
@@ -19,7 +19,7 @@ export function HealthEducationPage() {
         <div className="tag-cloud">{categories.map((category) => <span key={category}>{category}</span>)}</div>
       </section>
       <section className="section">
-        <SectionHeader eyebrow="Articles" title="Ready-to-expand article cards" />
+        <SectionHeader eyebrow="Articles" title="Health education articles" />
         <div className="card-grid">{articles.map((article) => <ArticleCard key={article.slug} article={article} />)}</div>
       </section>
       <figure className="photo-band">
@@ -27,9 +27,9 @@ export function HealthEducationPage() {
           src={educationBand.src}
           srcSet={educationBand.srcSet}
           sizes="100vw"
-          width={1600}
-          height={600}
-          alt="NHF vision screening and health education station during a community outreach"
+          width={1448}
+          height={1086}
+          alt="Oral hygiene kits and health supplies distributed to pupils during the Ovu School Health Programme"
           loading="lazy"
           decoding="async"
         />

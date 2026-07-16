@@ -33,11 +33,20 @@ export const services = [
   },
 ];
 
-export const homeServiceTitles = [
-  "General Medical Consultations",
-  "Eye Care & Visual Screening",
-  "Dental Care",
-  "Laboratory Screening",
-  "Maternal & Child Health",
-  "Health Education & Prevention",
+// Home page shows a shorter, marketing-friendly title for some services than
+// What We Do does. Each entry names the underlying `services` title its
+// summary should come from, so the two lists can never drift out of sync by
+// array position (see HomePage.tsx history for the bug this replaced).
+const homeServiceDisplay: { title: string; sourceTitle: string }[] = [
+  { title: "General Medical Consultations", sourceTitle: "General Medical Consultations" },
+  { title: "Eye Care & Visual Screening", sourceTitle: "Eye Care" },
+  { title: "Dental Care", sourceTitle: "Dental Care" },
+  { title: "Laboratory Screening", sourceTitle: "Laboratory Screening" },
+  { title: "Maternal & Child Health", sourceTitle: "Maternal and Child Health" },
+  { title: "Health Education & Prevention", sourceTitle: "Health Education" },
 ];
+
+export const homeServices = homeServiceDisplay.map(({ title, sourceTitle }) => ({
+  title,
+  summary: services.find((service) => service.title === sourceTitle)?.summary ?? "",
+}));

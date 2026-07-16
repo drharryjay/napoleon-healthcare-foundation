@@ -4,7 +4,7 @@ import { ServiceCard } from "../components/ServiceCard";
 import { services } from "../data/servicesData";
 import { optimizedPhoto } from "../lib/images";
 
-const serviceBand = optimizedPhoto("/images/FB_IMG_1783012604139.jpg");
+const serviceBand = optimizedPhoto("/images/outreach/05-sapele-clinical-screening-website.webp");
 
 export function WhatWeDoPage() {
   return (
@@ -20,9 +20,9 @@ export function WhatWeDoPage() {
           src={serviceBand.src}
           srcSet={serviceBand.srcSet}
           sizes="100vw"
-          width={1600}
-          height={600}
-          alt="NHF staff conducting laboratory screening during a community outreach"
+          width={1448}
+          height={1086}
+          alt="Clinical and laboratory screening during the Sapele Medical Outreach"
           loading="lazy"
           decoding="async"
         />
