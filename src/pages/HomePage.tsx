@@ -12,7 +12,12 @@ import { Reveal } from "../components/Reveal";
 import { PhotoSlideshow } from "../components/PhotoSlideshow";
 import { impactStats } from "../data/impactData";
 import { homeServices } from "../data/servicesData";
-import { optimizedPhoto } from "../lib/images";
+
+const aboutPhotos = [
+  { src: "/images/FB_IMG_1783012564264.jpg", alt: "NHF clinician consulting a patient during a community medical outreach" },
+  { src: "/images/outreach/04-sapele-outreach-team-website.webp", alt: "NHF outreach team and partners at the Ejemuojavwe women's health outreach" },
+  { src: "/images/outreach/02-ovu-school-health-group-website.webp", alt: "Pupils and NHF volunteers gathered during the Ovu School Health Programme" },
+];
 
 const ovuFeaturePhotos = [
   { src: "/images/outreach/01-ovu-school-health-presentation-website.webp", alt: "NHF team presenting to pupils and staff during the Ovu School Health Programme" },
@@ -22,7 +27,6 @@ const ovuFeaturePhotos = [
   { src: "/images/outreach/ovu-e04.webp", alt: "Scene from the Ovu School Health Programme, May 2025" },
 ];
 
-const aboutImage = optimizedPhoto("/images/FB_IMG_1783012564264.jpg");
 
 export function HomePage() {
   return (
@@ -57,17 +61,9 @@ export function HomePage() {
             />
             <LinkButton href="/about">Learn More About NHF</LinkButton>
           </div>
-          <img
-            className="framed-photo"
-            src={aboutImage.src}
-            srcSet={aboutImage.srcSet}
-            sizes={aboutImage.sizes}
-            width={1200}
-            height={800}
-            alt="NHF clinician consulting a patient during a community medical outreach"
-            loading="lazy"
-            decoding="async"
-          />
+          <div className="framed-photo slideshow-host">
+            <PhotoSlideshow photos={aboutPhotos} sizes="(max-width: 840px) 100vw, 50vw" interval={5500} />
+          </div>
         </Reveal>
       </section>
       <GuidingPrinciples />
@@ -76,7 +72,7 @@ export function HomePage() {
           <div className="feature-media">
             <PhotoSlideshow photos={ovuFeaturePhotos} sizes="(max-width: 840px) 100vw, 50vw" />
           </div>
-          <div>
+          <div className="feature-copy">
             <span className="eyebrow">Featured outreach</span>
             <h2>Ovu School Health Programme</h2>
             <p>420 children reached with oral health education, medical consultations, and hygiene kits at Okuodi Primary School, Ovu — one of several recent NHF community outreaches.</p>

@@ -166,6 +166,9 @@ textarea {
   gap: clamp(28px, 5vw, 72px);
   grid-template-columns: minmax(0, 1fr) minmax(320px, 0.86fr);
   min-height: calc(100vh - 78px);
+  /* Clip the drifting aurora glow and entrance transforms — without this the
+     decorative layers extend the page's scrollable width on mobile. */
+  overflow: hidden;
   padding: clamp(48px, 8vw, 96px) clamp(18px, 4vw, 64px);
   position: relative;
   /* Branded "aurora" backdrop: soft teal + coral glows over a light gradient,
@@ -670,7 +673,9 @@ h3 {
   min-height: 360px;
 }
 
-.feature div {
+/* Scoped to the text column only — a bare `.feature div` used to catch the
+   slideshow wrapper too, center-aligning and collapsing it to a thin strip. */
+.feature .feature-copy {
   align-self: center;
   padding: clamp(20px, 4vw, 56px);
 }
@@ -1715,11 +1720,16 @@ h2 {
    vertical services with action photos, story accordion.
    ============================================================ */
 
-/* --- Slideshow: fills a positioned parent that defines the height. --- */
+/* --- Slideshow: fills a positioned parent that defines the height. ---
+   height/width are set explicitly (not just inset) so a stray align-self or
+   justify-self from an ancestor's alignment rules can never collapse it. */
 .slideshow {
+  align-self: stretch;
+  height: 100%;
   inset: 0;
   overflow: hidden;
   position: absolute;
+  width: 100%;
 }
 
 .slideshow img {
@@ -1737,6 +1747,15 @@ h2 {
   animation: ken-burns 18s linear both;
   opacity: 1;
   z-index: 1;
+}
+
+/* A framed photo (or any fixed-size container) hosting a slideshow: the host
+   defines the box, the absolute slideshow fills it. */
+.slideshow-host {
+  aspect-ratio: 4 / 3;
+  height: auto;
+  overflow: hidden;
+  position: relative;
 }
 
 /* Featured-outreach media panel (homepage Ovu slideshow). */

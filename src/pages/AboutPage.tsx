@@ -46,13 +46,12 @@ export function AboutPage() {
       </section>
       <RegistrationNotice />
       <section className="section soft">
-        <SectionHeader eyebrow="Leadership" title="Board of trustees" text="Bios, portraits, and roles for each trustee are being finalized and will be added here." />
+        <SectionHeader eyebrow="Leadership" title="Board of Trustees" />
         <div className="card-grid three">
           {trustees.map((trustee) => (
             <article className="profile-card" key={trustee.name}>
-              <div />
               <h3>{trustee.name}</h3>
-              <p>Incorporated trustee &middot; {trustee.occupation}. Full biography and portrait to be added.</p>
+              <p>Incorporated trustee &middot; {trustee.occupation}</p>
             </article>
           ))}
         </div>

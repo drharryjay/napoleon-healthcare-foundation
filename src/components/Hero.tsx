@@ -65,16 +65,14 @@ export function Hero({
       <div className="hero-copy">
         {eyebrow && <span className="eyebrow hero-enter" style={{ "--enter": 0 } as React.CSSProperties}>{eyebrow}</span>}
         <h1>
-          {/* Word-by-word rise on load. Screen readers get the unsplit title;
-              the animated words are hidden from the accessibility tree. */}
-          <span className="sr-only">{title}</span>
-          <span aria-hidden="true">
-            {title.split(" ").map((word, index) => (
-              <span key={`${word}-${index}`} className="hero-word" style={{ "--i": index } as React.CSSProperties}>
-                {word}{" "}
-              </span>
-            ))}
-          </span>
+          {/* Word-by-word rise on load. The space lives OUTSIDE each
+              inline-block span — trailing whitespace inside an inline-block
+              is trimmed by the browser, which ran the words together. */}
+          {title.split(" ").map((word, index) => (
+            <React.Fragment key={`${word}-${index}`}>
+              <span className="hero-word" style={{ "--i": index } as React.CSSProperties}>{word}</span>{" "}
+            </React.Fragment>
+          ))}
         </h1>
         <p className="hero-enter" style={{ "--enter": 1 } as React.CSSProperties}>{text}</p>
         {children && <div className="button-row hero-enter" style={{ "--enter": 2 } as React.CSSProperties}>{children}</div>}
