@@ -16,10 +16,10 @@ export function ImpactPage() {
       <figure className="photo-band">
         <PhotoSlideshow
           photos={[
-            { src: "/images/outreach/08-sapele-medication-support-website.webp", alt: "Pharmacy and medication support during the Sapele Medical Outreach" },
-            { src: "/images/outreach/sapele-e04.webp", alt: "Scene from the Sapele Medical Outreach, June 2026" },
-            { src: "/images/outreach/13-sapele-registration-triage-website.webp", alt: "Patient registration and triage during the Sapele Medical Outreach" },
-            { src: "/images/outreach/sapele-e06.webp", alt: "Scene from the Sapele Medical Outreach, June 2026" },
+            { src: "/images/outreach/08-sapele-medication-support-website.webp", alt: "Pharmacy and medication support during the Ejemuojavwe women's health outreach" },
+            { src: "/images/outreach/sapele-e04.webp", alt: "Scene from the Ejemuojavwe women's health outreach, 19 June 2026" },
+            { src: "/images/outreach/13-sapele-registration-triage-website.webp", alt: "Patient registration and triage during the Ejemuojavwe women's health outreach" },
+            { src: "/images/outreach/sapele-e06.webp", alt: "Scene from the Ejemuojavwe women's health outreach, 19 June 2026" },
           ]}
           sizes="100vw"
         />

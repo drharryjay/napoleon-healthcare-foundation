@@ -68,7 +68,7 @@ export function StoriesPage() {
           photos={[
             { src: "/images/FB_IMG_1783012593613.jpg", alt: "NHF team member with a foundation banner at a community outreach" },
             { src: "/images/outreach/02-ovu-school-health-group-website.webp", alt: "Pupils and NHF volunteers gathered during the Ovu School Health Programme" },
-            { src: "/images/outreach/04-sapele-outreach-team-website.webp", alt: "NHF outreach team and partners at the Sapele Medical Outreach" },
+            { src: "/images/outreach/04-sapele-outreach-team-website.webp", alt: "NHF outreach team and partners at the Ejemuojavwe women's health outreach" },
           ]}
           sizes="100vw"
         />
