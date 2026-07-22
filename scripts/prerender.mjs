@@ -14,10 +14,14 @@
 // opens each sitemap URL in a headless browser, lets the app render fully
 // (correct <title>, meta description, canonical link, Open Graph tags and the
 // real page body), then saves the finished HTML as that page's own file:
-//   /about  ->  dist/about/index.html
-// Netlify serves those static files directly, so every crawler — JS or not —
-// gets correct, page-specific HTML. The saved pages still boot into the normal
-// live React app for real visitors (the script tags are preserved).
+//   /about  ->  dist/about.html
+// Flat .html files (rather than about/index.html) matter: Netlify then serves
+// /about directly at 200, whereas a directory would 301-redirect /about to
+// /about/. Flat files keep the served URL identical to the canonical link and
+// the sitemap entry (both no trailing slash), so crawlers see one clean URL.
+// Every crawler — JS or not — gets correct, page-specific HTML, and the saved
+// pages still boot into the normal live React app for real visitors (the
+// script tags are preserved).
 //
 // SAFETY
 // If the headless browser cannot start (e.g. a hosting-environment hiccup),
@@ -40,10 +44,11 @@ async function routesFromSitemap() {
   return locs.map((loc) => new URL(loc).pathname);
 }
 
-/** Map a route path to the file it should be written as inside dist/. */
+/** Map a route path to the flat .html file it should be written as inside dist/. */
 function outputFileFor(route) {
   if (route === "/") return path.join(distDir, "index.html");
-  return path.join(distDir, route.replace(/^\/+/, ""), "index.html");
+  const slug = route.replace(/^\/+/, "").replace(/\/+$/, "");
+  return path.join(distDir, `${slug}.html`);
 }
 
 async function run() {
