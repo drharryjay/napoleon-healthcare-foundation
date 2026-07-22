@@ -41,27 +41,48 @@
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
-        "@type": "NGO",
-        "name": "Napoleon Healthcare Foundation",
-        "alternateName": "NHF",
-        "url": "https://napoleonhealthcarefoundation.org",
-        "logo": "https://napoleonhealthcarefoundation.org/logo/nhf-logo-512.png",
-        "description": "Nigerian community-health NGO providing free medical outreach, preventive health education, screening, eye care, dental care, and maternal-child health support for underserved communities.",
-        "foundingDate": "2016-03-04",
-        "identifier": "CAC/IT/NO 85319",
-        "address": {
-          "@type": "PostalAddress",
-          "postOfficeBoxNumber": "PMB 07",
-          "addressLocality": "Oghara",
-          "addressRegion": "Delta State",
-          "addressCountry": "NG"
-        },
-        "telephone": "+2347032482265",
-        "email": "info@napoleonhealthcarefoundation.org",
-        "areaServed": "South-South region, Nigeria",
-        "sameAs": [
-          "https://web.facebook.com/Napoleonhealthcare",
-          "https://x.com/Napoleon_NF"
+        "@graph": [
+          {
+            "@type": "NGO",
+            "@id": "https://napoleonhealthcarefoundation.org/#organization",
+            "name": "Napoleon Healthcare Foundation",
+            "alternateName": "NHF",
+            "url": "https://napoleonhealthcarefoundation.org",
+            "logo": "https://napoleonhealthcarefoundation.org/logo/nhf-logo-512.png",
+            "description": "Nigerian community-health NGO providing free medical outreach, preventive health education, screening, eye care, dental care, and maternal-child health support for underserved communities.",
+            "foundingDate": "2016-03-04",
+            "identifier": "CAC/IT/NO 85319",
+            "address": {
+              "@type": "PostalAddress",
+              "postOfficeBoxNumber": "PMB 07",
+              "addressLocality": "Oghara",
+              "addressRegion": "Delta State",
+              "addressCountry": "NG"
+            },
+            "telephone": "+2347032482265",
+            "email": "info@napoleonhealthcarefoundation.org",
+            "areaServed": "South-South region, Nigeria",
+            "contactPoint": {
+              "@type": "ContactPoint",
+              "telephone": "+2347032482265",
+              "email": "info@napoleonhealthcarefoundation.org",
+              "contactType": "customer service",
+              "areaServed": "NG",
+              "availableLanguage": "English"
+            },
+            "sameAs": [
+              "https://web.facebook.com/Napoleonhealthcare",
+              "https://x.com/Napoleon_NF"
+            ]
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://napoleonhealthcarefoundation.org/#website",
+            "url": "https://napoleonhealthcarefoundation.org",
+            "name": "Napoleon Healthcare Foundation",
+            "inLanguage": "en",
+            "publisher": { "@id": "https://napoleonhealthcarefoundation.org/#organization" }
+          }
         ]
       }
     </script>

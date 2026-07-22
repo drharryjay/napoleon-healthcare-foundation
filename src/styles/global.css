@@ -601,6 +601,35 @@ h3 {
   margin: 0 0 4px;
 }
 
+.faq-list {
+  display: grid;
+  gap: 12px;
+  max-width: 820px;
+}
+
+.faq-item {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 16px 20px;
+}
+
+.faq-item summary {
+  color: var(--navy);
+  cursor: pointer;
+  font-weight: 600;
+  list-style-position: inside;
+}
+
+.faq-item summary:hover {
+  color: var(--deep-teal);
+}
+
+.faq-item p {
+  color: var(--muted);
+  margin: 12px 0 0;
+}
+
 .legal-section {
   margin-top: 8px;
 }

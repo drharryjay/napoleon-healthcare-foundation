@@ -1,17 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!--
+  lastmod reflects when each page's content last meaningfully changed.
+  All pages were revised on 2026-07-22 (prerendering + content pass). When you
+  edit a page's content, bump its <lastmod> to that date so search engines know
+  it is fresh; leave the others unchanged. The prerender build reads <loc>
+  values from this file, so keep the URL list accurate.
+-->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://napoleonhealthcarefoundation.org/</loc></url>
-  <url><loc>https://napoleonhealthcarefoundation.org/about</loc></url>
-  <url><loc>https://napoleonhealthcarefoundation.org/what-we-do</loc></url>
-  <url><loc>https://napoleonhealthcarefoundation.org/impact</loc></url>
-  <url><loc>https://napoleonhealthcarefoundation.org/stories</loc></url>
-  <url><loc>https://napoleonhealthcarefoundation.org/health-education</loc></url>
-  <url><loc>https://napoleonhealthcarefoundation.org/partner</loc></url>
-  <url><loc>https://napoleonhealthcarefoundation.org/volunteer</loc></url>
-  <url><loc>https://napoleonhealthcarefoundation.org/donate</loc></url>
-  <url><loc>https://napoleonhealthcarefoundation.org/gallery</loc></url>
-  <url><loc>https://napoleonhealthcarefoundation.org/contact</loc></url>
-  <url><loc>https://napoleonhealthcarefoundation.org/privacy</loc></url>
-  <url><loc>https://napoleonhealthcarefoundation.org/medical-disclaimer</loc></url>
-  <url><loc>https://napoleonhealthcarefoundation.org/photo-consent</loc></url>
+  <url><loc>https://napoleonhealthcarefoundation.org/</loc><lastmod>2026-07-22</lastmod></url>
+  <url><loc>https://napoleonhealthcarefoundation.org/about</loc><lastmod>2026-07-22</lastmod></url>
+  <url><loc>https://napoleonhealthcarefoundation.org/what-we-do</loc><lastmod>2026-07-22</lastmod></url>
+  <url><loc>https://napoleonhealthcarefoundation.org/impact</loc><lastmod>2026-07-22</lastmod></url>
+  <url><loc>https://napoleonhealthcarefoundation.org/stories</loc><lastmod>2026-07-22</lastmod></url>
+  <url><loc>https://napoleonhealthcarefoundation.org/health-education</loc><lastmod>2026-07-22</lastmod></url>
+  <url><loc>https://napoleonhealthcarefoundation.org/partner</loc><lastmod>2026-07-22</lastmod></url>
+  <url><loc>https://napoleonhealthcarefoundation.org/volunteer</loc><lastmod>2026-07-22</lastmod></url>
+  <url><loc>https://napoleonhealthcarefoundation.org/donate</loc><lastmod>2026-07-22</lastmod></url>
+  <url><loc>https://napoleonhealthcarefoundation.org/gallery</loc><lastmod>2026-07-22</lastmod></url>
+  <url><loc>https://napoleonhealthcarefoundation.org/contact</loc><lastmod>2026-07-22</lastmod></url>
+  <url><loc>https://napoleonhealthcarefoundation.org/privacy</loc><lastmod>2026-07-22</lastmod></url>
+  <url><loc>https://napoleonhealthcarefoundation.org/medical-disclaimer</loc><lastmod>2026-07-22</lastmod></url>
+  <url><loc>https://napoleonhealthcarefoundation.org/photo-consent</loc><lastmod>2026-07-22</lastmod></url>
 </urlset>

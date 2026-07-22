@@ -2,6 +2,7 @@ import React from "react";
 import { Hero } from "../components/Hero";
 import { SectionHeader } from "../components/SectionHeader";
 import { ContactForm } from "../components/ContactForm";
+import { FaqSection } from "../components/FaqSection";
 import { LinkButton } from "../components/LinkButton";
 import { Mail, MapPin, Phone } from "lucide-react";
 import { siteConfig } from "../data/siteConfig";
@@ -23,6 +24,7 @@ export function ContactPage() {
         </div>
         <ContactForm />
       </section>
+      <FaqSection />
     </>
   );
 }
