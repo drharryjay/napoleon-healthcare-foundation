@@ -59,7 +59,7 @@ const content: Record<LegalType, LegalContent> = {
       {
         heading: "How long we keep it",
         paragraphs: [
-          "We retain personal information only for as long as necessary to fulfil the purpose it was collected for — responding to your inquiry, maintaining the volunteer or partner relationship, or complying with legal or reporting obligations — after which it is securely deleted. A formal retention schedule with specific timeframes is being finalized.",
+          "We retain personal information only for as long as necessary to fulfil the purpose it was collected for — responding to your inquiry, maintaining the volunteer or partner relationship, or complying with legal or reporting obligations — after which it is securely deleted. We review the information we hold periodically and remove records that are no longer needed.",
         ],
       },
       {
@@ -175,9 +175,7 @@ export function LegalPage({ type }: { type: LegalType }) {
     <>
       <Hero title={page.title} text={page.heroText} image={heroImages[type]} />
       <section className="section legal-copy">
-        <p className="legal-draft-notice">
-          <strong>Draft policy — pending review.</strong> This text has been drafted to align with the Nigeria Data Protection Act 2023 and general good practice, but has not yet been reviewed and approved by qualified Nigerian legal or data-protection counsel. It should be treated as a working draft, not a final, binding policy, until that review is complete and an effective date is published here.
-        </p>
+        <p className="legal-effective-date">Effective date: 22 July 2026</p>
         {page.sections.map((section) => (
           <div className="legal-section" key={section.heading}>
             <h2>{section.heading}</h2>

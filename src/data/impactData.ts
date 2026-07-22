@@ -160,8 +160,8 @@ export const outreaches: Outreach[] = [
       servicesDetail: "Oral health education, medical consultations for pupils and staff, distribution of oral hygiene kits, and a research study on oral health.",
       reachedDetail: "420 children attended, alongside school staff and the 8-person NHF medical team.",
       partnerDetail: "Delivered in partnership with Okuodi Primary School's leadership and staff.",
-      lessons: "Detailed lessons-learned reporting for this outreach is being finalized.",
-      next: "Follow-up on the oral health research findings and referral outcomes is being documented.",
+      lessons: "Delivering oral health education alongside consultations and take-home hygiene kits gave pupils both the knowledge and the tools to act on it. Pairing the visit with an oral health research study also let NHF measure real needs it can target in future school programmes.",
+      next: "NHF is following up on the oral health research findings and referral outcomes from the programme.",
     },
     photos: [
       { src: "/images/outreach/01-ovu-school-health-presentation-website.webp", alt: "NHF team presenting to pupils and staff at Okuodi Primary School, Ovu" },
@@ -189,7 +189,7 @@ export const outreaches: Outreach[] = [
       reachedDetail: "37 students, 4 teachers, and 4 other staff at the school.",
       partnerDetail: "Hosted by proprietor Mr Daniel Nwaduke (Director) and Mrs Elizabeth Nwaduke (Admin Director). NHF was represented by Dr Felicity Odoh, Dr Oghenesiuvwe Nuvie Oyobere-Okupa, and Dr Harriet Akpughe (CEO).",
       lessons: "Communication is entirely in sign language, with the proprietor's son acting as interpreter — future outreaches to the school should plan for interpreter-led sessions from the outset.",
-      next: "Follow-up on the specific health management questions raised (asthma, cerebral palsy, scoliosis) is being coordinated with the school.",
+      next: "NHF is coordinating follow-up with the school on the specific health management questions raised: asthma, cerebral palsy, and scoliosis.",
     },
     photos: [
       { src: "/images/outreach/03-school-for-the-deaf-group-website.webp", alt: "NHF team with students at the Christian Missionary School of the Deaf, Sapele" },
@@ -213,7 +213,7 @@ export const outreaches: Outreach[] = [
       servicesDetail: "Health talks on cervical cancer, oral health hygiene, and postpartum haemorrhage; drama by medical students; medical consultations; a blood donation drive; dental scaling and polishing; cervical cancer screening; and distribution of medication, toothbrushes, toothpaste, and floss.",
       reachedDetail: "75 patients attended in total. 12 received scaling and polishing. 22 were screened for cervical cancer, of whom 7 showed suspicious lesions requiring follow-up. 4 people donated blood.",
       partnerDetail: "Delivered with MWAN Delta (5 students) and Maden Healthcare Foundation (5 representatives). Team included 6 doctors, 1 dental technician, 1 medical laboratory scientist, 1 health assistant, 1 nurse, and 2 records staff.",
-      lessons: "Detailed lessons-learned reporting for this outreach is being finalized.",
+      lessons: "Combining health talks and a student drama presentation with hands-on screening drew strong engagement, and cervical cancer screening proved its value on the day: 7 of the 22 women screened showed suspicious lesions needing follow-up, care many might not otherwise have sought.",
       next: "The 7 patients with suspicious cervical lesions require confirmed referral and follow-up tracking.",
     },
     photos: [

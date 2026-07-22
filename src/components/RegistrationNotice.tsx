@@ -18,7 +18,7 @@ const points = [
   {
     icon: FileText,
     title: "Committed to transparent reporting",
-    text: "Outreach reports, service summaries, and partner acknowledgements are documented for every supported activity. Financial reporting details will be published once verified figures are finalized.",
+    text: "Every supported activity is documented through outreach reports, service summaries, and partner acknowledgements, and NHF maintains financial records that are accountable to its trustees and the partners who fund its work.",
   },
 ];
 

@@ -12,7 +12,6 @@ export const siteConfig = {
   facebookUrl: "https://web.facebook.com/Napoleonhealthcare",
   twitter: "@Napoleon_NF",
   twitterUrl: "https://x.com/Napoleon_NF",
-  instagram: "Coming soon.",
   registration: {
     number: "CAC/IT/NO 85319",
     label: "Incorporated Trustees",

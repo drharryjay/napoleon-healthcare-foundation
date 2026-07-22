@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { BadgeCheck, Facebook, Instagram, Mail, MessageCircle, Phone, Twitter } from "lucide-react";
+import { BadgeCheck, Facebook, Mail, MessageCircle, Phone, Twitter } from "lucide-react";
 import { siteConfig } from "../data/siteConfig";
 import { LinkButton } from "./LinkButton";
 import { NewsletterForm } from "./NewsletterForm";
@@ -49,7 +49,6 @@ export function Footer() {
           <a className="footer-contact-link" href={`https://wa.me/${whatsappNumber}`} target="_blank" rel="noreferrer"><MessageCircle size={16} /> WhatsApp</a>
           <a className="footer-contact-link" href={siteConfig.twitterUrl} target="_blank" rel="noreferrer"><Twitter size={16} /> {siteConfig.twitter}</a>
           <a className="footer-contact-link" href={siteConfig.facebookUrl} target="_blank" rel="noreferrer"><Facebook size={16} /> {siteConfig.facebook}</a>
-          <span className="footer-social-pending"><Instagram size={16} /> {siteConfig.instagram}</span>
           <Link to="/privacy">Privacy policy</Link>
           <Link to="/medical-disclaimer">Medical disclaimer</Link>
           <Link to="/photo-consent">Photo consent statement</Link>
