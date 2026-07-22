@@ -75,6 +75,12 @@ const content: Record<LegalType, LegalContent> = {
         ],
       },
       {
+        heading: "Cookies and analytics",
+        paragraphs: [
+          "We use Google Analytics to understand how visitors use this website — for example, which pages are read most and how people find us. Google Analytics sets cookies on your device and processes usage data (such as pages viewed, device type, and approximate location) as a data processor on our behalf. We load it only after you accept analytics cookies through the banner shown on the site; if you decline, these analytics cookies are not set. You can also block or delete cookies through your browser settings at any time.",
+        ],
+      },
+      {
         heading: "Your rights under the Nigeria Data Protection Act 2023",
         paragraphs: ["Subject to applicable law, you have the right to:"],
         list: [

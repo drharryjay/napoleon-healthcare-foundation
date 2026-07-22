@@ -1,9 +1,11 @@
 import React from "react";
-import { Outlet, Route, Routes } from "react-router-dom";
+import { Outlet, Route, Routes, useLocation } from "react-router-dom";
 import { Navbar } from "./components/Navbar";
 import { Footer } from "./components/Footer";
+import { CookieConsent } from "./components/CookieConsent";
 import { useDocumentMeta } from "./hooks/useDocumentMeta";
 import { useScrollToTop } from "./hooks/useScrollToTop";
+import { trackPageView } from "./lib/analytics";
 // HomePage stays eagerly loaded — it's the landing page and should render
 // without a second network round-trip. Every other route is code-split so
 // first-visit JS stays small.
@@ -33,6 +35,20 @@ const NotFoundPage = lazyPage(() => import("./pages/NotFoundPage"), "NotFoundPag
 function Layout() {
   useDocumentMeta();
   useScrollToTop();
+
+  // Send a GA page view on each in-app route change. The first view is sent by
+  // GA's own config call when it loads, so skip the initial run to avoid
+  // double-counting. No-ops entirely until the visitor accepts analytics.
+  const { pathname } = useLocation();
+  const firstView = React.useRef(true);
+  React.useEffect(() => {
+    if (firstView.current) {
+      firstView.current = false;
+      return;
+    }
+    trackPageView(pathname);
+  }, [pathname]);
+
   return (
     <>
       <a className="skip-link" href="#main-content">Skip to main content</a>
@@ -43,6 +59,7 @@ function Layout() {
         </React.Suspense>
       </main>
       <Footer />
+      <CookieConsent />
     </>
   );
 }
