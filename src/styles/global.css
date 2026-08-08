@@ -1824,10 +1824,11 @@ h2 {
 }
 
 /* --- Video band: a single outreach clip, centred on a dark ground. ---
-   The clip is phone footage that mixes landscape and portrait shots, so it is
-   letterboxed into 16:9 rather than cropped (cropping cut the title card off).
-   preload="none" keeps the ~9MB file off the wire until someone presses play;
-   the poster carries the visual weight until then. */
+   The clip is phone footage: 67 of its 72 seconds are portrait, so the file is
+   encoded portrait (568x720) and the two short landscape title cards are
+   letterboxed into it. The player matches that shape rather than stranding the
+   footage in a wide frame. preload="none" keeps the ~8.5MB file off the wire
+   until someone presses play; the poster carries the visual weight until then. */
 .video-band {
   background: var(--navy);
   color: var(--white);
@@ -1846,14 +1847,15 @@ h2 {
 }
 
 .video-band video {
-  aspect-ratio: 16 / 9;
+  aspect-ratio: 568 / 720;
   background: #000;
   border-radius: 16px;
   box-shadow: var(--shadow);
   display: block;
   height: auto;
   margin: 0 auto;
-  max-width: min(880px, 100%);
+  max-height: 78vh;
+  max-width: min(420px, 100%);
   width: 100%;
 }
 
@@ -1998,4 +2000,130 @@ h2 {
   height: auto;
   object-fit: cover;
   width: 100%;
+}
+
+/* --- Featured health topic (Health Education Hub) ---
+   Long-form lay-audience guidance. Constrained measure so it reads like an
+   article rather than spanning the full page width. */
+.topic {
+  margin: 0 auto;
+  max-width: 860px;
+}
+
+.topic-sections {
+  counter-reset: topic;
+  display: grid;
+  gap: clamp(24px, 3vw, 36px);
+  list-style: none;
+  margin: clamp(24px, 4vw, 40px) 0 0;
+  padding: 0;
+}
+
+.topic-sections > li {
+  border-left: 3px solid var(--line);
+  counter-increment: topic;
+  padding-left: clamp(18px, 3vw, 28px);
+  position: relative;
+}
+
+.topic-sections > li h3 {
+  align-items: baseline;
+  display: flex;
+  gap: 12px;
+  margin: 0 0 6px;
+}
+
+.topic-sections > li h3::before {
+  color: var(--teal);
+  content: counter(topic);
+  font-size: 0.9em;
+  font-weight: 800;
+}
+
+.topic-sections > li p {
+  margin: 0;
+}
+
+.topic-sections > li ul {
+  color: var(--muted);
+  display: grid;
+  gap: 8px;
+  margin: 12px 0 0;
+  padding-left: 20px;
+}
+
+/* Red-flag panel: deliberately the loudest thing on the page. */
+.topic-warning {
+  background: rgba(224, 79, 103, 0.07);
+  border: 2px solid var(--accent);
+  border-radius: 16px;
+  margin-top: clamp(32px, 4vw, 48px);
+  padding: clamp(22px, 3.5vw, 34px);
+}
+
+.topic-warning h3 {
+  align-items: center;
+  color: var(--accent);
+  display: flex;
+  gap: 10px;
+  margin: 0 0 10px;
+}
+
+.topic-warning ul {
+  display: grid;
+  gap: 10px;
+  margin: 14px 0 0;
+  padding-left: 20px;
+}
+
+.topic-warning-footer {
+  font-weight: 700;
+  margin: 18px 0 0;
+}
+
+.topic-sources {
+  border-top: 1px solid var(--line);
+  margin-top: clamp(32px, 4vw, 48px);
+  padding-top: clamp(22px, 3vw, 32px);
+}
+
+.topic-sources h3 {
+  margin: 0 0 14px;
+}
+
+.topic-sources ul {
+  display: grid;
+  gap: 12px;
+  list-style: none;
+  margin: 0 0 20px;
+  padding: 0;
+}
+
+.topic-sources li {
+  display: grid;
+  gap: 2px;
+}
+
+.topic-sources a {
+  align-items: center;
+  color: var(--deep-teal);
+  display: inline-flex;
+  font-weight: 700;
+  gap: 6px;
+  text-decoration: none;
+}
+
+.topic-sources a:hover {
+  text-decoration: underline;
+}
+
+.topic-sources li span {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.topic-sources small {
+  color: var(--muted);
+  display: block;
+  font-style: italic;
 }

@@ -5,7 +5,9 @@ import { ArticleCard } from "../components/ArticleCard";
 import { NewsletterForm } from "../components/NewsletterForm";
 import { HealthNewsLinks } from "../components/HealthNewsLinks";
 import { PhotoSlideshow } from "../components/PhotoSlideshow";
+import { FeaturedTopic } from "../components/FeaturedTopic";
 import { articles, categories } from "../data/articlesData";
+import { breastfeedingTopic } from "../data/healthTopics";
 
 export function HealthEducationPage() {
   return (
@@ -15,6 +17,7 @@ export function HealthEducationPage() {
         <SectionHeader eyebrow="Categories" title="Topics for community education" />
         <div className="tag-cloud">{categories.map((category) => <span key={category}>{category}</span>)}</div>
       </section>
+      <FeaturedTopic topic={breastfeedingTopic} />
       <section className="section">
         <SectionHeader eyebrow="Articles" title="Health education articles" />
         <div className="card-grid">{articles.map((article) => <ArticleCard key={article.slug} article={article} />)}</div>
@@ -22,9 +25,10 @@ export function HealthEducationPage() {
       <figure className="photo-band">
         <PhotoSlideshow
           photos={[
-            { src: "/images/outreach/09-ovu-students-supplies-website.webp", alt: "Oral hygiene kits and health supplies distributed to pupils during the Ovu School Health Programme" },
+            { src: "/images/outreach/wbw-03-health-talk-session.webp", alt: "Health talk on breastfeeding in session with mothers at a primary health centre in Oghara" },
+            { src: "/images/outreach/16-sapele-health-education-speaker-website.webp", alt: "Health education talk at the Ejemuojavwe women's health outreach" },
             { src: "/images/outreach/12-school-for-the-deaf-classroom-website.webp", alt: "Health education delivered in the classroom at the School of the Deaf, Sapele" },
-            { src: "/images/outreach/ovu-e05.webp", alt: "Scene from the Ovu School Health Programme, May 2025" },
+            { src: "/images/outreach/09-ovu-students-supplies-website.webp", alt: "Oral hygiene kits and health supplies distributed to pupils during the Ovu School Health Programme" },
           ]}
           sizes="100vw"
         />

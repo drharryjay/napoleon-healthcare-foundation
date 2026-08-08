@@ -2,10 +2,10 @@ import React from "react";
 import { ChevronDown, MapPin, Users } from "lucide-react";
 import { Hero } from "../components/Hero";
 import { PhotoSlideshow } from "../components/PhotoSlideshow";
-import { outreaches } from "../data/impactData";
+import { outreachesNewestFirst } from "../data/impactData";
 import { optimizedPhoto } from "../lib/images";
 
-const storyFields: { label: string; key: keyof (typeof outreaches)[number]["story"] }[] = [
+const storyFields: { label: string; key: keyof (typeof outreachesNewestFirst)[number]["story"] }[] = [
   { label: "Community need", key: "need" },
   { label: "NHF response", key: "response" },
   { label: "Services provided", key: "servicesDetail" },
@@ -21,8 +21,8 @@ export function StoriesPage() {
       <Hero title="Outreach Stories" text="Documented accounts of NHF outreach work — open any outreach below to read what happened, who was reached, and what we learned." image="/images/FB_IMG_1783012564264.jpg" />
       <section className="section">
         <div className="story-accordion">
-          {outreaches.map((outreach, index) => (
-            <details className="story-entry" key={outreach.title} open={index === outreaches.length - 3}>
+          {outreachesNewestFirst.map((outreach, index) => (
+            <details className="story-entry" key={outreach.title} open={index === 0}>
               <summary>
                 <span className="story-entry-heading">
                   <span className="status">{outreach.status}</span>
@@ -66,9 +66,11 @@ export function StoriesPage() {
       <figure className="photo-band">
         <PhotoSlideshow
           photos={[
-            { src: "/images/FB_IMG_1783012593613.jpg", alt: "NHF team member with a foundation banner at a community outreach" },
-            { src: "/images/outreach/02-ovu-school-health-group-website.webp", alt: "Pupils and NHF volunteers gathered during the Ovu School Health Programme" },
+            { src: "/images/outreach/wbw-08-team-placards.webp", alt: "Nursing students and NHF volunteers with foundation placards during World Breastfeeding Week 2026" },
             { src: "/images/outreach/04-sapele-outreach-team-website.webp", alt: "NHF outreach team and partners at the Ejemuojavwe women's health outreach" },
+            { src: "/images/outreach/11-school-for-the-deaf-partner-team-website.webp", alt: "NHF volunteers with school staff at the School of the Deaf, Sapele" },
+            { src: "/images/outreach/02-ovu-school-health-group-website.webp", alt: "Pupils and NHF volunteers gathered during the Ovu School Health Programme" },
+            { src: "/images/FB_IMG_1783012593613.jpg", alt: "NHF team member with a foundation banner at a community outreach" },
           ]}
           sizes="100vw"
         />

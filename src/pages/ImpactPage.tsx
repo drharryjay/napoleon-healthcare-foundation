@@ -4,7 +4,7 @@ import { SectionHeader } from "../components/SectionHeader";
 import { ImpactCard } from "../components/ImpactCard";
 import { OutreachCard } from "../components/OutreachCard";
 import { PhotoSlideshow } from "../components/PhotoSlideshow";
-import { dashboardStats, outreaches } from "../data/impactData";
+import { dashboardStats, outreachesNewestFirst } from "../data/impactData";
 
 export function ImpactPage() {
   return (
@@ -16,10 +16,11 @@ export function ImpactPage() {
       <figure className="photo-band">
         <PhotoSlideshow
           photos={[
+            { src: "/images/outreach/wbw-07-diapers-mothers.webp", alt: "Mothers with infant care items received during World Breastfeeding Week 2026, Oghara" },
             { src: "/images/outreach/08-sapele-medication-support-website.webp", alt: "Pharmacy and medication support during the Ejemuojavwe women's health outreach" },
-            { src: "/images/outreach/sapele-e04.webp", alt: "Scene from the Ejemuojavwe women's health outreach, 19 June 2026" },
+            { src: "/images/outreach/12-school-for-the-deaf-classroom-website.webp", alt: "Health education delivered in the classroom at the School of the Deaf, Sapele" },
+            { src: "/images/outreach/09-ovu-students-supplies-website.webp", alt: "Oral hygiene kits and supplies distributed to pupils at Ovu" },
             { src: "/images/outreach/13-sapele-registration-triage-website.webp", alt: "Patient registration and triage during the Ejemuojavwe women's health outreach" },
-            { src: "/images/outreach/sapele-e06.webp", alt: "Scene from the Ejemuojavwe women's health outreach, 19 June 2026" },
           ]}
           sizes="100vw"
         />
@@ -27,7 +28,7 @@ export function ImpactPage() {
       </figure>
       <section className="section">
         <SectionHeader eyebrow="Outreach records" title="Outreach by outreach" />
-        <div className="outreach-grid">{outreaches.map((outreach) => <OutreachCard key={outreach.title} outreach={outreach} />)}</div>
+        <div className="outreach-grid">{outreachesNewestFirst.map((outreach) => <OutreachCard key={outreach.title} outreach={outreach} />)}</div>
       </section>
     </>
   );

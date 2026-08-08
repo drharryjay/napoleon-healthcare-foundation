@@ -1,4 +1,5 @@
 export const categories = [
+  "Breastfeeding & Infant Nutrition",
   "Malaria Prevention",
   "Hypertension",
   "Diabetes",

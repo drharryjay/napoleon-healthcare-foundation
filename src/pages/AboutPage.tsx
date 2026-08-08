@@ -27,10 +27,10 @@ export function AboutPage() {
       <figure className="photo-band">
         <PhotoSlideshow
           photos={[
+            { src: "/images/outreach/wbw-09-banner-rollup-group.webp", alt: "NHF team and mothers during World Breastfeeding Week 2026, Oghara" },
             { src: "/images/outreach/04-sapele-outreach-team-website.webp", alt: "NHF outreach team and partners at the Ejemuojavwe women's health outreach" },
-            { src: "/images/outreach/ovu-e04.webp", alt: "Scene from the Ovu School Health Programme, May 2025" },
             { src: "/images/outreach/03-school-for-the-deaf-group-website.webp", alt: "NHF team with students at the Christian Missionary School of the Deaf, Sapele" },
-            { src: "/images/outreach/sapele-e05.webp", alt: "Scene from the Ejemuojavwe women's health outreach, 19 June 2026" },
+            { src: "/images/outreach/ovu-e04.webp", alt: "Scene from the Ovu School Health Programme, May 2025" },
           ]}
           sizes="100vw"
         />

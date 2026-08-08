@@ -13,10 +13,15 @@ import { PhotoSlideshow } from "../components/PhotoSlideshow";
 import { impactStats } from "../data/impactData";
 import { homeServices } from "../data/servicesData";
 
+// Slideshows that aren't tied to one programme rotate a single photo from each
+// outreach, newest first, so a visitor sees the range of NHF's work rather than
+// four frames of the same day.
 const aboutPhotos = [
-  { src: "/images/FB_IMG_1783012564264.jpg", alt: "NHF clinician consulting a patient during a community medical outreach" },
+  { src: "/images/outreach/wbw-06-delsuth-mothers-team.webp", alt: "Mothers and babies with the NHF and MWAN team at the Infant Welfare Clinic, DELSUTH, Oghara" },
   { src: "/images/outreach/04-sapele-outreach-team-website.webp", alt: "NHF outreach team and partners at the Ejemuojavwe women's health outreach" },
+  { src: "/images/outreach/03-school-for-the-deaf-group-website.webp", alt: "NHF team with students at the Christian Missionary School of the Deaf, Sapele" },
   { src: "/images/outreach/02-ovu-school-health-group-website.webp", alt: "Pupils and NHF volunteers gathered during the Ovu School Health Programme" },
+  { src: "/images/FB_IMG_1783012564264.jpg", alt: "NHF clinician consulting a patient during a community medical outreach" },
 ];
 
 const ovuFeaturePhotos = [
@@ -53,12 +58,12 @@ export function HomePage() {
         text="Napoleon Healthcare Foundation provides free medical outreach, preventive health education, screening, and compassionate care for underserved communities in Nigeria."
         eyebrow="Serving with compassion"
         images={[
-          "/images/FB_IMG_1783012553411.jpg",
-          "/images/outreach/02-ovu-school-health-group-website.webp",
-          "/images/FB_IMG_1783012529277.jpg",
-          "/images/outreach/03-school-for-the-deaf-group-website.webp",
+          "/images/outreach/wbw-01-mothers-group-phc.webp",
           "/images/outreach/13-sapele-registration-triage-website.webp",
-          "/images/FB_IMG_1783012564264.jpg",
+          "/images/outreach/03-school-for-the-deaf-group-website.webp",
+          "/images/outreach/02-ovu-school-health-group-website.webp",
+          "/images/FB_IMG_1783012553411.jpg",
+          "/images/FB_IMG_1783012529277.jpg",
         ]}
       >
         <LinkButton href="/donate">Support an Outreach</LinkButton>

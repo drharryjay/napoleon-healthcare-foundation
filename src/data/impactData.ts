@@ -62,6 +62,9 @@ export interface Outreach {
   photos?: { src: string; alt: string }[];
 }
 
+// Kept chronological (oldest first) so the list reads as a history and new
+// outreaches are simply appended. Pages that list outreaches for visitors use
+// `outreachesNewestFirst` below, so the most recent work leads.
 export const outreaches: Outreach[] = [
   {
     title: "Ughelli Community Outreach — \"Good Health for All\"",
@@ -268,3 +271,6 @@ export const outreaches: Outreach[] = [
     ],
   },
 ];
+
+// Display order for the Impact and Stories pages: newest outreach first.
+export const outreachesNewestFirst: Outreach[] = [...outreaches].reverse();
