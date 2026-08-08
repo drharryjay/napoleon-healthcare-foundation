@@ -1,6 +1,19 @@
 [build]
-  command = "npm run build"
+  # Chrome is installed explicitly before the build. Puppeteer's postinstall
+  # download is unreliable here: Netlify restores a cached node_modules on most
+  # builds, which skips postinstall, so the browser prerender step in
+  # scripts/prerender.mjs silently found no Chrome and shipped an un-prerendered
+  # SPA shell to every URL. `browsers install chrome` is a no-op once the binary
+  # is already in the cache directory below.
+  command = "npx puppeteer browsers install chrome && npm run build"
   publish = "dist"
+
+[build.environment]
+  # Must point inside the repo: Netlify persists the build cache between deploys
+  # but not the default ~/.cache/puppeteer, and the install and build steps have
+  # to agree on one location. Both the install above and puppeteer.launch() at
+  # build time read this variable.
+  PUPPETEER_CACHE_DIR = "/opt/build/repo/.cache/puppeteer"
 
 [[redirects]]
   from = "/*"

@@ -24,3 +24,19 @@ output/
 tmp/
 source-assets/
 .agents/
+
+# Sponsorship proposals. Previously protected only incidentally by the *.docx
+# rule above — a PDF or scan dropped in here would have been committable to a
+# PUBLIC repo (found in the 2026-08-08 security check).
+NHF Proposals/
+
+# Catch-all for sensitive documents left loose at the project root, whatever
+# their extension. Same finding: a bank statement or ID scan saved here would
+# otherwise be committable.
+/*bank*
+/*statement*
+/*passport*
+/*.pdf
+
+# Chrome downloaded by puppeteer for the build-time prerender step.
+.cache/
