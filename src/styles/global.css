@@ -1801,6 +1801,62 @@ h2 {
   position: relative;
 }
 
+/* Mirrored feature: copy on the left, photo on the right. Used so consecutive
+   featured outreaches on the homepage don't read as the same block twice.
+   Order is reset below 1100px, where the grid is a single column and the photo
+   should always lead. */
+.feature.reverse .feature-media {
+  order: 2;
+}
+
+.feature.reverse .feature-copy {
+  order: 1;
+}
+
+@media (max-width: 1100px) {
+  .feature.reverse .feature-media {
+    order: 1;
+  }
+
+  .feature.reverse .feature-copy {
+    order: 2;
+  }
+}
+
+/* --- Video band: a single outreach clip, centred on a dark ground. ---
+   The clip is phone footage that mixes landscape and portrait shots, so it is
+   letterboxed into 16:9 rather than cropped (cropping cut the title card off).
+   preload="none" keeps the ~9MB file off the wire until someone presses play;
+   the poster carries the visual weight until then. */
+.video-band {
+  background: var(--navy);
+  color: var(--white);
+  padding: clamp(44px, 6vw, 84px) clamp(18px, 4vw, 64px);
+  text-align: center;
+}
+
+.video-band h2 {
+  margin: 0 0 10px;
+}
+
+.video-band p {
+  color: rgba(255, 255, 255, 0.82);
+  margin: 0 auto clamp(24px, 3vw, 36px);
+  max-width: 60ch;
+}
+
+.video-band video {
+  aspect-ratio: 16 / 9;
+  background: #000;
+  border-radius: 16px;
+  box-shadow: var(--shadow);
+  display: block;
+  height: auto;
+  margin: 0 auto;
+  max-width: min(880px, 100%);
+  width: 100%;
+}
+
 /* --- What We Do: vertical service rows with action photos. --- */
 .service-rows {
   display: grid;

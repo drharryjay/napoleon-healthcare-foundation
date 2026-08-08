@@ -27,6 +27,23 @@ const ovuFeaturePhotos = [
   { src: "/images/outreach/ovu-e04.webp", alt: "Scene from the Ovu School Health Programme, May 2025" },
 ];
 
+const breastfeedingFeaturePhotos = [
+  { src: "/images/outreach/wbw-01-mothers-group-phc.webp", alt: "Mothers and the NHF team with the World Breastfeeding Week banner outside the primary health centre, Oghara" },
+  { src: "/images/outreach/wbw-03-health-talk-session.webp", alt: "Health talk on breastfeeding in session with mothers at a primary health centre in Oghara" },
+  { src: "/images/outreach/wbw-06-delsuth-mothers-team.webp", alt: "Mothers and babies with the NHF and MWAN team at the Infant Welfare Clinic, DELSUTH, Oghara" },
+  { src: "/images/outreach/wbw-07-diapers-mothers.webp", alt: "Mothers with diapers received during World Breastfeeding Week 2026, Oghara" },
+  { src: "/images/outreach/wbw-02-team-banner-phc-gate.webp", alt: "NHF and partner team with the World Breastfeeding Week 2026 banner at the health centre gate, Oghara" },
+];
+
+// Photo band closing the page — a spread across several different outreaches
+// rather than a single programme, so the last thing a visitor sees is range.
+const closingBandPhotos = [
+  { src: "/images/outreach/wbw-09-banner-rollup-group.webp", alt: "NHF team and mothers during World Breastfeeding Week 2026, Oghara" },
+  { src: "/images/outreach/15-sapele-blood-pressure-screening-website.webp", alt: "Blood-pressure screening at the Ejemuojavwe women's health outreach" },
+  { src: "/images/outreach/12-school-for-the-deaf-classroom-website.webp", alt: "Health education delivered in the classroom at the School of the Deaf" },
+  { src: "/images/outreach/09-ovu-students-supplies-website.webp", alt: "Oral hygiene kits and supplies distributed to pupils at Ovu" },
+];
+
 
 export function HomePage() {
   return (
@@ -86,8 +103,39 @@ export function HomePage() {
           {homeServices.map((service, index) => <ServiceCard key={service.title} title={service.title} summary={service.summary} index={index} />)}
         </Reveal>
       </section>
+      <Reveal className="feature-wrap">
+        <section className="feature reverse">
+          <div className="feature-copy">
+            <span className="eyebrow">Latest outreach</span>
+            <h2>World Breastfeeding Week 2026</h2>
+            <p>137 mothers reached across three clinics in Oghara — health talks, breastfeeding demonstrations, consultations, and infant care items delivered right through to the neonatal, maternity, labour and high dependency wards at DELSUTH.</p>
+            <LinkButton href="/stories">Read the Full Story</LinkButton>
+          </div>
+          <div className="feature-media">
+            <PhotoSlideshow photos={breastfeedingFeaturePhotos} sizes="(max-width: 840px) 100vw, 50vw" />
+          </div>
+        </section>
+      </Reveal>
       <RegistrationNotice />
+      <Reveal className="video-band">
+        <h2>A week with the mothers of Oghara</h2>
+        <p>Scenes from World Breastfeeding Week 2026 — health talks, demonstrations, and gift distribution across Ejemuojavwe PHC, Ogharefe PHC, and the Infant Welfare Clinic at DELSUTH.</p>
+        <video
+          controls
+          preload="none"
+          playsInline
+          poster="/video/wbw-2026-poster.webp"
+          aria-label="Video: Napoleon Healthcare Foundation during World Breastfeeding Week 2026 in Oghara, Delta State"
+        >
+          <source src="/video/wbw-2026.mp4" type="video/mp4" />
+          Your browser cannot play this video. It shows NHF's World Breastfeeding Week 2026 outreach in Oghara, Delta State.
+        </video>
+      </Reveal>
       <PartnerCTA />
+      <figure className="photo-band">
+        <PhotoSlideshow photos={closingBandPhotos} sizes="100vw" />
+        <figcaption>Ten years of showing up — communities, schools, and clinics across Delta and Rivers States.</figcaption>
+      </figure>
       <VolunteerCTA />
     </>
   );
