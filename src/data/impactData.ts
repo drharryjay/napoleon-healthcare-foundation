@@ -1,10 +1,17 @@
 // Figures below are drawn from NHF's own records: the foundation proposal
-// document (per-outreach reports for Ughelli, Buguma, and All Saints) and the
-// 2025/2026 programme report (Ovu, School of the Deaf, Ejemuojavwe).
+// document (per-outreach reports for Ughelli, Buguma, and All Saints), the
+// 2025/2026 programme report (Ovu, School of the Deaf, Ejemuojavwe), and the
+// NHF Report on World Breastfeeding Week 2026.
 //
 // Derivations:
-// - People reached: 350 + 1,500 + 2,813 + 420 + 45 + 75 = 5,203 → "5,200+"
-// - General consultations: 350 + 1,500 + 2,813 + 75 = 4,738 → "4,700+"
+// - People reached: 350 + 1,500 + 2,813 + 420 + 45 + 75 + 137 = 5,340 → "5,300+"
+//   (WBW 2026 contributes 137: 30 Ejemuojavwe + 34 Ogharefe + 73 DELSUTH IWC.
+//   Mothers on the four DELSUTH wards who received infant care items are NOT
+//   counted — the report does not give a headcount for them.)
+// - General consultations: 350 + 1,500 + 2,813 + 75 + 31 = 4,769 → still "4,700+"
+//   (WBW 2026 contributes 31: 16 on 4 Aug, 15 on 6 Aug. Note these are counted
+//   consultations only — health-education attendance is tracked under people
+//   reached, not here.)
 // - Eye consultations: 132 + 550 + 819 = 1,501 → "1,500+"
 // - Glasses distributed: 115 + 500 = 615 → "615+"
 // - Dental care: 1,015 consultations + 127 scaling/polishing + 92 extractions → "1,000+"
@@ -14,7 +21,7 @@
 
 export const impactStats = [
   { label: "Communities Reached", value: "10+", note: "Communities and institutions across Delta and Rivers States." },
-  { label: "Patients Attended To", value: "5,200+", note: "Cumulative across all documented outreaches." },
+  { label: "Patients Attended To", value: "5,300+", note: "Cumulative across all documented outreaches." },
   { label: "Health Professionals Involved", value: "70+", note: "Volunteer doctors, nurses, and allied health workers." },
   { label: "Mosquito Nets Distributed", value: "3,500+", note: "Long-lasting insecticide-treated nets." },
   { label: "Eye Care Provided", value: "1,500+", note: "Eye consultations, including 615+ glasses distributed." },
@@ -22,15 +29,15 @@ export const impactStats = [
 ];
 
 export const dashboardStats = [
-  { label: "Documented outreaches", value: "8", note: "Community, school, church, and clinic-based programmes." },
+  { label: "Documented outreaches", value: "9", note: "Community, school, church, and clinic-based programmes." },
   { label: "Communities served", value: "10+", note: "Communities and institutions across Delta and Rivers States." },
-  { label: "People reached", value: "5,200+", note: "Cumulative attendance across documented outreaches." },
+  { label: "People reached", value: "5,300+", note: "Cumulative attendance across documented outreaches." },
   { label: "Consultations conducted", value: "4,700+", note: "General medical consultations recorded across outreaches." },
   { label: "Eye care beneficiaries", value: "1,500+", note: "Eye consultations during outreach programmes." },
   { label: "Glasses distributed", value: "615+", note: "Reading and prescription glasses provided free of charge." },
   { label: "Dental care beneficiaries", value: "1,000+", note: "Consultations, cleaning, and extractions." },
   { label: "Mosquito nets distributed", value: "3,500+", note: "Long-lasting insecticide-treated nets." },
-  { label: "Partners engaged", value: "8+", note: "Churches, Rotary clubs, schools, and health foundations." },
+  { label: "Partners engaged", value: "10+", note: "Churches, Rotary clubs, schools, teaching hospitals, and health foundations." },
 ];
 
 export interface OutreachStory {
@@ -228,6 +235,36 @@ export const outreaches: Outreach[] = [
       { src: "/images/outreach/sapele-e05.webp", alt: "Scene from the Ejemuojavwe women's health outreach, 19 June 2026" },
       { src: "/images/outreach/sapele-e06.webp", alt: "Scene from the Ejemuojavwe women's health outreach, 19 June 2026" },
       { src: "/images/outreach/sapele-e07.webp", alt: "Scene from the Ejemuojavwe women's health outreach, 19 June 2026" },
+    ],
+  },
+  {
+    title: "World Breastfeeding Week 2026 — \"Strengthen What Works\"",
+    location: "Ejemuojavwe PHC and Ogharefe PHC, Oghara, and the Infant Welfare Clinic, DELSUTH, Delta State",
+    partner: "MWAN Delta (AIM-MNCNH project), Community Medicine Department DELSUTH, Maden Healthcare Foundation, and GladCare Health and Research Foundation",
+    services: "Breastfeeding education, myth Q&A, positioning and attachment demonstrations, medical consultations, family planning counselling, infant care items",
+    reached: "137 mothers",
+    status: "Completed programme — 1–7 August 2026",
+    image: "/images/outreach/wbw-01-mothers-group-phc.webp",
+    story: {
+      need: "Mothers around Oghara receive a great deal of conflicting advice about breastfeeding — that breast size determines how much milk you make, that a crying baby means the milk is not enough, that early difficulty means something is wrong. Perceived low milk supply is one of the commonest reasons breastfeeding stops earlier than a mother intended, and what is usually missing is not milk but accurate information and skilled, practical support.",
+      response: "NHF marked World Breastfeeding Week from 1 to 7 August 2026 under the global theme \"Breastfeeding for a Sustainable Start in Life: Strengthen What Works\" — deliberately reinforcing the support mothers already have rather than introducing something separate from it. The week combined publicity and community mobilisation, two days of clinic-based outreach, and a social media campaign with community advocacy.",
+      servicesDetail: "Health talks on breastfeeding and the value of breast milk; counselling on family planning; moderated question-and-answer sessions on the breastfeeding myths mothers actually reported hearing; practical breastfeeding demonstrations covering proper positioning and attachment; 31 medical consultations; and the distribution of 150 packs of diapers and 70 packs of wipes. Infant care items were also taken to mothers admitted to the Neonatal Intensive Care Unit, Maternity Ward, Labour Ward, and High Dependency Unit at DELSUTH.",
+      reachedDetail: "137 mothers attended across three facilities — 30 at Ejemuojavwe PHC and 34 at Ogharefe PHC on 4 August, and 73 at the DELSUTH Infant Welfare and Immunization Clinic on 6 August. 31 mothers received medical consultation. Mothers on four inpatient wards at DELSUTH also received infant care items.",
+      partnerDetail: "Delivered with MWAN Delta through its Advocacy and Implementation of Maternal, Newborn, Child Nutrition and Health (AIM-MNCNH) project, alongside the Community Medicine Department DELSUTH, Maden Healthcare Foundation, and GladCare Health and Research Foundation. The Community Medicine Department fielded 5 staff on the first outreach day and 16 on the second, supported by 8 nursing students, 5 MWAN doctors, and NHF's 7-person team.",
+      lessons: "Reaching mothers on the wards mattered as much as the clinic sessions — mothers in the neonatal unit, labour ward, and high dependency unit are often under the most strain and the least able to come out to an outpatient talk. Pairing the myth Q&A with a hands-on positioning and attachment demonstration also proved more useful than a talk alone: most of the early difficulty mothers described was a question of technique, not of supply.",
+      next: "NHF continues to work with MWAN Delta's AIM-MNCNH project and the Community Medicine Department DELSUTH on maternal and infant nutrition, with breastfeeding support delivered inside routine infant welfare and immunization clinic visits rather than only during awareness weeks.",
+    },
+    photos: [
+      { src: "/images/outreach/wbw-01-mothers-group-phc.webp", alt: "Mothers and the NHF team with the World Breastfeeding Week banner outside the primary health centre, Oghara" },
+      { src: "/images/outreach/wbw-02-team-banner-phc-gate.webp", alt: "NHF and partner team with the World Breastfeeding Week 2026 banner at the health centre gate, Oghara" },
+      { src: "/images/outreach/wbw-03-health-talk-session.webp", alt: "Health talk on breastfeeding in session with mothers at a primary health centre in Oghara" },
+      { src: "/images/outreach/wbw-04-breastfeeding-demonstration.webp", alt: "Breastfeeding demonstration session on positioning and attachment (faces softened for privacy)" },
+      { src: "/images/outreach/wbw-05-gift-distribution.webp", alt: "Infant care items being distributed to a mother during World Breastfeeding Week 2026" },
+      { src: "/images/outreach/wbw-06-delsuth-mothers-team.webp", alt: "Mothers and babies with the NHF and MWAN team at the Infant Welfare Clinic, DELSUTH, Oghara" },
+      { src: "/images/outreach/wbw-07-diapers-mothers.webp", alt: "Mothers with diapers received during World Breastfeeding Week 2026, Oghara" },
+      { src: "/images/outreach/wbw-08-team-placards.webp", alt: "Nursing students and NHF volunteers with foundation placards during World Breastfeeding Week 2026" },
+      { src: "/images/outreach/wbw-09-banner-rollup-group.webp", alt: "NHF team and mothers with the foundation banner during World Breastfeeding Week 2026" },
+      { src: "/images/outreach/wbw-10-neonatal-ward-gift.webp", alt: "Infant care items delivered to a mother on the neonatal ward at DELSUTH, Oghara" },
     ],
   },
 ];
