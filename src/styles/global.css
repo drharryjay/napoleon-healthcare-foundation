@@ -1824,10 +1824,11 @@ h2 {
 }
 
 /* --- Video band: a single outreach clip, centred on a dark ground. ---
-   The clip is phone footage: 67 of its 72 seconds are portrait, so the file is
-   encoded portrait (568x720) and the two short landscape title cards are
-   letterboxed into it. The player matches that shape rather than stranding the
-   footage in a wide frame. preload="none" keeps the ~8.5MB file off the wire
+   The clip is stitched phone footage of four different shapes — 9:16, 3:4, 4:3
+   and two full-width 16:9 title cards. It is encoded portrait (576x720, i.e.
+   4:5) with every segment scaled to fit and padded, never cropped, so nobody is
+   cut out of frame. The player matches that shape rather than stranding the
+   footage in a wide frame. preload="none" keeps the ~8MB file off the wire
    until someone presses play; the poster carries the visual weight until then. */
 .video-band {
   background: var(--navy);
@@ -1847,7 +1848,7 @@ h2 {
 }
 
 .video-band video {
-  aspect-ratio: 568 / 720;
+  aspect-ratio: 4 / 5;
   background: #000;
   border-radius: 16px;
   box-shadow: var(--shadow);
