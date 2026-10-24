@@ -22,8 +22,11 @@ export function FeaturedTopic({ topic }: { topic: HealthTopic }) {
               <figcaption>
                 {photo.caption}{" "}
                 <span className="topic-photo-credit">
-                  Photo: <a href={photo.sourceUrl} target="_blank" rel="noreferrer">{photo.credit}</a>,{" "}
-                  <a href={photo.licenceUrl} target="_blank" rel="noreferrer license">{photo.licence}</a>
+                  Photo:{" "}
+                  {photo.sourceUrl ? <a href={photo.sourceUrl} target="_blank" rel="noreferrer">{photo.credit}</a> : photo.credit}
+                  {photo.licence && photo.licenceUrl && (
+                    <>, <a href={photo.licenceUrl} target="_blank" rel="noreferrer license">{photo.licence}</a></>
+                  )}
                 </span>
               </figcaption>
             </figure>

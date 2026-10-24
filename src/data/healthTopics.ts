@@ -11,8 +11,8 @@ export interface TopicSection {
   points?: string[];
 }
 
-// Third-party photos must carry their creator and licence wherever they are
-// shown — CC BY and CC BY-SA both require attribution.
+// NHF's own photos need only a credit. Third-party photos must also carry their
+// source and licence wherever they are shown (CC BY / CC BY-SA require it).
 export interface TopicPhoto {
   src: string;
   width: number;
@@ -20,9 +20,9 @@ export interface TopicPhoto {
   alt: string;
   caption: string;
   credit: string;
-  sourceUrl: string;
-  licence: string;
-  licenceUrl: string;
+  sourceUrl?: string;
+  licence?: string;
+  licenceUrl?: string;
 }
 
 export interface HealthTopic {
@@ -172,9 +172,10 @@ export const breastfeedingTopic: HealthTopic = {
 
 // World Polio Day, 24 October 2026. Case counts are GPEI's country update as of
 // 21 October 2026 and go stale weekly: re-check them before reusing this topic.
-// Schedule is the NPHCDA routine immunisation card. Photos are CDC Global
-// (CC BY 2.0) and a Wikimedia Commons contributor (CC BY-SA 4.0), all taken in
-// Nigeria; none show NHF, so none are captioned as NHF work.
+// Schedule is the NPHCDA routine immunisation card. Photos are NHF's own, from
+// the joint free medical outreach at Ogbe-Ijaw Market, Warri South, on World
+// Polio Day itself; everyone pictured gave consent. No polio vaccine was given
+// there, so captions describe the outreach, not vaccination.
 export const polioTopic: HealthTopic = {
   id: "polio",
   eyebrow: "World Polio Day · 24 October 2026",
@@ -184,37 +185,28 @@ export const polioTopic: HealthTopic = {
 
   photos: [
     {
-      src: "/images/polio/polio-01-oral-vaccine-nigeria.webp",
-      width: 900,
-      height: 1200,
-      alt: "A vaccinator in a yellow apron gives oral polio vaccine drops to a young girl outside a house in Nigeria while two women look on",
-      caption: "Polio drops given at home during a vaccination round in Nigeria, 2019.",
-      credit: "Asap_Kamal, via Wikimedia Commons",
-      sourceUrl: "https://commons.wikimedia.org/wiki/File:Polio_Vaccination_in_Nigeria.jpg",
-      licence: "CC BY-SA 4.0",
-      licenceUrl: "https://creativecommons.org/licenses/by-sa/4.0/",
+      src: "/images/polio/polio-01-ogbe-ijaw-beneficiary.webp",
+      width: 963,
+      height: 1120,
+      alt: "A woman in a bright floral dress holds a Napoleon Healthcare Foundation placard at the Ogbe-Ijaw Market outreach, with the medicines table behind her",
+      caption: "World Polio Day 2026: a community member at our free medical outreach in Ogbe-Ijaw Market, Warri South, Delta State.",
+      credit: "Napoleon Healthcare Foundation",
     },
     {
-      src: "/images/polio/polio-02-finger-marking-nigeria.webp",
-      width: 1200,
-      height: 797,
-      alt: "Female health workers in Nigeria mark the finger of a vaccinated child with ink during a polio campaign",
-      caption: "Female health workers mark a vaccinated child's finger so that no child is missed.",
-      credit: "Heather Scobie / CDC Global",
-      sourceUrl: "https://commons.wikimedia.org/wiki/File:Marking_figures_of_children_who_received_polio_vaccine_(34332436140).jpg",
-      licence: "CC BY 2.0",
-      licenceUrl: "https://creativecommons.org/licenses/by/2.0/",
+      src: "/images/polio/polio-02-ogbe-ijaw-outreach-tent.webp",
+      width: 1220,
+      height: 645,
+      alt: "NHF and partner volunteers seated at tables under a white tent beside the NHF roll-up banner, attending to community members",
+      caption: "NHF, Kings and Queens Helping Hand Foundation and Endybekx Initiative at work under the outreach tent.",
+      credit: "Napoleon Healthcare Foundation",
     },
     {
-      src: "/images/polio/polio-03-reaching-settlements-sokoto.webp",
-      width: 1200,
-      height: 900,
-      alt: "A health officer and two data collectors climb down a steep sandy slope in Sokoto State to reach an underserved settlement",
-      caption: "Going the extra mile: a health team descends a steep slope to reach underserved settlements in Sokoto State, 2014.",
-      credit: "CDC Global",
-      sourceUrl: "https://commons.wikimedia.org/wiki/File:104_Degrees_Fahrenheit_-_Nigeria_(16869906680).jpg",
-      licence: "CC BY 2.0",
-      licenceUrl: "https://creativecommons.org/licenses/by/2.0/",
+      src: "/images/polio/polio-03-ogbe-ijaw-busy-tent.webp",
+      width: 860,
+      height: 670,
+      alt: "A busy outreach tent with volunteers in purple caps registering and screening people beside a table of medicines",
+      caption: "Registration, screening and free medicines for traders and families in the market.",
+      credit: "Napoleon Healthcare Foundation",
     },
   ],
 
