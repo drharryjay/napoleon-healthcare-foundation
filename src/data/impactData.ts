@@ -33,7 +33,7 @@ export const impactStats = [
   { label: "Consultations Conducted", value: "4,800+", note: "General medical consultations across outreaches." },
   { label: "Health Professionals Involved", value: "70+", note: "Volunteer doctors, nurses, and allied health workers." },
   { label: "Screening Tests Done", value: "168+", note: "Glucose, lipid, HIV and chest X-ray tests, counted from October 2026." },
-  { label: "Eye Care Provided", value: "1,500+", note: "Eye consultations, including 690+ glasses distributed." },
+  { label: "Eye Care Provided", value: "1,500+", note: "Eye consultations, plus 690+ glasses given free." },
   { label: "Dental Care Provided", value: "1,000+", note: "Consultations, cleaning, and extractions." },
   { label: "Mosquito Nets Distributed", value: "3,500+", note: "Long-lasting insecticide-treated nets." },
 ];
