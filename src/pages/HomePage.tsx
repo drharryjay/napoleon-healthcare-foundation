@@ -17,6 +17,7 @@ import { homeServices } from "../data/servicesData";
 // outreach, newest first, so a visitor sees the range of NHF's work rather than
 // four frames of the same day.
 const aboutPhotos = [
+  { src: "/images/outreach/ogbe-04-consultation-nhf-banner.webp", alt: "Volunteer doctors consulting community members beside the NHF banner at the Ogbe-Ijaw Market outreach" },
   { src: "/images/outreach/wbw-06-delsuth-mothers-team.webp", alt: "Mothers and babies with the NHF and MWAN team at the Infant Welfare Clinic, DELSUTH, Oghara" },
   { src: "/images/outreach/04-sapele-outreach-team-website.webp", alt: "NHF outreach team and partners at the Ejemuojavwe women's health outreach" },
   { src: "/images/outreach/03-school-for-the-deaf-group-website.webp", alt: "NHF team with students at the Christian Missionary School of the Deaf, Sapele" },
@@ -32,17 +33,19 @@ const ovuFeaturePhotos = [
   { src: "/images/outreach/ovu-e04.webp", alt: "Scene from the Ovu School Health Programme, May 2025" },
 ];
 
-const breastfeedingFeaturePhotos = [
-  { src: "/images/outreach/wbw-01-mothers-group-phc.webp", alt: "Mothers and the NHF team with the World Breastfeeding Week banner outside the primary health centre, Oghara" },
-  { src: "/images/outreach/wbw-03-health-talk-session.webp", alt: "Health talk on breastfeeding in session with mothers at a primary health centre in Oghara" },
-  { src: "/images/outreach/wbw-06-delsuth-mothers-team.webp", alt: "Mothers and babies with the NHF and MWAN team at the Infant Welfare Clinic, DELSUTH, Oghara" },
-  { src: "/images/outreach/wbw-07-diapers-mothers.webp", alt: "Mothers with diapers received during World Breastfeeding Week 2026, Oghara" },
-  { src: "/images/outreach/wbw-02-team-banner-phc-gate.webp", alt: "NHF and partner team with the World Breastfeeding Week 2026 banner at the health centre gate, Oghara" },
+// Latest outreach: leads with the doctors consulting, then screening and glasses.
+const latestFeaturePhotos = [
+  { src: "/images/outreach/ogbe-05-one-to-one-consultation.webp", alt: "Dr Harriet Akpughe, NHF CEO, consulting a woman at the Ogbe-Ijaw Market outreach" },
+  { src: "/images/outreach/ogbe-04-consultation-nhf-banner.webp", alt: "Volunteer doctors consulting community members at tables beside the NHF banner, Ogbe-Ijaw Market" },
+  { src: "/images/outreach/ogbe-02-blood-glucose-test.webp", alt: "A volunteer checks an elderly woman's blood sugar with a finger-prick test at the Ogbe-Ijaw Market outreach" },
+  { src: "/images/outreach/ogbe-06-reading-glasses-fitted.webp", alt: "A man is fitted with free reading glasses while holding an NHF placard, Ogbe-Ijaw Market" },
+  { src: "/images/outreach/ogbe-01-outreach-tent.webp", alt: "NHF and partner teams under the outreach tent beside the NHF banner, Ogbe-Ijaw Market" },
 ];
 
 // Photo band closing the page — a spread across several different outreaches
 // rather than a single programme, so the last thing a visitor sees is range.
 const closingBandPhotos = [
+  { src: "/images/outreach/ogbe-10-busy-outreach-tent.webp", alt: "Registration, screening and dispensing under the busy outreach tent, Ogbe-Ijaw Market" },
   { src: "/images/outreach/wbw-09-banner-rollup-group.webp", alt: "NHF team and mothers during World Breastfeeding Week 2026, Oghara" },
   { src: "/images/outreach/15-sapele-blood-pressure-screening-website.webp", alt: "Blood-pressure screening at the Ejemuojavwe women's health outreach" },
   { src: "/images/outreach/12-school-for-the-deaf-classroom-website.webp", alt: "Health education delivered in the classroom at the School of the Deaf" },
@@ -58,6 +61,7 @@ export function HomePage() {
         text="Napoleon Healthcare Foundation provides free medical outreach, preventive health education, screening, and compassionate care for underserved communities in Nigeria."
         eyebrow="Serving with compassion"
         images={[
+          "/images/outreach/ogbe-02-blood-glucose-test.webp",
           "/images/outreach/wbw-01-mothers-group-phc.webp",
           "/images/outreach/13-sapele-registration-triage-website.webp",
           "/images/outreach/03-school-for-the-deaf-group-website.webp",
@@ -111,13 +115,13 @@ export function HomePage() {
       <Reveal className="feature-wrap">
         <section className="feature reverse">
           <div className="feature-copy">
-            <span className="eyebrow">Latest outreach</span>
-            <h2>World Breastfeeding Week 2026</h2>
-            <p>137 mothers reached across three clinics in Oghara — health talks, breastfeeding demonstrations, consultations, and infant care items delivered right through to the neonatal, maternity, labour and high dependency wards at DELSUTH.</p>
+            <span className="eyebrow">Latest outreach · 24 October 2026</span>
+            <h2>Free Medical Outreach, Ogbe-Ijaw Market</h2>
+            <p>96 consultations and 84 pairs of free reading glasses in Warri South, with 38 chest X-rays, 52 blood glucose tests, 34 lipid profiles and 44 voluntary HIV tests, delivered with Kings and Queens Helping Hand Foundation and Endybekx Initiative for Children and Women Empowerment.</p>
             <LinkButton href="/stories">Read the Full Story</LinkButton>
           </div>
           <div className="feature-media">
-            <PhotoSlideshow photos={breastfeedingFeaturePhotos} sizes="(max-width: 840px) 100vw, 50vw" />
+            <PhotoSlideshow photos={latestFeaturePhotos} sizes="(max-width: 840px) 100vw, 50vw" />
           </div>
         </section>
       </Reveal>

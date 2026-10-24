@@ -35,7 +35,7 @@ export function StoriesPage() {
                 <ChevronDown className="story-entry-chevron" size={20} aria-hidden="true" />
               </summary>
               <div className="story-entry-body">
-                {storyFields.map(({ label, key }) => (
+                {storyFields.filter(({ key }) => outreach.story[key]).map(({ label, key }) => (
                   <p key={label}>
                     <strong>{label}:</strong> {outreach.story[key]}
                   </p>
@@ -66,6 +66,7 @@ export function StoriesPage() {
       <figure className="photo-band">
         <PhotoSlideshow
           photos={[
+            { src: "/images/outreach/ogbe-04-consultation-nhf-banner.webp", alt: "Volunteer doctors consulting community members beside the NHF banner at the Ogbe-Ijaw Market outreach" },
             { src: "/images/outreach/wbw-08-team-placards.webp", alt: "Nursing students and NHF volunteers with foundation placards during World Breastfeeding Week 2026" },
             { src: "/images/outreach/04-sapele-outreach-team-website.webp", alt: "NHF outreach team and partners at the Ejemuojavwe women's health outreach" },
             { src: "/images/outreach/11-school-for-the-deaf-partner-team-website.webp", alt: "NHF volunteers with school staff at the School of the Deaf, Sapele" },

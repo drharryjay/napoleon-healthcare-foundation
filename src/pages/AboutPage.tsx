@@ -27,6 +27,7 @@ export function AboutPage() {
       <figure className="photo-band">
         <PhotoSlideshow
           photos={[
+            { src: "/images/outreach/ogbe-01-outreach-tent.webp", alt: "NHF and partner teams under the outreach tent beside the NHF banner, Ogbe-Ijaw Market" },
             { src: "/images/outreach/wbw-09-banner-rollup-group.webp", alt: "NHF team and mothers during World Breastfeeding Week 2026, Oghara" },
             { src: "/images/outreach/04-sapele-outreach-team-website.webp", alt: "NHF outreach team and partners at the Ejemuojavwe women's health outreach" },
             { src: "/images/outreach/03-school-for-the-deaf-group-website.webp", alt: "NHF team with students at the Christian Missionary School of the Deaf, Sapele" },

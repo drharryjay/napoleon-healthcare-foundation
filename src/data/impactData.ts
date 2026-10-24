@@ -1,19 +1,23 @@
 // Figures below are drawn from NHF's own records: the foundation proposal
 // document (per-outreach reports for Ughelli, Buguma, and All Saints), the
 // 2025/2026 programme report (Ovu, School of the Deaf, Ejemuojavwe), and the
-// NHF Report on World Breastfeeding Week 2026.
+// NHF Report on World Breastfeeding Week 2026, and the Ogbe-Ijaw Market
+// outreach figures reported by Dr. Harriet Akpughe (CEO) on 24 October 2026.
 //
 // Derivations:
-// - People reached: 350 + 1,500 + 2,813 + 420 + 45 + 75 + 137 = 5,340 → "5,300+"
+// - People reached: 350 + 1,500 + 2,813 + 420 + 45 + 75 + 137 + 96 = 5,436 → "5,400+"
 //   (WBW 2026 contributes 137: 30 Ejemuojavwe + 34 Ogharefe + 73 DELSUTH IWC.
 //   Mothers on the four DELSUTH wards who received infant care items are NOT
-//   counted — the report does not give a headcount for them.)
-// - General consultations: 350 + 1,500 + 2,813 + 75 + 31 = 4,769 → still "4,700+"
+//   counted — the report does not give a headcount for them.
+//   Ogbe-Ijaw contributes 96, its consultation count: no total attendance was
+//   reported, so the consultation figure is used as the conservative minimum.)
+// - General consultations: 350 + 1,500 + 2,813 + 75 + 31 + 96 = 4,865 → "4,800+"
 //   (WBW 2026 contributes 31: 16 on 4 Aug, 15 on 6 Aug. Note these are counted
 //   consultations only — health-education attendance is tracked under people
 //   reached, not here.)
-// - Eye consultations: 132 + 550 + 819 = 1,501 → "1,500+"
-// - Glasses distributed: 115 + 500 = 615 → "615+"
+// - Eye consultations: 132 + 550 + 819 = 1,501 → "1,500+" (Ogbe-Ijaw reported
+//   glasses given, not eye consultations, so it adds nothing here.)
+// - Glasses distributed: 115 + 500 + 84 = 699 → "690+"
 // - Dental care: 1,015 consultations + 127 scaling/polishing + 92 extractions → "1,000+"
 // - Mosquito nets: 3,500+ (pre-existing verified figure; itemized events
 //   account for 1,700, plus Rotary Family Health Day and Safe Motherhood
@@ -21,20 +25,20 @@
 
 export const impactStats = [
   { label: "Communities Reached", value: "10+", note: "Communities and institutions across Delta and Rivers States." },
-  { label: "Patients Attended To", value: "5,300+", note: "Cumulative across all documented outreaches." },
+  { label: "Patients Attended To", value: "5,400+", note: "Cumulative across all documented outreaches." },
   { label: "Health Professionals Involved", value: "70+", note: "Volunteer doctors, nurses, and allied health workers." },
   { label: "Mosquito Nets Distributed", value: "3,500+", note: "Long-lasting insecticide-treated nets." },
-  { label: "Eye Care Provided", value: "1,500+", note: "Eye consultations, including 615+ glasses distributed." },
+  { label: "Eye Care Provided", value: "1,500+", note: "Eye consultations, including 690+ glasses distributed." },
   { label: "Dental Care Provided", value: "1,000+", note: "Consultations, cleaning, and extractions." },
 ];
 
 export const dashboardStats = [
-  { label: "Documented outreaches", value: "9", note: "Community, school, church, and clinic-based programmes." },
+  { label: "Documented outreaches", value: "10", note: "Community, market, school, church, and clinic-based programmes." },
   { label: "Communities served", value: "10+", note: "Communities and institutions across Delta and Rivers States." },
-  { label: "People reached", value: "5,300+", note: "Cumulative attendance across documented outreaches." },
-  { label: "Consultations conducted", value: "4,700+", note: "General medical consultations recorded across outreaches." },
+  { label: "People reached", value: "5,400+", note: "Cumulative attendance across documented outreaches." },
+  { label: "Consultations conducted", value: "4,800+", note: "General medical consultations recorded across outreaches." },
   { label: "Eye care beneficiaries", value: "1,500+", note: "Eye consultations during outreach programmes." },
-  { label: "Glasses distributed", value: "615+", note: "Reading and prescription glasses provided free of charge." },
+  { label: "Glasses distributed", value: "690+", note: "Reading and prescription glasses provided free of charge." },
   { label: "Dental care beneficiaries", value: "1,000+", note: "Consultations, cleaning, and extractions." },
   { label: "Mosquito nets distributed", value: "3,500+", note: "Long-lasting insecticide-treated nets." },
   { label: "Partners engaged", value: "10+", note: "Churches, Rotary clubs, schools, teaching hospitals, and health foundations." },
@@ -46,8 +50,10 @@ export interface OutreachStory {
   servicesDetail: string;
   reachedDetail: string;
   partnerDetail: string;
-  lessons: string;
-  next: string;
+  // Optional: left out until the team has written them up, rather than
+  // publishing a placeholder or a guess.
+  lessons?: string;
+  next?: string;
 }
 
 export interface Outreach {
@@ -268,6 +274,35 @@ export const outreaches: Outreach[] = [
       { src: "/images/outreach/wbw-08-team-placards.webp", alt: "Nursing students and NHF volunteers with foundation placards during World Breastfeeding Week 2026" },
       { src: "/images/outreach/wbw-09-banner-rollup-group.webp", alt: "NHF team and mothers with the foundation banner during World Breastfeeding Week 2026" },
       { src: "/images/outreach/wbw-10-neonatal-ward-gift.webp", alt: "Infant care items delivered to a mother on the neonatal ward at DELSUTH, Oghara" },
+    ],
+  },
+  {
+    title: "Free Medical Outreach, Ogbe-Ijaw Market",
+    location: "Ogbe-Ijaw Market, Warri South LGA, Delta State",
+    partner: "Kings and Queens Helping Hand Foundation and Endybekx Initiative for Children and Women Empowerment",
+    services: "Consultations, reading glasses, chest X-ray, blood glucose, lipid profile and voluntary HIV testing, blood pressure checks, free medication",
+    reached: "96 consultations",
+    status: "Completed outreach — 24 October 2026",
+    image: "/images/outreach/ogbe-01-outreach-tent.webp",
+    story: {
+      need: "Ogbe-Ijaw Market is a busy trading hub in Warri South, where traders and shoppers spend long days with little time to visit a clinic. High blood pressure and diabetes often cause no symptoms until they have already done damage, and difficulty reading small print is common from middle age.",
+      response: "On Saturday 24 October 2026, which was also World Polio Day, NHF jointly organised a free medical outreach inside the market with Kings and Queens Helping Hand Foundation and Endybekx Initiative for Children and Women Empowerment, bringing consultations, screening, a mobile X-ray unit, reading glasses and free medicines to where people work.",
+      servicesDetail: "96 medical consultations; 84 pairs of reading glasses given out; 38 chest X-rays on a mobile X-ray unit; 52 blood glucose tests; 34 rapid lipid profile tests; 44 voluntary rapid HIV tests; blood pressure checks; and free medication.",
+      reachedDetail: "96 people received a medical consultation and 84 received free reading glasses. 38 chest X-rays, 52 blood glucose tests, 34 lipid profile tests and 44 voluntary HIV tests were carried out. These are counts of services, so one person may appear in more than one.",
+      partnerDetail: "Jointly organised by NHF, Kings and Queens Helping Hand Foundation, and Endybekx Initiative for Children and Women Empowerment, with volunteer doctors and health workers from the three organisations.",
+    },
+    photos: [
+      { src: "/images/outreach/ogbe-05-one-to-one-consultation.webp", alt: "Dr Harriet Akpughe, NHF CEO, consulting a woman at the Ogbe-Ijaw Market outreach" },
+      { src: "/images/outreach/ogbe-04-consultation-nhf-banner.webp", alt: "Volunteer doctors consulting community members at tables beside the NHF banner, Ogbe-Ijaw Market" },
+      { src: "/images/outreach/ogbe-02-blood-glucose-test.webp", alt: "A volunteer checks an elderly woman's blood sugar with a finger-prick test at the Ogbe-Ijaw Market outreach" },
+      { src: "/images/outreach/ogbe-03-blood-pressure-check.webp", alt: "Blood pressure screening under the tent at the Ogbe-Ijaw Market outreach" },
+      { src: "/images/outreach/ogbe-06-reading-glasses-fitted.webp", alt: "A man is fitted with free reading glasses while holding an NHF placard, Ogbe-Ijaw Market" },
+      { src: "/images/outreach/ogbe-07-new-reading-glasses.webp", alt: "An elderly woman wearing her new reading glasses at the Ogbe-Ijaw Market outreach" },
+      { src: "/images/outreach/ogbe-08-glasses-and-medicines.webp", alt: "Community members receiving reading glasses and medicines at the Ogbe-Ijaw Market outreach" },
+      { src: "/images/outreach/ogbe-09-beneficiary-placard.webp", alt: "A beneficiary holds an NHF placard at the Ogbe-Ijaw Market outreach" },
+      { src: "/images/outreach/ogbe-10-busy-outreach-tent.webp", alt: "Registration, screening and dispensing under the busy outreach tent, Ogbe-Ijaw Market" },
+      { src: "/images/outreach/ogbe-11-free-medicines.webp", alt: "Free medicines laid out for dispensing at the Ogbe-Ijaw Market outreach" },
+      { src: "/images/outreach/ogbe-01-outreach-tent.webp", alt: "NHF and partner teams under the outreach tent beside the NHF banner, Ogbe-Ijaw Market" },
     ],
   },
 ];

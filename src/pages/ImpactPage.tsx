@@ -16,6 +16,7 @@ export function ImpactPage() {
       <figure className="photo-band">
         <PhotoSlideshow
           photos={[
+            { src: "/images/outreach/ogbe-08-glasses-and-medicines.webp", alt: "Community members receiving reading glasses and medicines at the Ogbe-Ijaw Market outreach" },
             { src: "/images/outreach/wbw-07-diapers-mothers.webp", alt: "Mothers with infant care items received during World Breastfeeding Week 2026, Oghara" },
             { src: "/images/outreach/08-sapele-medication-support-website.webp", alt: "Pharmacy and medication support during the Ejemuojavwe women's health outreach" },
             { src: "/images/outreach/12-school-for-the-deaf-classroom-website.webp", alt: "Health education delivered in the classroom at the School of the Deaf, Sapele" },
