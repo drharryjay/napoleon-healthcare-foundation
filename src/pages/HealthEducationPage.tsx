@@ -7,7 +7,7 @@ import { HealthNewsLinks } from "../components/HealthNewsLinks";
 import { PhotoSlideshow } from "../components/PhotoSlideshow";
 import { FeaturedTopic } from "../components/FeaturedTopic";
 import { articles, categories } from "../data/articlesData";
-import { breastfeedingTopic } from "../data/healthTopics";
+import { breastfeedingTopic, polioTopic } from "../data/healthTopics";
 
 export function HealthEducationPage() {
   return (
@@ -17,6 +17,7 @@ export function HealthEducationPage() {
         <SectionHeader eyebrow="Categories" title="Topics for community education" />
         <div className="tag-cloud">{categories.map((category) => <span key={category}>{category}</span>)}</div>
       </section>
+      <FeaturedTopic topic={polioTopic} />
       <FeaturedTopic topic={breastfeedingTopic} />
       <section className="section">
         <SectionHeader eyebrow="Articles" title="Health education articles" />

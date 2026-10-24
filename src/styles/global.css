@@ -2011,6 +2011,72 @@ h2 {
   max-width: 860px;
 }
 
+.topic + .topic {
+  border-top: 1px solid var(--line);
+}
+
+/* Lead portrait on the left, two landscapes stacked on the right; a single
+   column on phones. Images keep their full frame except for a sliver of
+   object-fit trimming where the column heights do not match exactly. */
+.topic-photos {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: 1.25fr 1fr;
+  grid-template-rows: auto auto;
+  margin: 0 0 clamp(32px, 4vw, 48px);
+}
+
+.topic-photos figure {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin: 0;
+}
+
+.topic-photos figure:first-child {
+  grid-row: span 2;
+}
+
+.topic-photos img {
+  border-radius: 12px;
+  display: block;
+  height: auto;
+  object-fit: cover;
+  width: 100%;
+}
+
+.topic-photos figure:first-child img {
+  flex: 1;
+  min-height: 0;
+}
+
+.topic-photos figcaption {
+  color: var(--muted);
+  font-size: 0.88rem;
+  line-height: 1.45;
+}
+
+.topic-photo-credit {
+  display: block;
+  font-size: 0.78rem;
+  margin-top: 2px;
+}
+
+.topic-photo-credit a {
+  color: inherit;
+  text-decoration: underline;
+}
+
+@media (max-width: 640px) {
+  .topic-photos {
+    grid-template-columns: 1fr;
+  }
+
+  .topic-photos figure:first-child {
+    grid-row: auto;
+  }
+}
+
 .topic-sections {
   counter-reset: topic;
   display: grid;

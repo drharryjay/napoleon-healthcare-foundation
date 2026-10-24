@@ -11,8 +11,25 @@ import { disclaimer } from "../data/articlesData";
  */
 export function FeaturedTopic({ topic }: { topic: HealthTopic }) {
   return (
-    <section className="section topic">
+    <section className="section topic" id={topic.id}>
       <SectionHeader eyebrow={topic.eyebrow} title={topic.title} text={topic.intro} />
+
+      {topic.photos && (
+        <div className="topic-photos">
+          {topic.photos.map((photo) => (
+            <figure key={photo.src}>
+              <img src={photo.src} alt={photo.alt} width={photo.width} height={photo.height} loading="lazy" decoding="async" />
+              <figcaption>
+                {photo.caption}{" "}
+                <span className="topic-photo-credit">
+                  Photo: <a href={photo.sourceUrl} target="_blank" rel="noreferrer">{photo.credit}</a>,{" "}
+                  <a href={photo.licenceUrl} target="_blank" rel="noreferrer license">{photo.licence}</a>
+                </span>
+              </figcaption>
+            </figure>
+          ))}
+        </div>
+      )}
 
       <ol className="topic-sections">
         {topic.sections.map((section) => (

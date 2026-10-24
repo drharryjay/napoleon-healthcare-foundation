@@ -11,10 +11,27 @@ export interface TopicSection {
   points?: string[];
 }
 
+// Third-party photos must carry their creator and licence wherever they are
+// shown — CC BY and CC BY-SA both require attribution.
+export interface TopicPhoto {
+  src: string;
+  width: number;
+  height: number;
+  alt: string;
+  caption: string;
+  credit: string;
+  sourceUrl: string;
+  licence: string;
+  licenceUrl: string;
+}
+
 export interface HealthTopic {
+  /** Anchor for linking straight to the topic, e.g. from a social post. */
+  id?: string;
   eyebrow: string;
   title: string;
   intro: string;
+  photos?: TopicPhoto[];
   sections: TopicSection[];
   warning: { heading: string; intro: string; points: string[]; footer: string };
   sources: { label: string; publisher: string; url: string }[];
@@ -149,6 +166,160 @@ export const breastfeedingTopic: HealthTopic = {
       label: "Nutrition in Nigeria",
       publisher: "UNICEF Nigeria",
       url: "https://www.unicef.org/nigeria/nutrition",
+    },
+  ],
+};
+
+// World Polio Day, 24 October 2026. Case counts are GPEI's country update as of
+// 21 October 2026 and go stale weekly: re-check them before reusing this topic.
+// Schedule is the NPHCDA routine immunisation card. Photos are CDC Global
+// (CC BY 2.0) and a Wikimedia Commons contributor (CC BY-SA 4.0), all taken in
+// Nigeria; none show NHF, so none are captioned as NHF work.
+export const polioTopic: HealthTopic = {
+  id: "polio",
+  eyebrow: "World Polio Day · 24 October 2026",
+  title: "Polio: protecting the victory Nigeria won",
+  intro:
+    "In August 2020, Nigeria and the whole WHO African Region were certified free of wild polio. But polio has not fully left Nigeria. This guide explains what polio is, why it is still a risk here, and the simple steps that keep every child safe.",
+
+  photos: [
+    {
+      src: "/images/polio/polio-01-oral-vaccine-nigeria.webp",
+      width: 900,
+      height: 1200,
+      alt: "A vaccinator in a yellow apron gives oral polio vaccine drops to a young girl outside a house in Nigeria while two women look on",
+      caption: "Polio drops given at home during a vaccination round in Nigeria, 2019.",
+      credit: "Asap_Kamal, via Wikimedia Commons",
+      sourceUrl: "https://commons.wikimedia.org/wiki/File:Polio_Vaccination_in_Nigeria.jpg",
+      licence: "CC BY-SA 4.0",
+      licenceUrl: "https://creativecommons.org/licenses/by-sa/4.0/",
+    },
+    {
+      src: "/images/polio/polio-02-finger-marking-nigeria.webp",
+      width: 1200,
+      height: 797,
+      alt: "Female health workers in Nigeria mark the finger of a vaccinated child with ink during a polio campaign",
+      caption: "Female health workers mark a vaccinated child's finger so that no child is missed.",
+      credit: "Heather Scobie / CDC Global",
+      sourceUrl: "https://commons.wikimedia.org/wiki/File:Marking_figures_of_children_who_received_polio_vaccine_(34332436140).jpg",
+      licence: "CC BY 2.0",
+      licenceUrl: "https://creativecommons.org/licenses/by/2.0/",
+    },
+    {
+      src: "/images/polio/polio-03-reaching-settlements-sokoto.webp",
+      width: 1200,
+      height: 900,
+      alt: "A health officer and two data collectors climb down a steep sandy slope in Sokoto State to reach an underserved settlement",
+      caption: "Going the extra mile: a health team descends a steep slope to reach underserved settlements in Sokoto State, 2014.",
+      credit: "CDC Global",
+      sourceUrl: "https://commons.wikimedia.org/wiki/File:104_Degrees_Fahrenheit_-_Nigeria_(16869906680).jpg",
+      licence: "CC BY 2.0",
+      licenceUrl: "https://creativecommons.org/licenses/by/2.0/",
+    },
+  ],
+
+  sections: [
+    {
+      heading: "What polio is",
+      body: "Polio is a highly infectious disease caused by a virus that attacks the nerves. It mainly affects children under five, but anyone who is not vaccinated can catch it.",
+      points: [
+        "It spreads mainly through the stool of an infected person, carried on unwashed hands, and less often through contaminated food or water.",
+        "Most infected people show no signs at all, but they can still pass the virus on.",
+        "About 1 in every 200 infections causes paralysis that cannot be reversed, usually of the legs. Some of those paralysed die when the muscles used for breathing stop working.",
+        "There is no cure. Polio can only be prevented, and the vaccine, given several times, can protect a child for life.",
+      ],
+    },
+    {
+      heading: "Nigeria beat wild polio, and the world is close behind",
+      body: "Nigeria was the last country in Africa with wild polio. Years of vaccination, much of it house to house in hard-to-reach communities, brought it to an end.",
+      points: [
+        "The WHO African Region was certified free of wild polio on 25 August 2020, after four years without a case.",
+        "Wild polio now spreads in only two countries in the world: Afghanistan and Pakistan.",
+        "Wild polio cases have fallen by more than 99% since 1988. When it is eradicated, polio will be only the second human disease ever wiped out, after smallpox.",
+      ],
+    },
+    {
+      heading: "Why polio is still a risk in Nigeria",
+      body: "A different form of the virus, called variant polio (circulating vaccine-derived poliovirus, or cVDPV), still paralyses Nigerian children.",
+      points: [
+        "The polio drops contain a weakened virus. Where many children are unvaccinated, this weakened virus can pass from child to child for a year or more and slowly change until it can cause paralysis.",
+        "The cause is low vaccination, not the vaccine. Where nearly every child is vaccinated, the virus has nowhere to spread.",
+        "In 2026, Nigeria has recorded 50 children paralysed by variant polio: 36 by type 2 and 14 by type 3, the most recent in September. In 2025 there were 74.",
+        "The vaccine protects against both wild and variant polio. Vaccinating every child is how outbreaks are stopped.",
+      ],
+    },
+    {
+      heading: "The polio vaccines your child needs",
+      body: "Polio vaccines are free at government health facilities and are part of Nigeria's routine immunisation schedule.",
+      points: [
+        "Polio drops (oral polio vaccine): at birth, then at 6, 10 and 14 weeks. The birth dose should be given before the baby is two weeks old.",
+        "Polio injection (inactivated polio vaccine, IPV): at 6 weeks and at 14 weeks, given in the thigh.",
+        "Keep your child's immunisation card safe and take it to every clinic visit.",
+        "If your child has missed any dose, go to the nearest primary health centre. Missed doses can still be given.",
+      ],
+    },
+    {
+      heading: "Say yes when vaccination teams come",
+      body: "During polio campaigns, vaccination teams visit homes, markets, schools and places of worship to give extra polio drops to young children.",
+      points: [
+        "Extra doses are safe, even for a child who has completed routine vaccination, and each one adds protection.",
+        "Vaccinators mark the child's finger with ink so that no child is missed or counted twice.",
+        "Campaigns reach the children who missed routine doses, and that is exactly where variant polio spreads.",
+      ],
+    },
+    {
+      heading: "Clean habits help, alongside the vaccine",
+      body: "Because polio spreads through stool, good hygiene slows it down, along with many other infections. It does not replace vaccination.",
+      points: [
+        "Wash hands with soap and water after using the toilet or changing a baby's nappy, and before preparing food or eating.",
+        "Use a toilet or latrine, and dispose of children's stool safely.",
+        "Drink water from a safe source, or treat it before drinking.",
+      ],
+    },
+  ],
+
+  warning: {
+    heading: "Report sudden weakness in a child straight away",
+    intro: "Health workers find polio outbreaks by checking every child who suddenly becomes weak or floppy. Take the child to the nearest health facility at once if a child under 15:",
+    points: [
+      "Suddenly becomes weak or floppy in one or both legs, or in an arm.",
+      "Can no longer stand, walk or crawl the way they could before.",
+      "Develops weakness after a fever, headache, stiff neck or pain in the limbs.",
+    ],
+    footer:
+      "Health workers call this acute flaccid paralysis. Not every case is polio, but every case must be checked. Quick reporting lets the authorities test the child and protect the community before other children are paralysed.",
+  },
+
+  sources: [
+    {
+      label: "Poliomyelitis — fact sheet",
+      publisher: "World Health Organization",
+      url: "https://www.who.int/news-room/fact-sheets/detail/poliomyelitis",
+    },
+    {
+      label: "Polio this week — country updates as of 21 October 2026",
+      publisher: "Global Polio Eradication Initiative",
+      url: "https://polioeradication.org/about-polio/polio-this-week/",
+    },
+    {
+      label: "Variant poliovirus (cVDPV)",
+      publisher: "Global Polio Eradication Initiative",
+      url: "https://polioeradication.org/about-polio/the-virus/vaccine-derived-polioviruses/",
+    },
+    {
+      label: "WHO African Region certified wild polio-free, 25 August 2020",
+      publisher: "World Health Organization",
+      url: "https://www.who.int/news/item/25-08-2020-global-polio-eradication-initiative-applauds-who-african-region-for-wild-polio-free-certification",
+    },
+    {
+      label: "Nigeria routine immunisation schedule",
+      publisher: "NPHCDA, published by UNICEF Nigeria",
+      url: "https://www.unicef.org/nigeria/media/9911/file/Nigeria%20Immunization%20Schedule.pdf.pdf",
+    },
+    {
+      label: "World Polio Day",
+      publisher: "Rotary International",
+      url: "https://www.endpolio.org/world-polio-day",
     },
   ],
 };
