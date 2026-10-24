@@ -19,6 +19,10 @@
 //   glasses given, not eye consultations, so it adds nothing here.)
 // - Glasses distributed: 115 + 500 + 84 = 699 → "690+"
 // - Dental care: 1,015 consultations + 127 scaling/polishing + 92 extractions → "1,000+"
+// - Screening tests: 52 glucose + 34 lipid profile + 44 HIV + 38 chest X-ray
+//   = 168 → "168+"; laboratory tests alone 52 + 34 + 44 = 130 → "130+".
+//   Counted from the Ogbe-Ijaw outreach (Oct 2026) only: earlier outreaches
+//   tested but did not record totals, so the cards say so.
 // - Mosquito nets: 3,500+ (pre-existing verified figure; itemized events
 //   account for 1,700, plus Rotary Family Health Day and Safe Motherhood
 //   distributions)
@@ -26,10 +30,12 @@
 export const impactStats = [
   { label: "Communities Reached", value: "10+", note: "Communities and institutions across Delta and Rivers States." },
   { label: "Patients Attended To", value: "5,400+", note: "Cumulative across all documented outreaches." },
+  { label: "Consultations Conducted", value: "4,800+", note: "General medical consultations across outreaches." },
   { label: "Health Professionals Involved", value: "70+", note: "Volunteer doctors, nurses, and allied health workers." },
-  { label: "Mosquito Nets Distributed", value: "3,500+", note: "Long-lasting insecticide-treated nets." },
+  { label: "Screening Tests Done", value: "168+", note: "Glucose, lipid, HIV and chest X-ray tests, counted from October 2026." },
   { label: "Eye Care Provided", value: "1,500+", note: "Eye consultations, including 690+ glasses distributed." },
   { label: "Dental Care Provided", value: "1,000+", note: "Consultations, cleaning, and extractions." },
+  { label: "Mosquito Nets Distributed", value: "3,500+", note: "Long-lasting insecticide-treated nets." },
 ];
 
 export const dashboardStats = [
@@ -41,6 +47,9 @@ export const dashboardStats = [
   { label: "Glasses distributed", value: "690+", note: "Reading and prescription glasses provided free of charge." },
   { label: "Dental care beneficiaries", value: "1,000+", note: "Consultations, cleaning, and extractions." },
   { label: "Mosquito nets distributed", value: "3,500+", note: "Long-lasting insecticide-treated nets." },
+  { label: "Laboratory tests", value: "130+", note: "Blood glucose, lipid profile and voluntary HIV tests, counted from October 2026." },
+  { label: "Chest X-rays", value: "38+", note: "On a mobile X-ray unit, counted from October 2026." },
+  { label: "Health professionals involved", value: "70+", note: "Volunteer doctors, nurses, and allied health workers." },
   { label: "Partners engaged", value: "10+", note: "Churches, Rotary clubs, schools, teaching hospitals, and health foundations." },
 ];
 
@@ -290,6 +299,8 @@ export const outreaches: Outreach[] = [
       servicesDetail: "96 medical consultations; 84 pairs of reading glasses given out; 38 chest X-rays on a mobile X-ray unit; 52 blood glucose tests; 34 rapid lipid profile tests; 44 voluntary rapid HIV tests; blood pressure checks; and free medication.",
       reachedDetail: "96 people received a medical consultation and 84 received free reading glasses. 38 chest X-rays, 52 blood glucose tests, 34 lipid profile tests and 44 voluntary HIV tests were carried out. These are counts of services, so one person may appear in more than one.",
       partnerDetail: "Jointly organised by NHF, Kings and Queens Helping Hand Foundation, and Endybekx Initiative for Children and Women Empowerment, with volunteer doctors and health workers from the three organisations.",
+      lessons: "Bringing screening into the market drew strong take-up well beyond consultations: alongside 96 consultations, the team carried out 168 tests (52 blood glucose, 34 lipid profile, 44 voluntary HIV and 38 chest X-rays). Reading glasses were in especially high demand, with 84 pairs given, close to nine for every ten consultations, which points to a large unmet need for basic eye care among traders and shoppers.",
+      next: "People whose glucose, lipid, HIV or chest X-ray results need further care are to be referred and followed up at nearby health facilities. Given the demand seen on the day, eye checks with reading glasses will be a priority service at future market outreaches.",
     },
     photos: [
       { src: "/images/outreach/ogbe-05-one-to-one-consultation.webp", alt: "Dr Harriet Akpughe, NHF CEO, consulting a woman at the Ogbe-Ijaw Market outreach" },

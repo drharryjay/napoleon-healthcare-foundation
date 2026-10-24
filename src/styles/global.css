@@ -423,7 +423,7 @@ h3 {
   color: var(--white);
   display: grid;
   gap: 1px;
-  grid-template-columns: repeat(6, 1fr);
+  grid-template-columns: repeat(4, 1fr);   /* 8 headline stats: two rows of four */
   padding: 1px;
 }
 
